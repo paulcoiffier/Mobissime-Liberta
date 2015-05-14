@@ -119,7 +119,7 @@ class InstallerTools
         $tpl_content = file_get_contents('../templates/Parameters.inc.php');
 
         $tpl_content = str_replace("var_install_url", $parameters['var_install_path'], $tpl_content);
-        $tpl_content = str_replace("var_install_path", "/MyCRM/", $tpl_content);
+        $tpl_content = str_replace("var_install_path", "/Mobissime-Liberta/", $tpl_content);
         $tpl_content = str_replace("var_install_sys_dir", $parameters['var_install_sys_dir'], $tpl_content);
         $tpl_content = str_replace("var_database_server", $parameters['var_database_server'], $tpl_content);
         $tpl_content = str_replace("var_database_port", $parameters['var_database_port'], $tpl_content);
