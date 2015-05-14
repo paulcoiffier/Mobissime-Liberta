@@ -9,6 +9,7 @@ loadFile("Index.html");
 
 function loadFile(fileToLoad) {
 
+
     $('#current_file_name').val(fileToLoad);
 
     $.ajax({
@@ -24,7 +25,6 @@ function loadFile(fileToLoad) {
             // For move, if this line is not include it's impossible to move lines
             /*$(".demoDiv .column").sortable({opacity: .35, connectWith: ".column"});
              $(".demo .column").sortable({opacity: .35, connectWith: ".column"});*/
-
             $('#file_name').html(fileToLoad);
             $(".demo, .demo .column").sortable({connectWith: ".column", opacity: .35, handle: ".drag"});
         }
