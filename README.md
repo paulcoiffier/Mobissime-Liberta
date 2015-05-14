@@ -1,7 +1,7 @@
 # Mobissime-Liberta
 Web Software Development Solution<br />
 
-<strong><i>Warning</i></strong> : This version is under development and is not stable<br /><br />
+<strong><i>Warning</i></strong> : This version is under development and is not stable<br />
 
 <strong>Mobissime Liberta</strong> use Php and some symfony plugins. The goal of this app is to help developers to develop web application faster. <br />
 
