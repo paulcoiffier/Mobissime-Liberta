@@ -105,6 +105,7 @@ class InstallerTools
         $entityManager->flush();
         $mod_utils->register_module($module);
 
+
         /** Register modules */
         /*
         $modules = $entityManager->getRepository('App\Entities\Module')->findAll();
