@@ -1,0 +1,45 @@
+{% extends MainTpl %}
+
+{% block header %}LibertaTest{% endblock %}
+
+{% block header_block %}
+{% include 'Header.html' %}
+{% endblock %}
+
+{% block main_content %}
+<div class="ibox float-e-margins">
+    <div class="ibox-title">
+        <h5>LibertaTest
+        </h5>
+
+        <div class="ibox-tools">
+
+            <a href="javascript:window.history.back();" class="close-link">
+                <i class="fa fa-arrow-left"></i>
+            </a>
+
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <i class="fa fa-gear"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-user">
+                <li><a href="">Empty action</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+    <div class="ibox-content">
+
+        <input type="hidden" name="language" id="language" value="{{app_language}}">
+
+        Module content
+
+        <br/><br/>
+
+    </div>
+</div>
+
+
+<script src="{{install_url}}/src/MyCrm/Modules/{{module_name}}/js/index.js"></script>
+
+{% endblock %}

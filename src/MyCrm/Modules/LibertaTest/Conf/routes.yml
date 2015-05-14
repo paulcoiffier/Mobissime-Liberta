@@ -1,0 +1,4 @@
+testmodule:
+    name: testmodule
+    path: /testmodule
+    controller: MyCrm\Modules\LibertaTest\Controllers\MainController::indexAction
