@@ -1,0 +1,201 @@
+{% extends MainTpl %}
+
+{% block header %}Todos{% endblock %}
+
+{% block header_block %}
+{% include 'Header.html' %}
+{% endblock %}
+
+{% block main_content %}
+
+<div class="ibox float-e-margins">
+    <div class="ibox-title">
+        <h5>{{module_words.label_module}} "{{module.mod_name}}"</h5>
+
+        <div class="ibox-tools">
+            <a href="javascript:window.history.back();" class="close-link">
+                <i class="fa fa-arrow-left"></i>
+            </a>
+
+
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <i class="fa fa-gear"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-user">
+                <li>
+                    <a href="javascript:register_module('{{module.id}}','{{module_words.label_yes}}','{{module_words.label_module_installed}}','{{module_words.label_error_create_module}}')">{{module_words.action_register_this_module}}</a>
+                </li>
+                <li>
+                    <a href="{{install_url}}/web/front.php/modules/code_editor/{{module.id}}">Code editor</a>
+                </li>
+                <li>
+                    <a href="{{install_url}}/web/front.php/visualbuilder/see/{{module.id}}">Visual builder</a>
+                </li>
+                <li>
+                    <a data-toggle="modal" data-target="#deleteModal">{{module_words.action_delete_module}}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="ibox-content">
+        <div class="formstd">
+            <div class="formcontent">
+                <form name="updateModule" id="updateModule" role="form">
+
+                    <input type="hidden" name="iconHidden" id="iconHidden">
+
+                    <h4>General options</h4>
+                    <hr/>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="mod_name" class='control-label'>{{module_words.label_name}}:</label>
+                                <input type="text" class="form-control" name="mod_name" id="mod_name"
+                                       value="{{module.mod_name}}" disabled>
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <label for="mod_author" class='control-label'>{{module_words.label_author}}:</label>
+                                    <input type="text" class="form-control" name="mod_author" id="mod_author"
+                                           value="{{module.mod_author}}"
+                                           data-error="Module author is required" required>
+
+                                    <div class="help-block with-errors"></div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mod_description" class='control-label'>{{module_words.label_description}}:</label>
+                        <input type="text" class="form-control"
+                               name="mod_description" id="mod_description" value="{{module.mod_description}}"
+                               data-error="Module description is required" required>
+
+                        <div class="help-block with-errors"></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+
+                                <label for="mod_route"
+                                       class='control-label'>
+                                    &nbsp;Module route</label>
+                                <input type="text" class="form-control" name="mod_route" value="{{module.mod_route}}"
+                                       id="mod_route" data-error="Module route is required" required>
+
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="mod_icon" class='control-label'>Icon:</label><br/>
+                                <button class="btn btn-default" id="mod_icon" name="mod_icon" data-iconset="fontawesome"
+                                        data-icon="{{module.mod_icon}}"
+                                        role="iconpicker"></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4>Menu integration</h4>
+                    <hr/>
+                    <div class="row">
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+
+                                {% if config.menu_admin_integration==1 %}
+                                <input type="checkbox" name="menu_admin_integration"
+                                       id="menu_admin_integration" checked><label for="menu_admin_integration"
+                                                                                  class='control-label'>
+                                {% else %}
+                                <input type="checkbox" name="menu_admin_integration"
+                                       id="menu_admin_integration"><label for="menu_admin_integration"
+                                                                          class='control-label'>
+                                {% endif %}
+
+                                &nbsp;Admin menu integration</label>
+
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                {% if config.menu_site_integration==1 %}
+                                <input type="checkbox" name="menu_site_integration"
+                                       id="menu_site_integration" checked><label for="menu_site_integration"
+                                                                                 class='control-label'>
+                                {% else %}
+                                <input type="checkbox" name="menu_site_integration"
+                                       id="menu_site_integration"><label for="menu_site_integration"
+                                                                         class='control-label'>
+                                {% endif %}
+                                &nbsp;Site menu integration</label>
+
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                {% if config.module_require_login==1 %}
+                                <input type="checkbox" name="module_require_login"
+                                       id="module_require_login" checked><label for="module_require_login"
+                                                                                class='control-label'>&nbsp;Login
+                                required</label>
+                                {% else %}
+                                <input type="checkbox" name="module_require_login"
+                                       id="module_require_login"><label for="module_require_login"
+                                                                        class='control-label'>&nbsp;Login
+                                required</label>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <input type="submit" name="submit" id="submit" class="btn btn-default"
+                           value="{{module_words.action_submit}}">
+                </form>
+            </div>
+        </div>
+        <br/><br/>
+
+
+    </div>
+</div>
+<!-- View associated Javascript file -->
+<script src="{{install_url}}/src/MyCrm/Modules/{{module_name}}/js/updateModule.js"></script>
+<script src="{{install_url}}/src/MyCrm/Modules/{{module_name}}/js/view.js"></script>
+
+<script>
+
+    $('#mod_icon').on('change', function (e) {
+        $("#iconHidden").val(e.icon);
+        //alert(e.icon);
+    });
+
+    $('#mod_icon').iconpicker({
+        arrowClass: 'btn-danger',
+        arrowPrevIconClass: 'glyphicon glyphicon-chevron-left',
+        arrowNextIconClass: 'glyphicon glyphicon-chevron-right',
+        cols: 5,
+        icon: 'fa-{{module.mod_icon}}',
+        iconset: 'fontawesome',
+        labelHeader: '{0} of {1} pages',
+        labelFooter: '{0} - {1} of {2} icons',
+        placement: 'bottom',
+        rows: 5,
+        search: true,
+        searchText: 'Search',
+        selectedClass: 'btn-success',
+        unselectedClass: ''
+    });
+
+
+</script>
+
+{% endblock %}

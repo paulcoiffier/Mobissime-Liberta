@@ -1,0 +1,51 @@
+<div class="modal inmodal" id="modalComponentType" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content animated flipInY">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                        class="sr-only">Close</span></button>
+
+                <i class="fa fa-file-code-o modal-icon"></i>
+                <h4 class="modal-title">Create new component</h4>
+                <small class="font-bold">Choose the component type to generate with this datacontrol
+                </small>
+            </div>
+            <div class="modal-body">
+
+                <div class="form-group">
+                    <input type="radio" name="f_type" onclick="javascript:showFormulaire();" checked>Formulaire
+                    &nbsp;<input type="radio" name="f_type" onclick="javascript:showDatatable();">DataTable
+                    <div id="div_formulaire">
+                        <form>
+                            <div id="popupComponentContent" name="popupComponentContent"></div>
+                        </form>
+                    </div>
+                    <div id="div_datatable" style="display: none;">
+                        <form>
+                            <div id="divDatatableContent" name="divDatatableContent"></div>
+                        </form>
+                    </div>
+                </div>
+                <br/>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-white" onclick="javascript:closeCreateFormAction()">Cancel</button>
+                <button type="button" class="btn btn-primary" onclick="javascript:createFormAction('{{module_name}}')">
+                    Create component
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function showFormulaire() {
+        document.getElementById('div_formulaire').style.display = '';
+        document.getElementById('div_datatable').style.display = 'none';
+    }
+    function showDatatable() {
+        document.getElementById('div_formulaire').style.display = 'none';
+        document.getElementById('div_datatable').style.display = '';
+    }
+
+</script>

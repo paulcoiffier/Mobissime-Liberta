@@ -1,0 +1,57 @@
+{% extends MainTpl %}
+
+{% block header %}DataStore{% endblock %}
+
+{% block header_block %}
+{% include 'Header.html' %}
+{% endblock %}
+
+{% block main_content %}
+
+<input type="hidden" name="install_url" id="install_url" value="{{install_url}}">
+<input type="hidden" name="database_updated_message" id="database_updated_message" value="{{module_words.database_updated_message}}">
+<input type="hidden" name="entity_removed_message" id="entity_removed_message" value="{{module_words.entity_removed_message}}">
+<input type="hidden" name="entity_added_message" id="entity_added_message" value="{{module_words.entity_added_message}}">
+
+
+<div class="row">
+    <span name="entitiesDiv" id="entitiesDiv"></span>
+
+    <div class="col-lg-9 animated fadeInRight">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5><label id="entityLabel"></label>
+                        </h5>
+
+                        <div class="ibox-tools">
+                            <a href="javascript:window.history.back();" class="close-link">
+                                <i class="fa fa-arrow-left"></i>
+                            </a>
+
+
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+
+                        <div name="entityDiv" id="entityDiv">
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'Popups/AddFieldPopup.html' %}
+{% include 'Popups/AddEntityPopup.html' %}
+{% include 'Popups/AddQueryPopup.html' %}
+{% include 'Popups/RemoveFieldPopup.html' %}
+{% include 'Popups/RemoveEntityPopup.html' %}
+
+<script src="{{install_url}}/src/MyCrm/Modules/{{module_name}}/Js/index.js"></script>
+
+{% endblock %}

@@ -1,0 +1,69 @@
+<br />
+{% for field in entity %}
+<div class="row">
+    <div class="col-md-5">
+        <label for="{{field.name}}" class='control-label entity_field' style="min-width: 160px;">{{field.name}}
+            :</label>
+        <select onchange="javascript:changeItemType('{{field.name}}',this.value)" class="control-label"
+                name="{{field.name}}_select" id="{{field.name}}_select">
+            {% for f in fields_types %}
+
+            {% if field.type == 'string' %}
+            {% if f == 'Text' %}
+            <option value="{{f}}" selected>{{f}}</option>
+            {% else %}
+            <option value="{{f}}">{{f}}</option>
+            {% endif %}
+
+            {% elseif field.type == 'integer' %}
+            {% if f == 'Number' %}
+            <option value="{{f}}" selected>{{f}}</option>
+            {% else %}
+            <option value="{{f}}">{{f}}</option>
+            {% endif %}
+
+            {% elseif field.type == 'date' %}
+            {% if f == 'Date' %}
+            <option value="{{f}}" selected>{{f}}</option>
+            {% else %}
+            <option value="{{f}}">{{f}}</option>
+            {% endif %}
+
+            {% elseif field.type == 'datetime' %}
+            {% if f == 'DateTime' %}
+            <option value="{{f}}" selected>{{f}}</option>
+            {% else %}
+            <option value="{{f}}">{{f}}</option>
+            {% endif %}
+
+            {% elseif field.type == 'boolean' %}
+            {% if f == 'Checkbox' %}
+            <option value="{{f}}" selected>{{f}}</option>
+            {% else %}
+            <option value="{{f}}">{{f}}</option>
+            {% endif %}
+
+            {% else %}
+            {% if f == 'List of values' %}
+            <option value="{{f}}" selected>{{f}}</option>
+            {% else %}
+            <option value="{{f}}">{{f}}</option>
+            {% endif %}
+            {% endif %}
+
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="col-md-6" id="{{field.name}}_entity" style="visibility:hidden;">
+        <label for="{{field.name}} {{module_name}}" class='control-label' style="min-width: 60px;">Entity :</label>
+        <select class="control-label" name="{{field.name}} {{module_name}}" id="{{field.name}} {{module_name}}">
+            {% for e in entities %}
+            <option value="{{e.name}}">{{e.name}}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+
+</div>
+{% endfor %}

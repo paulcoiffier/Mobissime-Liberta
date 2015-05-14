@@ -1,0 +1,35 @@
+menus:
+    name: menus
+    path: /menus
+    controller: MyCrm\Modules\LibertaMenus\Controllers\MainController::indexAction
+
+create_menu:
+    name: create_menu
+    path: /menus/create_menu
+    controller: MyCrm\Modules\LibertaMenus\Controllers\MainController::createMenuAction
+
+#Ajax
+add_menu_item:
+    name: add_menu_item
+    path: /menus/add_menu_item
+    controller: MyCrm\Modules\LibertaMenus\Controllers\MainController::addMenuItemAjax
+
+change_menu_order:
+    name: change_menu_order
+    path: /menus/change_menu_order
+    controller: MyCrm\Modules\LibertaMenus\Controllers\MainController::changeMenuOrderAjax
+
+delete_menu:
+    name: delete_menu
+    path: /menus/delete_menu
+    controller: MyCrm\Modules\LibertaMenus\Controllers\MainController::deleteMenuOrderAjax
+
+delete_sub_item:
+    name: delete_sub_item
+    path: /menus/delete_sub_item
+    controller: MyCrm\Modules\LibertaMenus\Controllers\MainController::deleteSubItemAjax
+
+update_menu_item:
+    name: update_menu_item
+    path: /menus/update_menu_item
+    controller: MyCrm\Modules\LibertaMenus\Controllers\MainController::updateMenuItemAjax

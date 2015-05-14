@@ -1,0 +1,27 @@
+<div class="rowTable">
+    <br/>
+    <table width="100%">
+
+        <input type="hidden" name="entity_name_widget" id="entity_name_widget" value="{{entity}}">
+
+        {% for field in fields%}
+
+        <tr>
+            <td><input type="checkbox" value="{{field.name}}" onclick="javascript:updateQueryDiv();"></td>
+            <td>{{field.name}}</td>
+            <td><i>{{field.type}}</i></td>
+
+            <td><a data-toggle="modal" data-target="#modalAddClause"><i class="fa fa-filter"></i></a></td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+    <br/> <br/>
+
+</div>
+
+<script>
+    /*var entity = $('#entity_name_widget').val();
+     $("<style type='text/css'> ." + entity + ":before { content: 'Entity';} </style>").appendTo("head");*/
+</script>

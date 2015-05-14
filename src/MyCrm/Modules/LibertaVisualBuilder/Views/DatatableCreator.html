@@ -1,0 +1,46 @@
+<br />
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group">
+            <fieldset>
+
+                <select name="selectfrom" id="select-from" multiple size="10"
+                        style="width: 150px;">
+                    {% for field in entity %}
+                    <option value="{{field.type}}">{{field.name}}</option>
+                    {% endfor %}
+
+                </select>
+
+                <a href="JavaScript:void(0);" id="btn-add">Add &raquo;</a>
+                <a href="JavaScript:void(0);" id="btn-remove">&laquo; Remove</a>
+
+                <select name="selectto" id="select-to" multiple size="10"
+                        style="width: 150px;">
+
+                </select>
+
+            </fieldset>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+
+        $('#btn-add').click(function () {
+            $('#select-from option:selected').each(function () {
+                $('#select-to').append("<option value='" + $(this).val() + "'>" + $(this).text() + "</option>");
+                $(this).remove();
+            });
+        });
+        $('#btn-remove').click(function () {
+            $('#select-to option:selected').each(function () {
+                $('#select-from').append("<option value='" + $(this).val() + "'>" + $(this).text() + "</option>");
+                $(this).remove();
+            });
+        });
+
+    });
+</script>

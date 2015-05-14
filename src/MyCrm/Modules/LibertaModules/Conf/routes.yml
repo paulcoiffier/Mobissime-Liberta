@@ -1,0 +1,124 @@
+# All module list
+modules:
+    name: modules
+    path: /modules
+    controller: MyCrm\Modules\LibertaModules\Controllers\MainController::indexAction
+
+# View module details
+view_module:
+    name: view_module
+    path: /modules/view/{moduleToSee}
+    controller: MyCrm\Modules\LibertaModules\Controllers\MainController::viewModuleAction
+
+# Create new module
+create_module:
+    name: create_module
+    path: /modules/create
+    controller: MyCrm\Modules\LibertaModules\Controllers\MainController::createModuleAction
+
+# Code editor
+code_editor:
+    name: code_editor
+    path: /modules/code_editor/{id}
+    controller: MyCrm\Modules\LibertaModules\Controllers\MainController::codeEditorAction
+
+# Create new module
+create_module_crud:
+    name: create_module_crud_action
+    path: /modules/create_module_crud_action
+    controller: MyCrm\Modules\LibertaModules\Controllers\MainController::createModuleCrudAction
+
+# Ajax insert module in database
+insert_module:
+  name: insert_module
+  path: /modules/insert
+  controller: MyCrm\Modules\LibertaModules\Controllers\AjaxController::insertAjaxModule
+  requirements:
+    _method: POST
+
+# Ajax Register module in database
+register_module:
+  name: register_module
+  path: /modules/register_module
+  controller: MyCrm\Modules\LibertaModules\Controllers\AjaxController::registerAjaxModule
+  requirements:
+    _method: POST
+
+testIfModuleExistModule:
+  name: testIfModuleExistModule
+  path: /modules/testIfModuleExistModule
+  controller: MyCrm\Modules\LibertaModules\Controllers\AjaxController::testIfModuleExistModule
+  requirements:
+    _method: POST
+
+entity_fields:
+  name: getEntityFields
+  path: /modules/getEntityFields
+  controller: MyCrm\Modules\LibertaModules\Controllers\AjaxController::getEntityFields
+  requirements:
+    _method: POST
+
+createCrud:
+  name: createCrud
+  path: /modules/create_crud
+  controller: MyCrm\Modules\LibertaModules\Controllers\AjaxController::createCrudModule
+  requirements:
+    _method: POST
+
+createEntity:
+  name: createEntity
+  path: /modules/create_entity
+  controller: MyCrm\Modules\LibertaModules\Controllers\AjaxController::createEntityAjax
+  requirements:
+    _method: POST
+
+loadFileSystemAjax:
+  name: loadFileSystemAjax
+  path: /modules/load_filesystem
+  controller: MyCrm\Modules\LibertaModules\Controllers\MainController::loadFileSystemAjax
+  requirements:
+    _method: POST
+
+getFilesForDirAjax:
+  name: getFilesForDirAjax
+  path: /modules/get_files_for_directory
+  controller: MyCrm\Modules\LibertaModules\Controllers\AjaxController::getfilesForDirAjax
+  requirements:
+    _method: POST
+
+getFileContentAjax:
+  name: getFileContentAjax
+  path: /modules/get_file_content
+  controller: MyCrm\Modules\LibertaModules\Controllers\AjaxController::getFileContentAjax
+  requirements:
+    _method: POST
+
+saveFileAjax:
+  name: saveFileAjax
+  path: /modules/save_file
+  controller: MyCrm\Modules\LibertaModules\Controllers\AjaxController::saveFileAjax
+  requirements:
+    _method: POST
+
+createFileAjax:
+  name: createFileAjax
+  path: /modules/create_file
+  controller: MyCrm\Modules\LibertaModules\Controllers\AjaxController::createFileAjax
+  requirements:
+    _method: POST
+
+createDirectoryAjax:
+  name: createDirectoryAjax
+  path: /modules/create_directory
+  controller: MyCrm\Modules\LibertaModules\Controllers\AjaxController::createDirectoryAjax
+  requirements:
+    _method: POST
+
+updateModuleAjax:
+  name: updateModuleAjax
+  path: /modules/update_module
+  controller: MyCrm\Modules\LibertaModules\Controllers\AjaxController::updateModuleAjax
+  requirements:
+    _method: POST
+
+#Editor load file
