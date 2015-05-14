@@ -49,4 +49,9 @@ $installer_tool->createAndRegisterModules($entityManager);
  */
 $installer_tool->createDirectories($array_parameters);
 
+/**
+ * Copy default avatar picture
+ */
+$installer_tool->copyDefaultAvatar($array_parameters);
+
 echo "ok";

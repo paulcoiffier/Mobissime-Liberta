@@ -168,16 +168,23 @@ class InstallerTools
     public function createDirectories($parameters)
     {
 
-        $path =  $parameters['var_install_sys_dir'];
+        $path = $parameters['var_install_sys_dir'];
 
-        if (!file_exists($path.'/data')) {
-            mkdir($path.'/data', 0777, true);
+        if (!file_exists($path . '/data')) {
+            mkdir($path . '/data', 0777, true);
         }
 
-        if (!file_exists($path.'/data/users_profiles')) {
-            mkdir($path.'/data/users_profiles', 0777, true);
+        if (!file_exists($path . '/data/users_profiles')) {
+            mkdir($path . '/data/users_profiles', 0777, true);
         }
 
+    }
+
+    public function copyDefaultAvatar($parameters)
+    {
+        $path = $parameters['var_install_sys_dir'];
+        copy($path . '/img/1.png', '/data/users_profiles/1.png');
+        copy($path . '/img/1_small.png', '/data/users_profiles/1_small.png');
     }
 
 }
