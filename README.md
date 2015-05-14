@@ -9,4 +9,4 @@ Web Software Development Solution<br />
 
 The original name of <strong>Liberta</strong> was <strong>MyCRM</strong> so you can see many references to the <strong>MyCRM</strong> word in the source code.<br />
 
-To install Liberta, please go to http://<i>your_ip</i>/Mobissime-Liberta/installer
+To install Liberta, please go to <strong>http://<i>your_ip</i>/Mobissime-Liberta/installer/</strong>
