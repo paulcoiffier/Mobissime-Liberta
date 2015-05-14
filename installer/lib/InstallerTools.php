@@ -10,7 +10,7 @@
 use MyCrm\Modules\LibertaModules\Lib\ModUtils;
 
 
-require '../../include/engine/globalUtils.php';
+require '../../src/App/Lib/globalUtils.php';
 
 class InstallerTools
 {

@@ -4,7 +4,7 @@ include_once('../vendor/twig/twig/lib/Twig/Autoloader.php');
 Twig_Autoloader::register();
 
 require_once '../bootstrap.php';
-require '../include/engine/globalUtils.php';
+require '../src/App/Lib/globalUtils.php';
 
 spl_autoload_register();
 
