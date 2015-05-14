@@ -47,6 +47,6 @@ $installer_tool->createAndRegisterModules($entityManager);
 /**
  * Create data directories
  */
-$installer_tool->createDirectories();
+$installer_tool->createDirectories($array_parameters);
 
 echo "ok";
