@@ -1,0 +1,80 @@
+usr_first_name:
+    name: usr_first_name
+    type: string
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 
+
+usr_last_name:
+    name: usr_last_name
+    type: string
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 
+
+usr_email:
+    name: usr_email
+    type: string
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 
+
+usr_password:
+    name: usr_password
+    type: string
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 
+
+usr_date_naissance:
+    name: usr_date_naissance
+    type: date
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 1
+
+usr_phone:
+    name: usr_phone
+    type: string
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 1
+
+usr_mobile_phone:
+    name: usr_mobile_phone
+    type: string
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 1
+
+usr_last_login:
+    name: usr_last_login
+    type: date
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 1
+
+usr_language:
+    name: usr_language
+    type: string
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 1
+
+usr_function:
+    name: usr_function
+    type: string
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 1
+

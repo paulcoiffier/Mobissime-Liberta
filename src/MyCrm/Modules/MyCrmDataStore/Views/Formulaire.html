@@ -1,0 +1,173 @@
+{% for field in fields %}
+
+{% if field.name != ""%}
+
+{% if field.fieldRelation != "yes"%}
+<h4><i>{{field.name}}</i></h4>
+
+<div class="row">
+    <div class="col-lg-4">
+        <label for="{{field.name}}_name" class='control-label'>&nbsp;Name : </label>
+    </div>
+    <div class="col-lg-4">
+        <input type="text" class="form-control" name="{{field.name}}_name" value="{{field.name}}"
+               id="{{field.name}}_name" data-error="{{module_words.title_error}}" required>
+
+        <div class="help-block with-errors"></div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-4">
+        <label for="{{field.name}}_display_width" class='control-label'>&nbsp;Display width : </label>
+    </div>
+    <div class="col-lg-4">
+        <input type="text" class="form-control" name="{{field.name}}_length" value="{{field.display_width}}" value="{{field.display_width}}"
+               id="{{field.name}}_display_width" data-error="{{module_words.title_error}}" required>
+
+        <div class="help-block with-errors"></div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-4">
+        <label for="{{field.name}}_length" class='control-label'>&nbsp;Display length : </label>
+    </div>
+    <div class="col-lg-4">
+        <input type="text" class="form-control" name="{{field.name}}_length" value="{{field.display_length}}"
+               value="{{field.display_length}}"
+               id="{{field.name}}_length" data-error="{{module_words.title_error}}" required>
+
+        <div class="help-block with-errors"></div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-4">
+        <label for="{{field.display_mandatory}}_mandatory" class='control-label'>&nbsp;Display is mandatory : </label>
+    </div>
+    <div class="col-lg-4">
+        <input type="text" class="form-control" name="{{field.name}}_length" value="{{field.display_mandatory}}"
+               id="{{field.display_mandatory}}_mandatory" data-error="{{module_words.title_error}}" required>
+
+        <div class="help-block with-errors"></div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-4">
+        <label for="{{field.display_tooltip}}_tooltip" class='control-label'>&nbsp;Tooltip : </label>
+    </div>
+    <div class="col-lg-4">
+        <input type="text" class="form-control" name="{{field.name}}_length" value="{{field.display_tooltip}}"
+               id="{{field.display_tooltip}}_tooltip" data-error="{{module_words.title_error}}" required>
+
+        <div class="help-block with-errors"></div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-lg-4">
+        <label for="{{field.name}}_control_type" class='control-label'>&nbsp;Display type : </label>
+
+    </div>
+
+    <div class="col-lg-4">
+        <select class="form-control" name="{{field.name}}_control_type"
+                id="{{field.name}}_control_type">
+            {% for control_type in control_types %}
+            {% if control_type == field.display_type %}
+            <option value="{{control_type}}" selected>{{control_type}}</option>
+            {% else %}
+            <option value="{{control_type}}">{{control_type}}</option>
+            {% endif %}
+            {% endfor %}
+        </select>
+
+        <div class="help-block with-errors"></div>
+    </div>
+</div>
+<hr/>
+
+{%else%}
+
+<h4><i>Relationship {{field.name}}</i></h4>
+
+<div class="row">
+    <div class="col-lg-4">
+        <label for="{{field.name}}_relation_type" class='control-label'>&nbsp;Relation type : </label>
+    </div>
+    <div class="col-lg-5">
+        <select class="form-control" name="{{field.name}}_relation_type"
+                id="{{field.name}}_relation_type">
+            {% for d in doctrine_classes %}
+            {% if d == field.object_type %}
+            <option value="{{d}}" selected>{{d}}</option>
+            {% else %}
+            <option value="{{d}}">{{d}}</option>
+            {% endif %}
+            {% endfor %}
+        </select>
+
+        <div class="help-block with-errors"></div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-4">
+        <label for="{{field.name}}_relation_name" class='control-label'>&nbsp;Name : </label>
+    </div>
+    <div class="col-lg-5">
+        <input type="text" class="form-control" name="{{field.name}}_relation_name" value="{{field.name}}"
+               id="{{field.name}}_relation_name" data-error="{{module_words.title_error}}" required>
+
+        <div class="help-block with-errors"></div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-lg-4">
+        <label for="{{field.name}}_targetEntity" class='control-label'>&nbsp;Target entity : </label>
+
+    </div>
+
+    <div class="col-lg-5">
+        <select class="form-control" name="{{field.name}}_targetEntity"
+                id="{{field.name}}_targetEntity">
+            {% for ent in entities %}
+            {% if ent == field.targetEntity %}
+            <option value="{{ent}}" selected>{{ent}}</option>
+            {% else %}
+            <option value="{{ent}}">{{ent}}</option>
+            {% endif %}
+            {% endfor %}
+        </select>
+
+        <div class="help-block with-errors"></div>
+    </div>
+</div>
+
+
+{% for cascade in field.cascade %}
+<div class="row">
+    <div class="col-lg-4">
+        <label class='control-label'>&nbsp;Cascade : </label>
+    </div>
+    <div class="col-lg-5">
+        {% if cascade == "persist" %}
+        <input type="checkbox" name="persist" id="persist" checked>Persist
+        {%endif%}
+        {% if cascade == "merge" %}
+        <input type="checkbox" name="merge" id="merge" checked>Merge
+        {%endif%}
+
+        <div class="help-block with-errors"></div>
+    </div>
+</div>
+{%endfor%}
+<hr/>
+
+{%endif%}
+{%endif%}
+{%endfor%}

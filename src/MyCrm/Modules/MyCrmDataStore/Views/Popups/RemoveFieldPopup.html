@@ -1,0 +1,26 @@
+<div class="modal inmodal" id="modalRemoveField" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content animated bounceInRight">
+            <form name="addFieldForm" id="addFieldForm">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span
+                            aria-hidden="true">&times;</span><span
+                            class="sr-only">Close</span></button>
+                    <i class="fa fa-info-circle modal-icon"></i>
+                    <h4 class="modal-title">MyCRM</h4>
+                    <small class="font-bold">Add new entity field
+                    </small>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" name="rowidToDelete" id="rowidToDelete">
+                    Are you sure you want to remove this field ?
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="javascript:removeRow();">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

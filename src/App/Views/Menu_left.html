@@ -1,0 +1,90 @@
+<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav" id="side-menu">
+            <li class="nav-header">
+                <div class="dropdown profile-element"> <span>
+                            <img alt="image" class="img-circle"
+                                 src="{{install_url}}/data/users_profiles/{{user.id}}_small.png"/>
+                             </span>
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="clear"> <span class="block m-t-xs"> <strong
+                                    class="font-bold">{{user.usr_first_name}} {{user.usr_last_name}}</strong>
+                             </span> <span class="text-muted text-xs block">{{user.usr_function}} <b
+                                    class="caret"></b></span> </span> </a>
+                    <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                        <li><a href="{{install_url}}web/front.php/profile">Profile</a></li>
+                        <li><a href="contacts.html">Contacts</a></li>
+                        <li><a href="mailbox.html">Mailbox</a></li>
+                        <li class="divider"></li>
+                        <li><a href="index.php?link=logout">Logout</a></li>
+                    </ul>
+                </div>
+                <div class="logo-element">
+                    MyCRM
+                </div>
+            </li>
+
+
+            {% if routeName=='app' %}
+            <li class="active"><a href="{{install_url}}/web/front.php/app"><i class="fa fa-home"></i> <span
+                    class="nav-label">{{app_words.home}}</span> </a></li>
+            {% else %}
+            <li><a href="{{install_url}}/web/front.php/app"><i class="fa fa-home"></i> <span
+                    class="nav-label">{{app_words.home}}</span> </a></li>
+            {% endif %}
+
+            <!-- Mailbox menu -->
+            <li>
+                <a href="mailbox.html"><i class="fa fa-envelope"></i> <span class="nav-label">Mailbox </span><span
+                        class="label label-warning pull-right">16/24</span></a>
+                <ul class="nav nav-second-level">
+                    <li><a href="mailbox.html">Inbox</a></li>
+                    <li><a href="mail_detail.html">Email view</a></li>
+                    <li><a href="mail_compose.html">Compose email</a></li>
+                    <li><a href="email_template.html">Email templates</a></li>
+                </ul>
+            </li>
+
+            {% for menu in menus %}
+            {% if menu.menuItems | length > 0 %}
+            <!-- Show a dropdown -->
+            <li id="dropDownMenu" name="dropDownMenu">
+                <a href="{{install_url}}/web/front.php/{{menu.module.mod_route}}"><i
+                        class="fa {{menu.menu_font_awesome_icon}}"></i><span
+                        class="nav-label">{{menu.menu_name}} </span></a>
+                <ul class="nav nav-second-level">
+                    {% for menuItem in menu.menuItems %}
+                    {% if routeName==menuItem.module.mod_route %}
+                    <li class="active"><a href="{{install_url}}/web/front.php/{{menuItem.module.mod_route}}"><i
+                            class="fa fa-{{menuItem.module.mod_icon}}"></i>{{menuItem.menu_item_name}}</a></li>
+
+                    <script>$('#dropDownMenu').toggleClass('active');</script>
+
+                    {% else %}
+                    <li><a href="{{install_url}}/web/front.php/{{menuItem.module.mod_route}}"><i
+                            class="fa fa-{{menuItem.module.mod_icon}}"></i>{{menuItem.menu_item_name}}</a></li>
+                    {% endif %}
+                    {% endfor %}
+
+                </ul>
+            </li>
+            {% else %}
+
+            {% if menu.module is not null %}
+            {% if routeName=="/" ~ menu.module.mod_route %}
+            <li class="active"><a href="{{install_url}}/web/front.php/{{menu.module.mod_route}}"><i
+                    class="fa fa-{{menu.module.mod_icon}}"></i> <span
+                    class="nav-label">{{menu.menu_name}}</span> </a></li>
+            {% else %}
+            <li><a href="{{install_url}}/web/front.php/{{menu.module.mod_route}}"><i
+                    class="fa fa-{{menu.module.mod_icon}}"></i> <span
+                    class="nav-label">{{menu.menu_name}}</span> </a></li>
+            {% endif %}
+            {% endif %}
+            {% endif %}
+            {% endfor %}
+
+
+        </ul>
+    </div>
+</nav>

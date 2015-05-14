@@ -1,0 +1,30 @@
+wid_name:
+    name: wid_name
+    type: string
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 
+
+wid_fileName:
+    name: wid_fileName
+    type: string
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 
+
+wid_description:
+    name: wid_description
+    type: text
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 1
+
+module:
+    targetEntity: Module
+    type: Module
+    size: Module
+    name: module
+

@@ -1,0 +1,40 @@
+menu_name:
+    name: menu_name
+    type: string
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 
+
+menu_description:
+    name: menu_description
+    type: string
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 
+
+menu_static_link:
+    name: menu_static_link
+    type: string
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 1
+
+menu_font_awesome_icon:
+    name: menu_font_awesome_icon
+    type: string
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 1
+
+menu_order:
+    name: menu_order
+    type: integer
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 1
+

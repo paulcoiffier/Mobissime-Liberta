@@ -1,0 +1,57 @@
+{% extends MainTpl %}
+
+{% block header %}MyCrmUsers{% endblock %}
+
+{% block header_block %}
+{% include 'Header.html' %}
+{% endblock %}
+
+{% block main_content %}
+<input type="hidden" name="install_dir" id="install_dir" value="{{install_dir}}">
+<div class="ibox float-e-margins">
+    <div class="ibox-title">
+        <h5>{{module_words.title_create_group}}
+            <!--<small>With custom checbox and radion elements.</small>-->
+        </h5>
+
+        <div class="ibox-tools">
+            <a href="javascript:window.history.back();" class="close-link">
+                <i class="fa fa-arrow-left"></i>
+            </a>
+
+        </div>
+    </div>
+    <div class="ibox-content">
+
+        <div class="formstd">
+            <div class="formcontent">
+                <form name="createGroupForm" id="createGroupForm" role="form" style="width:400px;"
+                      action="insert_group_ajax" method="POST">
+
+                    <div class="form-group">
+                        <label for="grp_name" class='control-label'>{{module_words.label_name}}:</label>
+                        <input type="text" class="form-control" name="grp_name" id="grp_name" value="{{group.grp_name}}"
+                               data-error="Name is required" required>
+
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="grp_description" class='control-label'>{{module_words.label_description}}:</label>
+                        <input type="text" class="form-control" name="grp_description" id="grp_description"
+                               data-error="Description is required"
+                               value="{{group.grp_description}}" required>
+
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <input type="submit" class="btn btn-default" value="{{module_words.button_submit}}">
+                </form>
+            </div>
+        </div>
+        <br/><br/>
+
+    </div>
+</div>
+<!-- View associated Javascript file -->
+<script src="{{install_url}}/src/MyCrm/Modules/{{module_name}}/js/index.js"></script>
+
+{% endblock %}

@@ -1,0 +1,76 @@
+case_priority:
+    name: case_priority
+    type: integer
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 1
+
+case_status:
+    name: case_status
+    type: string
+    length: 50
+    precision: 0
+    scale: 0
+    nullable: 1
+
+case_type:
+    name: case_type
+    type: string
+    length: 50
+    precision: 0
+    scale: 0
+    nullable: 1
+
+case_subject:
+    name: case_subject
+    type: string
+    length: 500
+    precision: 0
+    scale: 0
+    nullable: 
+
+case_description:
+    name: case_description
+    type: string
+    length: 500
+    precision: 0
+    scale: 0
+    nullable: 1
+
+case_resolution:
+    name: case_resolution
+    type: string
+    length: 50
+    precision: 0
+    scale: 0
+    nullable: 1
+
+case_date_open:
+    name: case_date_open
+    type: datetime
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 1
+
+case_date_solve:
+    name: case_date_solve
+    type: datetime
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 1
+
+case_account:
+    targetEntity: Account
+    type: Account
+    size: 
+    name: case_account
+
+case_contact:
+    targetEntity: Contact
+    type: Contact
+    size: 
+    name: case_contact
+

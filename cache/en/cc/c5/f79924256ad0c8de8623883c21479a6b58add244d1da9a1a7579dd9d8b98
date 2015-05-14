@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MyCRM</title>
+
+    <link rel="icon" href="../img/favicon.png">
+
+    <link href="http://localhost/test/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://localhost/test/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <!-- Toastr style -->
+    <link href="http://localhost/test/css/plugins/toastr/toastr.min.css" rel="stylesheet">
+
+    <!-- Morris -->
+    <link href="http://localhost/test/css/plugins/morris/morris-0.4.3.min.css" rel="stylesheet">
+
+    <!-- Bootstrap-Iconpicker -->
+    <link rel="stylesheet" href="http://localhost/test/css/bootstrap-iconpicker.min.css"/>
+
+    <!-- Gritter -->
+    <link href="http://localhost/test/js/plugins/gritter/jquery.gritter.css" rel="stylesheet">
+
+    <link href="http://localhost/test/css/plugins/codemirror/codemirror.css" rel="stylesheet">
+    <link href="http://localhost/test/css/plugins/codemirror/ambiance.css" rel="stylesheet">
+    <link href="http://localhost/test/css/plugins/codemirror/elegant.css" rel="stylesheet">
+    <link href="http://localhost/test/css/plugins/codemirror/monokai.css" rel="stylesheet">
+
+    <link href="http://localhost/test/css/animate.css" rel="stylesheet">
+    <link href="http://localhost/test/css/style.css" rel="stylesheet">
+
+    <!-- Mainly scripts -->
+    <script src="http://localhost/test/js/jquery-2.1.1.js"></script>
+    <script src="http://localhost/test/js/bootstrap.min.js"></script>
+    <script src="http://localhost/test/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="http://localhost/test/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!-- Bootstrap-Iconpicker Iconset for Glyphicon -->
+    <script type="text/javascript" src="http://localhost/test/js/iconset/iconset-fontawesome-4.2.0.min.js"></script>
+    <!-- Bootstrap-Iconpicker -->
+    <script type="text/javascript" src="http://localhost/test/js/bootstrap-iconpicker.min.js"></script>
+
+
+    <script src="http://localhost/test/vendor/bootstrap-validator/bootstrap-validator-master/dist/validator.js"></script>
+
+    <!-- Data Tables -->
+    <script src="http://localhost/test/js/plugins/dataTables/jquery.dataTables.js"></script>
+    <script src="http://localhost/test/js/plugins/dataTables/dataTables.bootstrap.js"></script>
+    <script src="http://localhost/test/js/plugins/dataTables/dataTables.responsive.js"></script>
+    <script src="http://localhost/test/js/plugins/dataTables/dataTables.tableTools.min.js"></script>
+
+    <link href="http://localhost/test/css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet">
+    <link href="http://localhost/test/css/plugins/dataTables/dataTables.responsive.css" rel="stylesheet">
+    <link href="http://localhost/test/css/plugins/dataTables/dataTables.tableTools.min.css" rel="stylesheet">
+
+    <!-- Steps -->
+    <script src="http://localhost/test/js/plugins/staps/jquery.steps.min.js"></script>
+    <link href="http://localhost/test/css/plugins/steps/jquery.steps.css" rel="stylesheet">
+
+    <!-- Jquery Validate -->
+    <script src="http://localhost/test/js/plugins/validate/jquery.validate.min.js"></script>
+    <script src="http://localhost/test/vendor/html5sortable/jquery.sortable.js"></script>
+
+    <!-- CodeMirror -->
+    <script src="http://localhost/test/js/plugins/codemirror/codemirror.js"></script>
+    <script src="http://localhost/test/js/plugins/codemirror/mode/javascript/javascript.js"></script>
+
+    <script src="http://localhost/test/js/plugins/codemirror/mode/javascript/javascript.js"></script>
+    <script src="http://localhost/test/js/plugins/codemirror/mode/clike/clike.js"></script>
+    <script src="http://localhost/test/js/plugins/codemirror/mode/php/php.js"></script>
+    <script src="http://localhost/test/js/plugins/codemirror/mode/css/css.js"></script>
+    <script src="http://localhost/test/js/plugins/codemirror/mode/sass/sass.js"></script>
+    <script src="http://localhost/test/js/plugins/codemirror/mode/sql/sql.js"></script>
+    <script src="http://localhost/test/js/plugins/codemirror/mode/perl/perl.js"></script>
+    <script src="http://localhost/test/js/plugins/codemirror/mode/python/python.js"></script>
+
+    <link href="http://localhost/test/css/uploadfile.min.css" rel="stylesheet">
+    <script src="http://localhost/test/js/jquery.uploadfile.min.js"></script>
+
+    <!-- Toastr script -->
+    <script src="http://localhost/test/js/plugins/toastr/toastr.min.js"></script>
+
+    <!-- MyCRM Javascript Libs -->
+    <script src="http://localhost/test/src/App/Js/Libs.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="http://localhost/test/js/inspinia.js"></script>
+
+</head>
+
+
+<body>
+<input type="hidden" name="install_url" id="install_url" value="http://localhost/test/">
+
+<div id="wrapper">
+    <nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav" id="side-menu">
+            <li class="nav-header">
+                <div class="dropdown profile-element"> <span>
+                            <img alt="image" class="img-circle"
+                                 src="http://localhost/test//data/users_profiles/8_small.png"/>
+                             </span>
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="clear"> <span class="block m-t-xs"> <strong
+                                    class="font-bold">Paul Coiffier</strong>
+                             </span> <span class="text-muted text-xs block">Software Architect <b
+                                    class="caret"></b></span> </span> </a>
+                    <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                        <li><a href="index.php?module=mycrm_user_profil">Profile</a></li>
+                        <li><a href="contacts.html">Contacts</a></li>
+                        <li><a href="mailbox.html">Mailbox</a></li>
+                        <li class="divider"></li>
+                        <li><a href="index.php?link=logout">Logout</a></li>
+                    </ul>
+                </div>
+                <div class="logo-element">
+                    MyCRM
+                </div>
+            </li>
+
+
+                        <li><a href="http://localhost/test//web/front.php/app"><i class="fa fa-home"></i> <span
+                    class="nav-label">Home</span> </a></li>
+            
+
+            <!-- Mailbox menu -->
+            <li>
+                <a href="mailbox.html"><i class="fa fa-envelope"></i> <span class="nav-label">Mailbox </span><span
+                        class="label label-warning pull-right">16/24</span></a>
+                <ul class="nav nav-second-level">
+                    <li><a href="mailbox.html">Inbox</a></li>
+                    <li><a href="mail_detail.html">Email view</a></li>
+                    <li><a href="mail_compose.html">Compose email</a></li>
+                    <li><a href="email_template.html">Email templates</a></li>
+                </ul>
+            </li>
+
+                        
+                                    <li><a href="http://localhost/test//web/front.php/todos"><i
+                    class="fa fa-globe"></i> <span
+                    class="nav-label">Todos</span> </a></li>
+                                                            
+                                    <li><a href="http://localhost/test//web/front.php/tickets"><i
+                    class="fa fa-ticket"></i> <span
+                    class="nav-label">Tickets</span> </a></li>
+                                                                        <!-- Show a dropdown -->
+            <li id="dropDownMenu" name="dropDownMenu">
+                <a href="http://localhost/test//web/front.php/"><i
+                        class="fa fa-edit"></i><span
+                        class="nav-label">Administration </span></a>
+                <ul class="nav nav-second-level">
+                                                            <li><a href="http://localhost/test//web/front.php/users"><i
+                            class="fa fa-users"></i>Utilisateurs</a></li>
+                                                                                <li><a href="http://localhost/test//web/front.php/menu"><i
+                            class="fa fa-sitemap"></i>Menu</a></li>
+                                                                                <li><a href="http://localhost/test//web/front.php/modules"><i
+                            class="fa fa-cube"></i>Modules</a></li>
+                                                                                <li class="active"><a href="http://localhost/test//web/front.php/datastore"><i
+                            class="fa fa-database"></i>DataStore</a></li>
+
+                    <script>$('#dropDownMenu').toggleClass('active');</script>
+
+                                        
+                </ul>
+            </li>
+                        
+
+        </ul>
+    </div>
+</nav>
+    <div id="page-wrapper" class="gray-bg dashbard-1">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+    <div class="navbar-header">
+        <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+        <form role="search" class="navbar-form-custom" method="post" action="search_results.html">
+            <div class="form-group">
+                <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
+            </div>
+        </form>
+    </div>
+    <ul class="nav navbar-top-links navbar-right">
+        <!--<li>
+            <span class="m-r-sm text-muted welcome-message">Welcome to INSPINIA+ Admin Theme.</span>
+        </li> -->
+        <li class="dropdown">
+            <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                <i class="fa fa-envelope"></i>  <span class="label label-warning">16</span>
+            </a>
+            <ul class="dropdown-menu dropdown-messages">
+                <li>
+                    <div class="dropdown-messages-box">
+                        <a href="profile.html" class="pull-left">
+                            <img alt="image" class="img-circle" src="http://localhost/test//img/a7.jpg">
+                        </a>
+                        <div class="media-body">
+                            <small class="pull-right">46h ago</small>
+                            <strong>Mike Loreipsum</strong> started following <strong>Monica Smith</strong>. <br>
+                            <small class="text-muted">3 days ago at 7:58 pm - 10.06.2014</small>
+                        </div>
+                    </div>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <div class="dropdown-messages-box">
+                        <a href="profile.html" class="pull-left">
+                            <img alt="image" class="img-circle" src="http://localhost/test//img/a4.jpg">
+                        </a>
+                        <div class="media-body ">
+                            <small class="pull-right text-navy">5h ago</small>
+                            <strong>Chris Johnatan Overtunk</strong> started following <strong>Monica Smith</strong>. <br>
+                            <small class="text-muted">Yesterday 1:21 pm - 11.06.2014</small>
+                        </div>
+                    </div>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <div class="dropdown-messages-box">
+                        <a href="profile.html" class="pull-left">
+                            <img alt="image" class="img-circle" src="http://localhost/test//img/profile.jpg">
+                        </a>
+                        <div class="media-body ">
+                            <small class="pull-right">23h ago</small>
+                            <strong>Monica Smith</strong> love <strong>Kim Smith</strong>. <br>
+                            <small class="text-muted">2 days ago at 2:30 am - 11.06.2014</small>
+                        </div>
+                    </div>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <div class="text-center link-block">
+                        <a href="mailbox.html">
+                            <i class="fa fa-envelope"></i> <strong>Read All Messages</strong>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                <i class="fa fa-bell"></i>  <span class="label label-primary">8</span>
+            </a>
+            <ul class="dropdown-menu dropdown-alerts">
+                <li>
+                    <a href="mailbox.html">
+                        <div>
+                            <i class="fa fa-envelope fa-fw"></i> You have 16 messages
+                            <span class="pull-right text-muted small">4 minutes ago</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a href="profile.html">
+                        <div>
+                            <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                            <span class="pull-right text-muted small">12 minutes ago</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a href="grid_options.html">
+                        <div>
+                            <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                            <span class="pull-right text-muted small">4 minutes ago</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <div class="text-center link-block">
+                        <a href="notifications.html">
+                            <strong>See All Alerts</strong>
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </li>
+
+
+        <li>
+            <a href="index.php?link=logout">
+                <i class="fa fa-sign-out"></i> Log out
+            </a>
+        </li>
+    </ul>
+
+</nav>        </div>
+        <div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>DataStore</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="index.php">Home</a>
+            </li>
+            <li class="active">
+                <a href="index.php?module=mycrm_modules"><strong>DataStore</strong></a>
+            </li>
+        </ol>
+    </div>
+</div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="wrapper wrapper-content">
+                    
+<input type="hidden" name="install_url" id="install_url" value="http://localhost/test/">
+
+<div class="row">
+    <span name="entitiesDiv" id="entitiesDiv"></span>
+
+    <div class="col-lg-9 animated fadeInRight">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5><label id="entityLabel"></label>
+                        </h5>
+
+                        <div class="ibox-tools">
+                            <a href="javascript:window.history.back();" class="close-link">
+                                <i class="fa fa-arrow-left"></i>
+                            </a>
+
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-gear"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li>
+                                    <a href="javascript:register_module('','','','')"></a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+
+                        <div name="entityDiv" id="entityDiv">
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="http://localhost/test//src/MyCrm/Modules/MyCrmDataStore/js/index.js"></script>
+
+                    <?php include 'include/navigation/routes.php'; ?>
+                </div>
+                <div class="footer">
+                    <div class="pull-right">
+                        beta 1.0
+                    </div>
+                    <div>
+                        <strong>Copyright</strong> Mobissime &copy; 2014-2015
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Flot -->
+<script src="http://localhost/test/js/plugins/flot/jquery.flot.js"></script>
+<script src="http://localhost/test/js/plugins/flot/jquery.flot.tooltip.min.js"></script>
+<script src="http://localhost/test/js/plugins/flot/jquery.flot.spline.js"></script>
+<script src="http://localhost/test/js/plugins/flot/jquery.flot.resize.js"></script>
+<script src="http://localhost/test/js/plugins/flot/jquery.flot.pie.js"></script>
+
+<!-- Peity -->
+<script src="http://localhost/test/js/plugins/peity/jquery.peity.min.js"></script>
+<script src="http://localhost/test/js/demo/peity-demo.js"></script>
+
+
+<script src="http://localhost/test/js/plugins/pace/pace.min.js"></script>
+
+<!-- jQuery UI -->
+<script src="http://localhost/test/js/plugins/jquery-ui/jquery-ui.min.js"></script>
+
+<!-- GITTER -->
+<script src="http://localhost/test/js/plugins/gritter/jquery.gritter.min.js"></script>
+
+<!-- EayPIE -->
+<script src="http://localhost/test/js/plugins/easypiechart/jquery.easypiechart.js"></script>
+
+<!-- Sparkline -->
+<script src="http://localhost/test/js/plugins/sparkline/jquery.sparkline.min.js"></script>
+
+<!-- Sparkline demo data  -->
+<script src="http://localhost/test/js/demo/sparkline-demo.js"></script>
+
+<!-- ChartJS-->
+<script src="http://localhost/test/js/plugins/chartJs/Chart.min.js"></script>
+
+<script src="http://localhost/test/js/index.js"></script>
+</body>
+</html>

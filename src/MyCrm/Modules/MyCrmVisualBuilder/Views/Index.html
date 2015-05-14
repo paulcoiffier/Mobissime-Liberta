@@ -1,0 +1,264 @@
+{% extends MainTpl %}
+
+{% block header %}Todos{% endblock %}
+
+{% block header_block %}
+{% include 'Header.html' %}
+{% endblock %}
+
+{% block main_content %}
+
+
+<!-- CodeMirror CSS -->
+<link href="http://localhost/test/css/plugins/codemirror/codemirror.css" rel="stylesheet">
+<link href="http://localhost/test/css/plugins/codemirror/ambiance.css" rel="stylesheet">
+<link href="http://localhost/test/css/plugins/codemirror/elegant.css" rel="stylesheet">
+<link href="http://localhost/test/css/plugins/codemirror/monokai.css" rel="stylesheet">
+
+<!-- CodeMirror JS -->
+<script src="http://localhost/test/js/plugins/codemirror/codemirror.js"></script>
+<script src="http://localhost/test/js/plugins/codemirror/mode/javascript/javascript.js"></script>
+<script src="http://localhost/test/js/plugins/codemirror/mode/clike/clike.js"></script>
+<script src="http://localhost/test/js/plugins/codemirror/mode/php/php.js"></script>
+<script src="http://localhost/test/js/plugins/codemirror/mode/css/css.js"></script>
+<script src="http://localhost/test/js/plugins/codemirror/mode/sass/sass.js"></script>
+<script src="http://localhost/test/js/plugins/codemirror/mode/sql/sql.js"></script>
+<script src="http://localhost/test/js/plugins/codemirror/mode/perl/perl.js"></script>
+<script src="http://localhost/test/js/plugins/codemirror/mode/python/python.js"></script>
+<!-- Le styles -->
+<link href="http://localhost/test/vendor/editor/layoutit.css" rel="stylesheet">
+
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+<script src="http://localhost/test/vendor/editor/js/html5shiv.js"></script>
+<![endif]-->
+
+
+<script type="text/javascript"
+        src="http://cdn.transparensee.com/lib/jquery-plugin/touchpunch/0.2.2/jquery.ui.touch-punch.min.js"></script>
+<script type="text/javascript" src="http://localhost/test/vendor/editor/jquery.htmlClean.js"></script>
+<script type="text/javascript" src="http://localhost/test/vendor/editor/script.min.js"></script>
+
+
+<body class="edit">
+
+<input type="hidden" name="install_url" id="install_url" value="{{install_url}}">
+<input type="hidden" name="module_name" id="module_name" value="{{module_edit_name}}">
+<input type="hidden" name="current_file_name" id="current_file_name">
+<input type="hidden" name="file_name" id="file_name">
+<input type="hidden" name="current_query_name" id="current_query_name">
+
+<style>
+    .CodeMirror {
+        height: 100%;
+        background: white;
+    }
+
+    #code1 {
+        height: 100%;
+        background: white;
+    }
+</style>
+<!--/.navbar-fixed-top -->
+
+<input type="hidden" name="entity" id="entity" value="{{entity}}">
+
+<!-- Static navbar -->
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">{{module_edit_name}}</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Menu
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a id="clear">Clear file</a></li>
+                        <li><a id="newpage">New file</a></li>
+                        <li class="divider"></li>
+                        <li><a id="save">Save file</a></li>
+                        <li class="divider"></li>
+                        <li><a href="javascript:window.history.go(-1);">Exit</a></li>
+                        <!--<li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+
+                        <li class="dropdown-header">Nav header</li>
+                        <li><a href="#">Separated link</a></li>
+                        <li><a href="#">One more separated link</a></li>!-->
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a id="edit">Edit <span class="sr-only">(current)</span></a></li>
+                <li><a id="codepreview">Code</a></li>
+                <li><a id="devpreview">Developer</a></li>
+                <li><a id="sourcepreview">Preview</a></li>
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+    </div>
+    <!--/.container-fluid -->
+</nav>
+
+
+<div class="container" style="width:100%;">
+    <div class="row">
+        <div class="col-lg-2" id="sideBarComponents">
+            <div class="sidebar-nav">
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    <!-- Files pane -->
+                    {% include 'Editor/Panes/Files.html' %}
+
+                    <!-- Grid pane -->
+                    {% include 'Editor/Panes/Grid.html' %}
+
+                    <!-- Css pane -->
+                    {% include 'Editor/Panes/Css.html' %}
+
+                    <!-- Components pane -->
+                    {% include 'Editor/Panes/Components.html' %}
+
+                    <!-- Javascript pane -->
+                    {% include 'Editor/Panes/Javascript.html' %}
+
+                    <!-- Datastore pane -->
+                    {% include 'Editor/Panes/DataStore.html' %}
+
+                    <!-- NavBar pane -->
+                    <!--{% include 'Editor/Panes/NavBar.html' %}-->
+
+                    <!-- POPUPS -->
+                    {% include 'Editor/Popups/PopupNewFile.html' %}
+                    {% include 'Editor/Popups/PopupComponentType.html' %}
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-lg-8">
+
+            <div class="demo" id="demoDiv" name="demoDiv">
+            </div>
+
+            <!--/span-->
+            <div id="download-layout">
+                <div class="container"></div>
+            </div>
+
+            <div name="divCodeEditor" id="divCodeEditor" style="display:none;">
+                <textarea id="code1" name="code1"></textarea>
+            </div>
+        </div>
+
+        <div class="col-lg-2" id="sideBarEditor">
+            <i>Properties</i>
+            <hr/>
+            <div id="propertiesDiv" name="propertiesDiv"></div>
+        </div>
+    </div>
+</div>
+
+<!--/span-->
+
+</div>
+<!--/row-->
+
+</div>
+<!--/.fluid-container-->
+
+<script>
+    var editor = CodeMirror.fromTextArea(document.getElementById("code1"), {
+        lineNumbers: true,
+        mode: 'htmlmixed',
+        matchBrackets: true,
+        styleActiveLine: true,
+        theme: "monokai"
+    });
+
+    editor.setValue("Test");
+
+</script>
+
+
+<script type="text/javascript">
+    /** Collapse menu */
+    $("body").addClass('mini-navbar');
+    SmoothlyMenu();
+
+    function saveLayout() {
+        console.log("saveLayout");
+    }
+
+    function downloadLayout() {
+        console.log("downloadLayout");
+    }
+
+    function downloadHtmlLayout() {
+        console.log("downloadHtmlLayout");
+    }
+
+    function undoLayout() {
+        console.log("undoLayout");
+    }
+
+    function redoLayout() {
+        console.log("redoLayout");
+    }
+
+    $(document).on('hidden.bs.modal', function (e) {
+        $(e.target).removeData('bs.modal');
+    });
+
+    $('body').on('click', '#continue-share-non-logged', function () {
+        $('#share-not-logged').hide();
+        $('#share-logged').removeClass('hide');
+        $('#share-logged').show();
+    });
+
+    $('body').on('click', '#continue-download-non-logged', function () {
+        $('#download-not-logged').hide();
+        $('#download').removeClass('hide');
+        $('#download').show();
+        $('#downloadhtml').removeClass('hide');
+        $('#downloadhtml').show();
+        $('#download-logged').removeClass('hide');
+        $('#download-logged').show();
+    });
+
+
+    $("body").click(function (event) {
+        if (($(event.target).attr('class') == "btn btn-xs btn-default editButton") || ($(event.target).attr('class') == "btn btn-xs btn-default editButton active")) {
+            /** TODO : Open popup to select data binding */
+            alert("test");
+            /*var viewValue = $(event.target).parent().parent().find("div").attr("id", "aabbcc");
+             viewValue.html("Test");*/
+        }
+    });
+
+    //$("#modalNewFile").modal('show');
+</script>
+
+<div class="modal fade" id="downloadModal" tabindex="-1" role="dialog" aria-labelledby="downloadModalLabel"
+     aria-hidden="true"></div>
+<div class="modal fade" id="shareModal" tabindex="-1" role="dialog" aria-labelledby="shareModalLabel"
+     aria-hidden="true"></div>
+<div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="feedbackModalLabel"
+     aria-hidden="true"></div>
+
+</body>
+
+</html>
+
+<script src="{{install_url}}/src/MyCrm/Modules/{{module_name}}/Js/FormsBuilder.js"></script>
+{% endblock %}

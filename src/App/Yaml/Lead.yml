@@ -1,0 +1,8 @@
+person:
+    targetEntity: Person
+    type: Person
+    size: 
+    mappedBy: 
+    orphanRemoval: 
+    name: person
+

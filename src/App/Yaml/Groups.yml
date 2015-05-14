@@ -1,0 +1,16 @@
+grp_name:
+    name: grp_name
+    type: string
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 
+
+grp_description:
+    name: grp_description
+    type: string
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 
+

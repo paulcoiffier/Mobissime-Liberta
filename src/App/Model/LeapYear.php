@@ -1,0 +1,21 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Paul
+ * Date: 28/01/2015
+ * Time: 17:33
+ */
+
+namespace App\Model;
+
+class LeapYear
+{
+    public function isLeapYear($year = null)
+    {
+        if (null === $year) {
+            $year = date('Y');
+        }
+
+        return 0 == $year % 400 || (0 == $year % 4 && 0 != $year % 100);
+    }
+}

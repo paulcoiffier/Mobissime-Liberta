@@ -1,0 +1,88 @@
+loc_postal_code:
+    name: loc_postal_code
+    type: string
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 1
+
+loc_insee:
+    name: loc_insee
+    type: string
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 1
+
+loc_city:
+    name: loc_city
+    type: string
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 1
+
+loc_city_bis:
+    name: loc_city_bis
+    type: string
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 1
+
+loc_name:
+    name: loc_name
+    type: string
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 1
+
+loc_region:
+    name: loc_region
+    type: string
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 1
+
+loc_region_name:
+    name: loc_region_name
+    type: string
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 1
+
+loc_dep:
+    name: loc_dep
+    type: string
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 1
+
+loc_dep_name:
+    name: loc_dep_name
+    type: string
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 1
+
+loc_longitude:
+    name: loc_longitude
+    type: string
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 1
+
+loc_latitude:
+    name: loc_latitude
+    type: string
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 1
+

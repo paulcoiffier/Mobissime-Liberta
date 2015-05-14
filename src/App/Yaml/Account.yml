@@ -1,0 +1,88 @@
+account_name:
+    name: account_name
+    type: string
+    length: 50
+    precision: 0
+    scale: 0
+    nullable: 
+
+account_phone_office:
+    name: account_phone_office
+    type: string
+    length: 20
+    precision: 0
+    scale: 0
+    nullable: 1
+
+account_phone_mobile:
+    name: account_phone_mobile
+    type: string
+    length: 20
+    precision: 0
+    scale: 0
+    nullable: 1
+
+account_fax:
+    name: account_fax
+    type: string
+    length: 20
+    precision: 0
+    scale: 0
+    nullable: 1
+
+account_street:
+    name: account_street
+    type: string
+    length: 50
+    precision: 0
+    scale: 0
+    nullable: 1
+
+account_city:
+    name: account_city
+    type: string
+    length: 60
+    precision: 0
+    scale: 0
+    nullable: 1
+
+account_postal_code:
+    name: account_postal_code
+    type: string
+    length: 10
+    precision: 0
+    scale: 0
+    nullable: 1
+
+account_country:
+    name: account_country
+    type: string
+    length: 50
+    precision: 0
+    scale: 0
+    nullable: 1
+
+account_state:
+    name: account_state
+    type: string
+    length: 50
+    precision: 0
+    scale: 0
+    nullable: 1
+
+account_description:
+    name: account_description
+    type: text
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 1
+
+account_sync_to_outlook:
+    name: account_sync_to_outlook
+    type: boolean
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 1
+

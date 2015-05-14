@@ -1,0 +1,52 @@
+menu_item_name:
+    name: menu_item_name
+    type: string
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 
+
+menu_item_position:
+    name: menu_item_position
+    type: string
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 
+
+menu_static_link:
+    name: menu_static_link
+    type: string
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 1
+
+menu_descriptiop:
+    name: menu_descriptiop
+    type: string
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 
+
+menu_font_awesome_icon:
+    name: menu_font_awesome_icon
+    type: string
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 1
+
+menu:
+    targetEntity: Menu
+    type: Menu
+    size: 
+    name: menu
+
+module:
+    targetEntity: Module
+    type: Module
+    size: 
+    name: module
+

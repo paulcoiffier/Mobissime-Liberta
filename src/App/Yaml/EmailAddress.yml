@@ -1,0 +1,22 @@
+email_address:
+    name: email_address
+    type: string
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 
+
+email_is_primary:
+    name: email_is_primary
+    type: boolean
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 
+
+person:
+    targetEntity: Person
+    type: Person
+    size: 
+    name: person
+

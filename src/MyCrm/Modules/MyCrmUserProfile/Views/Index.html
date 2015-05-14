@@ -1,0 +1,196 @@
+{% extends MainTpl %}
+
+{% block header %}MyCrmUserProfile{% endblock %}
+
+{% block header_block %}
+{% include 'Header.html' %}
+{% endblock %}
+
+{% block main_content %}
+
+<!-- Image cropper -->
+<script src="{{install_url}}/js/plugins/cropper/cropper.min.js"></script>
+<link href="{{install_url}}/css/plugins/cropper/cropper.min.css" rel="stylesheet">
+
+<input type="hidden" name="install_url" id="install_url" value="{{install_url}}">
+
+<div class="ibox float-e-margins">
+    <div class="ibox-title">
+        <h5>{{module_words.title_profile}}
+            <!--<small>With custom checbox and radion elements.</small>-->
+        </h5>
+
+        <div class="ibox-tools">
+
+
+            <!--<a href="javascript:window.history.back();" class="close-link">
+                <i class="fa fa-arrow-left"></i>
+            </a>-->
+
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <i class="fa fa-gear"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-user">
+                <li><a href="profile/update_password">{{module_words.action_update_password}}</a></li>
+            </ul>
+
+
+            <a class="collapse-link">
+                <i class="fa fa-chevron-up"></i>
+            </a>
+
+        </div>
+    </div>
+    <div class="ibox-content">
+
+
+        <input type="hidden" name="userid" id="userid" value="{{user.id}}">
+
+
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div>
+                    <p>
+                        {{module_words.title_profile_picture}}
+                    </p>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="image-crop" style="max-width: 300px;">
+                                <img src="../../data/users_profiles/{{user.id}}.png">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <h4>{{module_words.title_preview_image}}</h4>
+
+                            <div class="img-preview img-preview-sm"></div>
+                            <p>
+                                {{module_words.title_desc}}
+                            </p>
+
+                            <div class="btn-group">
+                                <label title="Upload image file" for="inputImage" class="btn btn-primary">
+                                    <input type="file" accept="image/*" name="file" id="inputImage" class="hide">
+                                    {{module_words.action_upload_new_image}}
+                                </label>
+                            </div>
+
+                            <div class="btn-group">
+                                <button class="btn btn-white" id="zoomIn" type="button">{{module_words.action_zoom_in}}</button>
+                                <button class="btn btn-white" id="zoomOut" type="button">{{module_words.action_zoom_out}}</button>
+                                <button class="btn btn-white" id="rotateLeft" type="button">{{module_words.action_rotate_left}}</button>
+                                <button class="btn btn-white" id="rotateRight" type="button">{{module_words.action_rotate_right}}</button>
+                            </div>
+
+                        </div>
+                    </div>
+<br />
+                    <input type="button" class="btn btn-default" value="{{module_words.action_save}}" name="submitProfilePicture"
+                           id="submitPrdofile">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ibox float-e-margins">
+        <div class="ibox-title">
+            <h5>Details
+                <!--<small>With custom checbox and radion elements.</small>-->
+            </h5>
+
+            <div class="ibox-tools">
+
+                <a class="collapse-link">
+                    <i class="fa fa-chevron-up"></i>
+                </a>
+
+            </div>
+        </div>
+        <div class="ibox-content">
+
+            <div class="formstd">
+                <div class="formcontent">
+                    <form name="formUserProfil" id="formUserProfil" role="form" style="width:400px;"
+                          action="?module=mycrm_user_profil&action=update_profile" method="POST">
+
+                        <div class="form-group">
+                            <label for="usr_first_name">{{module_words.label_first_name}} :</label>
+                            <input type="text" class="form-control" name="usr_first_name" id="usr_first_name"
+                                   value="{{user.usr_first_name}}" data-error="First name is required" required>
+
+                            <div class="help-block with-errors"></div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="usr_last_name">{{module_words.label_last_name}} :</label>
+                            <input type="text" class="form-control" name="usr_last_name" id="usr_last_name"
+                                   value="{{user.usr_last_name}}" data-error="Last name is required" required>
+
+                            <div class="help-block with-errors"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="usr_email">{{module_words.label_email}} :</label>
+                            <input type="text" class="form-control" name="usr_email" id="usr_email"
+                                   value="{{user.usr_email}}" data-error="Email is required" required>
+
+                            <div class="help-block with-errors"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="usr_first_name">{{module_words.label_phone}} :</label>
+                            <input type="text" class="form-control" name="usr_phone" id="usr_phone"
+                                   value="{{user.usr_phone}}">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="usr_mobile_phone">{{module_words.label_mobile_phone}} :</label>
+                            <input type="text" class="form-control" name="usr_mobile_phone" id="usr_mobile_phone"
+                                   value="{{user.usr_mobile_phone}}">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="usr_date_naissance">{{module_words.label_date_naissance}} :</label>
+                            <input type="text" class="form-control" name="usr_date_naissance" id="usr_date_naissance"
+                                   value="{{user.usr_date_naissance|date('d/m/Y')}}" data-error="Birthday is required"
+                                   required>
+
+                            <div class="help-block with-errors"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="usr_language">{{module_words.label_language}} :</label>
+                            <select class="form-control m-b" id="usr_language" name="usr_language">
+                                {% if user.usr_language == 'English' %}
+                                <option selected>English</option>
+                                {% else %}
+                                <option>English</option>
+                                {% endif %}
+
+                                {% if user.usr_language == 'French' %}
+                                <option selected>French</option>
+                                {% else %}
+                                <option>French</option>
+                                {% endif %}
+                            </select>
+                        </div>
+
+
+                        <input type="button" class="btn btn-default" value="{{module_words.action_save}}" name="submitProfile"
+                               id="submitProfile">
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
+
+<script src="{{install_url}}/src/MyCrm/Modules/{{module_name}}/Js/index.js"></script>
+
+{% endblock %}

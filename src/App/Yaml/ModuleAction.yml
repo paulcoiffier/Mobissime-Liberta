@@ -1,0 +1,12 @@
+module:
+    targetEntity: Module
+    type: Module
+    size: 
+    name: module
+
+groupe:
+    targetEntity: Groups
+    type: Groups
+    size: 
+    name: groupe
+

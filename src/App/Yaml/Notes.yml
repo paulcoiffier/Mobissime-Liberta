@@ -1,0 +1,38 @@
+note_name:
+    name: note_name
+    type: string
+    length: 50
+    precision: 0
+    scale: 0
+    nullable: 
+
+note_description:
+    name: note_description
+    type: text
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 1
+
+note_date_add:
+    name: note_date_add
+    type: datetime
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 
+
+note_content:
+    name: note_content
+    type: text
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 
+
+user:
+    targetEntity: User
+    type: User
+    size: 
+    name: user
+

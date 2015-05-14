@@ -1,0 +1,16 @@
+polo_test:
+    name: polo_test
+    type: string
+    length: 10
+    precision: 0
+    scale: 0
+    nullable: 
+
+toto_bis:
+    name: toto_bis
+    type: string
+    length: 255
+    precision: 0
+    scale: 0
+    nullable: 
+

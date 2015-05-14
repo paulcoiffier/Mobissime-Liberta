@@ -1,0 +1,128 @@
+person_first_name:
+    name: person_first_name
+    type: string
+    length: 50
+    precision: 0
+    scale: 0
+    nullable: 
+
+person_last_name:
+    name: person_last_name
+    type: string
+    length: 50
+    precision: 0
+    scale: 0
+    nullable: 
+
+person_title:
+    name: person_title
+    type: string
+    length: 5
+    precision: 0
+    scale: 0
+    nullable: 
+
+person_phone_office:
+    name: person_phone_office
+    type: string
+    length: 20
+    precision: 0
+    scale: 0
+    nullable: 1
+
+person_phone_mobile:
+    name: person_phone_mobile
+    type: string
+    length: 20
+    precision: 0
+    scale: 0
+    nullable: 1
+
+person_fax:
+    name: person_fax
+    type: string
+    length: 20
+    precision: 0
+    scale: 0
+    nullable: 1
+
+person_street:
+    name: person_street
+    type: string
+    length: 50
+    precision: 0
+    scale: 0
+    nullable: 1
+
+person_city:
+    name: person_city
+    type: string
+    length: 60
+    precision: 0
+    scale: 0
+    nullable: 1
+
+person_postal_code:
+    name: person_postal_code
+    type: string
+    length: 10
+    precision: 0
+    scale: 0
+    nullable: 1
+
+person_country:
+    name: person_country
+    type: string
+    length: 50
+    precision: 0
+    scale: 0
+    nullable: 1
+
+person_state:
+    name: person_state
+    type: string
+    length: 50
+    precision: 0
+    scale: 0
+    nullable: 1
+
+person_description:
+    name: person_description
+    type: text
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 1
+
+person_sync_to_outlook:
+    name: person_sync_to_outlook
+    type: boolean
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 1
+
+person_is_account:
+    name: person_is_account
+    type: boolean
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 1
+
+person_is_contact:
+    name: person_is_contact
+    type: boolean
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 1
+
+person_is_lead:
+    name: person_is_lead
+    type: boolean
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 1
+

@@ -1,0 +1,12 @@
+user:
+    targetEntity: User
+    type: User
+    size: 
+    name: user
+
+group:
+    targetEntity: Groups
+    type: Groups
+    size: 
+    name: group
+

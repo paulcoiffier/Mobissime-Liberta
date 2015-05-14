@@ -1,0 +1,4 @@
+{% extends headerTpl %}
+
+{% block header_title %}[[MODULE_NAME]]{% endblock %}
+{% block header_link_page %}[[MODULE_NAME]]{% endblock %}

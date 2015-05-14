@@ -1,0 +1,81 @@
+mod_name:
+    name: mod_name
+    type: string
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 
+
+mod_description:
+    name: mod_description
+    type: string
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 
+
+mod_directory_name:
+    name: mod_directory_name
+    type: string
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 
+
+mod_author:
+    name: mod_author
+    type: string
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 
+
+mod_is_installed:
+    name: mod_is_installed
+    type: boolean
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 
+
+mod_date_install:
+    name: mod_date_install
+    type: datetime
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 1
+
+mod_if_connexion_require:
+    name: mod_if_connexion_require
+    type: boolean
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 
+
+mod_icon:
+    name: mod_icon
+    type: string
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 1
+
+mod_route:
+    name: mod_route
+    type: string
+    length: 
+    precision: 0
+    scale: 0
+    nullable: 
+
+modules_actions:
+    mappedBy: module
+    targetEntity: ModuleAction
+    type: ModuleAction
+    size: 
+    orphanRemoval: 
+    indexBy: 
+    name: modules_actions
+

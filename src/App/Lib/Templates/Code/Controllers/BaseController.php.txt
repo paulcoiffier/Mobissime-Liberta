@@ -1,0 +1,38 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Paul
+ * Date: 28/01/2015
+ * Time: 15:56
+ */
+
+namespace [[NAMESPACE]]\Controllers;
+
+
+use Symfony\Component\Routing;
+
+use App\Lib\TwigController;
+use [[NAMESPACE]]\Model\[[MODEL_NAME]];
+
+class [[CONTROLLER_NAME]] extends TwigController
+{
+
+    public function indexAction($appParams)
+    {
+
+        /** Internal controller mixture */
+        $this->setValues(__DIR__ . '/../Views/', $appParams, $appParams['container']);
+        /** End internal controller mixture */
+
+        $[[MODEL_NAME]] = new [[MODEL_NAME]]($appParams['entityManager']);
+
+        $this->setPageTemplate('Index.html');
+        $this->setModuleRendererOptions(array(
+            '[[ENTITY_NAME]]' => $[[MODEL_NAME]]->getAll[[ENTITY_NAME]]()
+        ));
+
+        /** Response */
+        return $this->getResponse();
+    }
+
+}

@@ -1,0 +1,32 @@
+<div class="ibox float-e-margins">
+    <div class="ibox-title">
+        <h5>{{module_name}}
+            <!--<small>With custom checbox and radion elements.</small>-->
+        </h5>
+
+        <div class="ibox-tools">
+
+            <a href="javascript:window.history.back();" class="close-link">
+                <i class="fa fa-arrow-left"></i>
+            </a>
+
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <i class="fa fa-wrench"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-user">
+                <li><a href="#">Test menu</a></li>
+            </ul>
+
+        </div>
+    </div>
+    <div class="ibox-content">
+
+        <h2>Module {{module_name}}</h2>
+        <h4><i>{{module_description}}</i></h4>
+        <h4><i>{{module_author}}</i></h4>
+        <hr/>
+
+        {{module_content}}
+
+    </div>
+</div>

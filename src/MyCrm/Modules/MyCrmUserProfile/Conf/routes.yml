@@ -1,0 +1,30 @@
+profile:
+    name: profile
+    path: /profile
+    controller: MyCrm\Modules\MyCrmUserProfile\Controllers\MainController::indexAction
+
+update_password:
+    name: update_password
+    path: /profile/update_password
+    controller: MyCrm\Modules\MyCrmUserProfile\Controllers\MainController::updatePasswordAction
+
+# Ajax routes
+update_password_ajax:
+    name: update_password_ajax
+    path: /profile/update_password_ajax
+    controller: MyCrm\Modules\MyCrmUserProfile\Controllers\MainController::updatePasswordAjax
+
+save_picture_ajax:
+    name: save_picture_ajax
+    path: /profile/save_picture_ajax
+    controller: MyCrm\Modules\MyCrmUserProfile\Controllers\MainController::saveProfilePictureAjax
+
+save_profile_ajax:
+    name: save_profile_ajax
+    path: /profile/save_profile_ajax
+    controller: MyCrm\Modules\MyCrmUserProfile\Controllers\MainController::saveProfileAjax
+
+check_password_ajax:
+    name: check_password_ajax
+    path: /profile/check_password_ajax
+    controller: MyCrm\Modules\MyCrmUserProfile\Controllers\MainController::checkPasswordAjax

@@ -1,0 +1,32 @@
+<?php
+/**
+ * Created by MyCRM CRUD Constructor.
+ * User: Paul Coiffier
+ * Date: 29/01/2015
+ * Time: 02:53
+ */
+
+namespace [[NAMESPACE]];
+
+
+class [[ENTITY_NAME]]Model
+{
+
+    private $entityManager;
+
+    function __construct($entityManager)
+    {
+        $this->entityManager = $entityManager;
+    }
+
+    public function get[[ENTITY_NAME]]ById($id)
+    {
+        return $this->entityManager->getRepository('[[NAMESPACE]]\[[ENTITY_NAME]]')->findOneBy(array('id' => $id));
+    }
+
+    public function getAll[[ENTITY_NAME]]()
+    {
+        $[[ENTITY_NAME]]Repository = $this->entityManager->getRepository('[[NAMESPACE]]\[[ENTITY_NAME]]');
+        return $[[ENTITY_NAME]]Repository->findAll();
+    }
+}

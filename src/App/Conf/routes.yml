@@ -1,0 +1,14 @@
+authent:
+    name: authent
+    path: /app/login
+    controller: App\Controller\AjaxAppController::ajaxLogin
+
+notFoundPage:
+    name: notFoundPage
+    path: /notFoundPage
+    controller: App\Controller\\ppController::notFoundPage
+
+internalErrorPage:
+    name: internalErrorPage
+    path: /internalErrorPage
+    controller: App\Controller\AppController::internalErrorPage

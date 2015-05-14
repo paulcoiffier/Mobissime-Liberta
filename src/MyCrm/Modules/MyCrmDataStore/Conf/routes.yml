@@ -1,0 +1,40 @@
+datastore:
+    name: datastore
+    path: /datastore
+    controller: MyCrm\Modules\MyCrmDataStore\Controllers\MainController::indexAction
+
+# Ajax routes
+datastore_get_entities:
+    name: datastore_get_entities
+    path: /datastore/get_entities
+    controller: MyCrm\Modules\MyCrmDataStore\Controllers\MainController::getEntitiesAjax
+
+datastore_edit_entity:
+    name: edit_entity
+    path: /datastore/edit_entity
+    controller: MyCrm\Modules\MyCrmDataStore\Controllers\MainController::editEntityAjax
+
+datastore_write_entity:
+    name: write_entity
+    path: /datastore/write_entity
+    controller: MyCrm\Modules\MyCrmDataStore\Controllers\MainController::writeEntityAjax
+
+datastore_create_entity:
+    name: create_entity
+    path: /datastore/create_entity
+    controller: MyCrm\Modules\MyCrmDataStore\Controllers\MainController::createEntityAjax
+
+datastore_remove_entity:
+    name: remove_entity
+    path: /datastore/remove_entity
+    controller: MyCrm\Modules\MyCrmDataStore\Controllers\MainController::removeEntityAjax
+
+datastore_entity_formulaire:
+    name: entity_formulaire
+    path: /datastore/entity_formulaire
+    controller: MyCrm\Modules\MyCrmDataStore\Controllers\MainController::entityFormulaireAjax
+
+datastore_entity_queries:
+    name: entity_queries
+    path: /datastore/entity_queries
+    controller: MyCrm\Modules\MyCrmDataStore\Controllers\MainController::entityQueriesAjax

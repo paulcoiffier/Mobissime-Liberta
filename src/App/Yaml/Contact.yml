@@ -1,0 +1,14 @@
+person:
+    targetEntity: Person
+    type: Person
+    size: 
+    mappedBy: 
+    orphanRemoval: 
+    name: person
+
+account_id:
+    targetEntity: Account
+    type: Account
+    size: 
+    name: account_id
+

@@ -1,0 +1,2 @@
+<?xml version="1.0"?>
+<Entity><Name>Department</Name><Queries><Query>findAllOrderedById<Name>findAllOrderedById</Name></Query></Queries></Entity>

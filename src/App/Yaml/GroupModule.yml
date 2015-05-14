@@ -1,0 +1,24 @@
+groupe:
+    targetEntity: Groups
+    type: Groups
+    size: 
+    mappedBy: 
+    orphanRemoval: 
+    name: groupe
+
+module:
+    targetEntity: Module
+    type: Module
+    size: 
+    mappedBy: 
+    orphanRemoval: 
+    name: module
+
+action:
+    targetEntity: ModuleAction
+    type: ModuleAction
+    size: 
+    mappedBy: 
+    orphanRemoval: 
+    name: action
+
