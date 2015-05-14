@@ -13,7 +13,7 @@
     <div class="col-lg-6">
         <div class="form-group">
             <label><?php echo $lang_strings['path_system']; ?> *</label>
-            <input id="path_system" name="path_system" type="text" value="/var/www/MyCRM/"
+            <input id="path_system" name="path_system" type="text" value="/var/www/Mobissime Liberta/"
                    class="form-control required">
         </div>
     </div>

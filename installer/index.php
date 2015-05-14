@@ -17,7 +17,7 @@ $lang_strings = parse_ini_file("i18n/$lang.ini");
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>MyCRM | Installer</title>
+    <title>Mobissime Liberta | Installer</title>
 
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../font-awesome/css/font-awesome.css" rel="stylesheet">
@@ -37,7 +37,7 @@ $lang_strings = parse_ini_file("i18n/$lang.ini");
             <div class="col-lg-12">
                 <div class="ibox">
                     <div class="ibox-title">
-                        <h5>MyCRM installation</h5>
+                        <h5>Mobissime Liberta installation</h5>
                     </div>
                     <div class="ibox-content">
                         <h2>
@@ -45,7 +45,7 @@ $lang_strings = parse_ini_file("i18n/$lang.ini");
                         </h2>
 
                         <p>
-                            Blablabla...
+                            ...
                         </p>
 
                         <form id="form" action="#" class="wizard-big-big">
