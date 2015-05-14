@@ -1,3 +1,0 @@
- insert into mycrm.cases
-(account_id,case_priority, case_status, case_type, case_subject, case_description, case_resolution, case_date_open, case_date_solve, resolved_user_id,assigned_user_id,contact_id)
-select account_id,case_priority, case_status, case_type, case_subject, case_description, case_resolution, case_date_open, case_date_solve, resolved_user_id,assigned_user_id,contact_id from test.cases;
