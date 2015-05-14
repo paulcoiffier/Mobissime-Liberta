@@ -7,13 +7,16 @@
  * Doctrine bootstrap file
  */
 require_once "vendor/autoload.php";
-require "conf/app.inc.php";
+require "src/App/Conf/Parameters.php";
 
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
 
-$paths = array("include/entities");
+$paths[] = "src/App/Entities/";
 $isDevMode = false;
+
+$classLoader = new \Doctrine\Common\ClassLoader('App\Entities','src/App/Entities');
+$classLoader->register();
 
 // the connection configuration
 $dbParams = array(
