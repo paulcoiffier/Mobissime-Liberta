@@ -40,9 +40,13 @@ Class IndexFactory
         foreach ($this->entity_fields as $field) {
             $thContent .= "<th>{{module_words." . $field . "}}</th>\n";
         }
-        $tpl_content = str_replace("[[MODULE_NAME]]", $moduleName, $tpl_content);
+        $tpl_content = str_replace("[[MODULE_NAME]]", "{{module_title}}", $tpl_content);
 
         $fp = fopen('../src/MyCrm/Modules/' . $this->module . '/Views/Index.html', 'w');
+        fwrite($fp, $tpl_content);
+
+        /** Create file for visual builder */
+        $fp = fopen('../src/MyCrm/Modules/' . $this->module . '/Data/Views/Index.html', 'w');
         fwrite($fp, $tpl_content);
     }
 
