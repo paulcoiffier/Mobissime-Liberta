@@ -1,8 +1,10 @@
 <?php
 
 include '../lib/InstallerTools.php';
+include '../lib/DatabaseTools.php';
 
 $installer_tool = new InstallerTools();
+$database_tool = new DatabaseTools();
 
 /**
  * Create global configurations
@@ -29,7 +31,7 @@ $installer_tool->createParametersFile($array_parameters);
 /**
  * Create Database
  */
-$installer_tool->createDatabase($array_parameters, $entityManager);
+$database_tool->createDatabase($array_parameters, $entityManager);
 
 /**
  * Create admin user
