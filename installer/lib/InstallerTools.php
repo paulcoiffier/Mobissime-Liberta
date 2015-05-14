@@ -7,7 +7,7 @@
  * Time: 12:58
  */
 
-use MyCrm\Modules\MyCrmModules\Lib\ModUtils;
+use MyCrm\Modules\LibertaModules\Lib\ModUtils;
 
 
 require '../../include/engine/globalUtils.php';
@@ -23,12 +23,12 @@ class InstallerTools
         /** Modules installation */
         $module = new App\Entities\Module;
         $module->setModAuthor("Paul Coiffier");
-        $module->setModDescription("MyCRM modules managment");
-        $module->setModDirectoryName("MyCrmModules");
+        $module->setModDescription("Liberta modules managment");
+        $module->setModDirectoryName("LibertaModules");
         $module->setModIcon("cube");
         $module->setModIfConnexionRequire(true);
         $module->setModIsInstalled(false);
-        $module->setModName("MyCrmModules");
+        $module->setModName("LibertaModules");
         $module->setModRoute("modules");
         $module->setModDateInstall(new \DateTime);
         $entityManager->persist($module);
@@ -37,12 +37,12 @@ class InstallerTools
 
         $module = new App\Entities\Module;
         $module->setModAuthor("Paul Coiffier");
-        $module->setModDescription("MyCRM user profile managment");
-        $module->setModDirectoryName("MyCrmUserProfile");
+        $module->setModDescription("Liberta user profile managment");
+        $module->setModDirectoryName("LibertaUserProfile");
         $module->setModIcon("user");
         $module->setModIfConnexionRequire(true);
         $module->setModIsInstalled(false);
-        $module->setModName("MyCrmUserProfile");
+        $module->setModName("LibertaUserProfile");
         $module->setModRoute("profile");
         $module->setModDateInstall(new \DateTime);
         $entityManager->persist($module);
@@ -51,12 +51,12 @@ class InstallerTools
 
         $module = new App\Entities\Module;
         $module->setModAuthor("Paul Coiffier");
-        $module->setModDescription("MyCrm menus managment");
-        $module->setModDirectoryName("MyCrmMenus");
+        $module->setModDescription("Liberta menus managment");
+        $module->setModDirectoryName("LibertaMenus");
         $module->setModIcon("sitemap");
         $module->setModIfConnexionRequire(true);
         $module->setModIsInstalled(false);
-        $module->setModName("MyCrmMenus");
+        $module->setModName("LibertaMenus");
         $module->setModRoute("menus");
         $module->setModDateInstall(new \DateTime);
         $entityManager->persist($module);
@@ -65,12 +65,12 @@ class InstallerTools
 
         $module = new App\Entities\Module;
         $module->setModAuthor("Paul Coiffier");
-        $module->setModDescription("MyCRM visual builder wysiwyg editor");
-        $module->setModDirectoryName("MyCrmVisualBuilder");
+        $module->setModDescription("Liberta visual builder wysiwyg editor");
+        $module->setModDirectoryName("LibertaVisualBuilder");
         $module->setModIcon("desktop");
         $module->setModIfConnexionRequire(true);
         $module->setModIsInstalled(false);
-        $module->setModName("MyCrmVisualBuilder");
+        $module->setModName("LibertaVisualBuilder");
         $module->setModRoute("visualbuilder");
         $module->setModDateInstall(new \DateTime);
         $entityManager->persist($module);
@@ -79,12 +79,12 @@ class InstallerTools
 
         $module = new App\Entities\Module;
         $module->setModAuthor("Paul Coiffier");
-        $module->setModDescription("MyCRM Users and groups managment");
-        $module->setModDirectoryName("MyCrmUsers");
+        $module->setModDescription("Liberta Users and groups managment");
+        $module->setModDirectoryName("LibertaUsers");
         $module->setModIcon("users");
         $module->setModIfConnexionRequire(true);
         $module->setModIsInstalled(false);
-        $module->setModName("MyCrmUsers");
+        $module->setModName("LibertaUsers");
         $module->setModRoute("users");
         $module->setModDateInstall(new \DateTime);
         $entityManager->persist($module);
@@ -93,12 +93,12 @@ class InstallerTools
 
         $module = new App\Entities\Module;
         $module->setModAuthor("Paul Coiffier");
-        $module->setModDescription("MyCRM Datastore managment");
-        $module->setModDirectoryName("MyCrmDataStore");
+        $module->setModDescription("Liberta Datastore managment");
+        $module->setModDirectoryName("LibertaDataStore");
         $module->setModIcon("database");
         $module->setModIfConnexionRequire(true);
         $module->setModIsInstalled(false);
-        $module->setModName("MyCrmDataStore");
+        $module->setModName("LibertaDataStore");
         $module->setModRoute("datastore");
         $module->setModDateInstall(new \DateTime);
         $entityManager->persist($module);

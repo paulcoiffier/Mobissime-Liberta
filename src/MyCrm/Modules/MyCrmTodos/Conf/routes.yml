@@ -1,9 +1,0 @@
-todos:
-    name: todos
-    path: /todos
-    controller: MyCrm\Modules\MyCrmTodos\Controllers\MainController::indexAction
-
-todos_with_param:
-    name: todos_with_param
-    path: /todos/{slug}
-    controller: MyCrm\Modules\MyCrmTodos\Controllers\DynamicController::showAction
