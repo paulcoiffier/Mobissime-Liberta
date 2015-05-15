@@ -34,7 +34,7 @@
     <div class="col-lg-2">
         <div class="form-group">
             <label><?php echo $lang_strings['database_password']; ?> *</label>
-            <input id="database_password" name="database_password" type="password" value="Emmeline021287"
+            <input id="database_password" name="database_password" type="password" value="password"
                    class="form-control required">
         </div>
     </div>

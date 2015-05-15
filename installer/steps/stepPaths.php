@@ -4,7 +4,7 @@
     <div class="col-lg-6">
         <div class="form-group">
             <label><?php echo $lang_strings['path_url']; ?> *</label>
-            <input id="path_url" name="path_url" type="text" value="http://localhost/"
+            <input id="path_url" name="path_url" type="text" value="http://localhost/Mobissime-Liberta/"
                    class="form-control required">
         </div>
     </div>
@@ -13,7 +13,7 @@
     <div class="col-lg-6">
         <div class="form-group">
             <label><?php echo $lang_strings['path_system']; ?> *</label>
-            <input id="path_system" name="path_system" type="text" value="/var/www/Mobissime Liberta/"
+            <input id="path_system" name="path_system" type="text" value="C:\\Program Files (x86)\\EasyPHP-DevServer-14.1VC11\\data\\localweb\\Mobissime-Liberta\\"
                    class="form-control required">
         </div>
     </div>

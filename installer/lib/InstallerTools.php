@@ -105,6 +105,20 @@ class InstallerTools
         $entityManager->flush();
         $mod_utils->register_module($module);
 
+        $module = new App\Entities\Module;
+        $module->setModAuthor("Paul Coiffier");
+        $module->setModDescription("Liberta Query Builder");
+        $module->setModDirectoryName("LibertaQueryBuilder");
+        $module->setModIcon("binoculars");
+        $module->setModIfConnexionRequire(true);
+        $module->setModIsInstalled(false);
+        $module->setModName("LibertaQueryBuilder");
+        $module->setModRoute("querybuilder");
+        $module->setModDateInstall(new \DateTime);
+        $entityManager->persist($module);
+        $entityManager->flush();
+        $mod_utils->register_module($module);
+
 
         /** Register modules */
         /*
