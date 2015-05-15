@@ -1,2 +1,13 @@
-<entities> 
+<entities>
+
+    <entity>
+        <name>Cases</name>
+        <valeur>Cases</valeur>
+    </entity>
+
+    <entity>
+        <name>User</name>
+        <valeur>User</valeur>
+    </entity>
+
 </entities>

@@ -14,7 +14,7 @@ class DirectoriesFactory
 
     public function createModuleDirectories($module_name, $errors)
     {
-        $directories = array("Conf", "Controllers", "Css", "Entities", "I18n", "Js", "Model", "Navigation", "Views", "Data", "Data/Views");
+        $directories = array("Conf", "Controllers", "Css", "Entities", "I18n", "Js", "Model", "Navigation", "Views", "Data", "Data/Views", "Data/Views_xml");
         $serverRoot = $_SERVER['DOCUMENT_ROOT'] . '/' . install_path;
 
         $result = $this->makeDir($serverRoot . "/src/MyCrm/Modules/" . $module_name);

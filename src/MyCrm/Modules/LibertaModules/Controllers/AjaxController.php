@@ -69,7 +69,8 @@ class AjaxController
             /** Create Index View */
             $index_factory = new IndexFactory();
             $index_factory->setModule($_POST['mod_name']);
-            $index_factory->createEmptyindex($_POST['mod_name']);
+            $index_factory->createEmptyindex();
+            $index_factory->createEmptyXmlIndex();
 
             /** Create Header file */
             $header_factory = new HeaderFactory();

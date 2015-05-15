@@ -32,7 +32,7 @@ Class IndexFactory
         fwrite($fp, $tpl_content);
     }
 
-    public function createEmptyindex($moduleName)
+    public function createEmptyindex()
     {
         $tpl_content = file_get_contents('../src/App/Lib/Templates/Code/Views/IndexEmpty.html.txt');
 
@@ -48,6 +48,19 @@ Class IndexFactory
         /** Create file for visual builder */
         $fp = fopen('../src/MyCrm/Modules/' . $this->module . '/Data/Views/Index.html', 'w');
         fwrite($fp, $tpl_content);
+    }
+
+    public function createEmptyXmlIndex()
+    {
+        $fp = fopen('../src/MyCrm/Modules/' . $this->module . '/Data/Views_xml/Index.xml', 'w');
+        fwrite($fp, '<?xml version="1.0"?>');
+
+        fwrite($fp, "<Form>");
+        fwrite($fp, "    <Name>Index</Name>");
+        fwrite($fp, "    <Components>");
+        fwrite($fp, "    </Components>");
+        fwrite($fp, "</Form>");
+        fclose($fp);
     }
 
     /**
