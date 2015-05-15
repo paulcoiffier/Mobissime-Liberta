@@ -1,6 +1,6 @@
 querybuilder:
     name: querybuilder
-    path: /querybuilder
+    path: /querybuilder/see/{moduleId}
     controller: MyCrm\Modules\LibertaQueryBuilder\Controllers\MainController::indexAction
 
 entity_table:

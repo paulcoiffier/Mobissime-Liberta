@@ -14,7 +14,6 @@ use App\Lib\Login;
 use App\Controller;
 use App\Engine\AppInstance;
 use App\Engine\YamlParser;
-use MyCrm\Modules\MyCrmTodos\Controllers;
 use MyCrm\Engine\ModuleUtils;
 
 $container = new ContainerBuilder();
@@ -37,7 +36,7 @@ $modules = $moduleUtils->getAllModules();
 /** Twig Loader*/
 $loader = new Twig_Loader_Filesystem(install_sys_dir . '/src/App/Views/');
 $twig = new Twig_Environment($loader, array(
-    'cache' => false
+    'cache' => true
 ));
 
 /** Load twig regions includes in MainTpl */
@@ -120,7 +119,7 @@ if ($login->isUserIsLoggedIn()) {
 
 }
 
-$modUtils = new ModuleUtils($entityManager);
+//$modUtils = new ModuleUtils($entityManager);
 /** Dynamic routes creation for menus entries */
 foreach ($modules as $module) {
 
