@@ -7,7 +7,7 @@
  * Load All Modules from database
  */
 
-namespace MyCrm\Engine;
+namespace App\Lib;
 
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;

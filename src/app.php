@@ -14,7 +14,7 @@ use App\Lib\Login;
 use App\Controller;
 use App\Engine\AppInstance;
 use App\Engine\YamlParser;
-use App\Engine\ModuleUtils;
+use App\Lib\ModuleUtils;
 
 $container = new ContainerBuilder();
 $container->register('annotationsParser', 'App\Services\AnnotationsParser');
