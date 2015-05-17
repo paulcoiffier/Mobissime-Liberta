@@ -1,54 +1,64 @@
-{% extends MainTpl %}{% block header %}{{module_title}}{% endblock %}{% block header_block %}{% include 'Header.html' %}{% endblock %}{% block main_content %}<div class="container" style="width:100%;">
-	<div class="lyrow ui-draggable databased removeClean">
-		<div class="view">
-			<table class="table">
-				<thead>
-					<tr>
-						<th>
-							case_status
-						</th>
-						<th>
-							case_type
-						</th>
-						<th>
-							case_subject
-						</th>
-						<th>
-							case_description
-						</th>
-						<th>
-							case_resolution
-						</th>
-						<th>
-							case_date_open
-						</th>
-					</tr>
-				</thead>
-				<tbody>
-					{% for var in DXBsb %}<tr><td>{{ var.case_status }}</td><td>{{ var.case_type }}</td><td>{{ var.case_subject }}</td><td>{{ var.case_description }}</td><td>{{ var.case_resolution }}</td><td>{{ var.case_date_open }}</td></tr>{% endfor %}
+{% extends MainTpl %}{% block header %}{{module_title}}{% endblock %}{% block header_block %}{% include 'Header.html' %}{% endblock %}{% block main_content %}
+<div class="container" style="width:100%;">
+    <div class="lyrow ui-draggable databased removeClean">
+        <div class="view">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>
+                        case_status
+                    </th>
+                    <th>
+                        case_type
+                    </th>
+                    <th>
+                        case_subject
+                    </th>
+                    <th>
+                        case_description
+                    </th>
+                    <th>
+                        case_resolution
+                    </th>
+                    <th>
+                        case_date_open
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for var in DXBsb %}
+                <tr>
+                    <td>{{ var.case_status }}</td>
+                    <td>{{ var.case_type }}</td>
+                    <td>{{ var.case_subject }}</td>
+                    <td>{{ var.case_description }}</td>
+                    <td>{{ var.case_resolution }}</td>
+                    <td>{{ var.case_date_open }}</td>
+                </tr>
+                {% endfor %}
 
-					<tr>
-						<td>
-							fields.case_status
-						</td>
-						<td>
-							fields.case_type
-						</td>
-						<td>
-							fields.case_subject
-						</td>
-						<td>
-							fields.case_description
-						</td>
-						<td>
-							fields.case_resolution
-						</td>
-						<td>
-							fields.case_date_open
-						</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-	</div>
+                <tr>
+                    <td>
+                        fields.case_status
+                    </td>
+                    <td>
+                        fields.case_type
+                    </td>
+                    <td>
+                        fields.case_subject
+                    </td>
+                    <td>
+                        fields.case_description
+                    </td>
+                    <td>
+                        fields.case_resolution
+                    </td>
+                    <td>
+                        fields.case_date_open
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>{% endblock %}

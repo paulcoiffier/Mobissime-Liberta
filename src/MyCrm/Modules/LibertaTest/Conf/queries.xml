@@ -1,0 +1,15 @@
+<queries>
+
+    <query>
+        <name>Query1</name>
+        <description>Description</description>
+        <valeur>Value</valeur>
+    </query>
+
+    <query>
+        <name>Query2</name>
+        <description>Description</description>
+        <valeur>Value</valeur>
+    </query>
+
+</queries>
