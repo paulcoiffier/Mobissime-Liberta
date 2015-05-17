@@ -14,7 +14,7 @@ use App\Lib\Login;
 use App\Controller;
 use App\Engine\AppInstance;
 use App\Engine\YamlParser;
-use MyCrm\Engine\ModuleUtils;
+use App\Engine\ModuleUtils;
 
 $container = new ContainerBuilder();
 $container->register('annotationsParser', 'App\Services\AnnotationsParser');

@@ -1,0 +1,9 @@
+querybuilder:
+    name: querybuilder
+    path: /querybuilder/see/{moduleId}
+    controller: MyCrm\Modules\LibertaQueryBuilder\Controllers\MainController::indexAction
+
+entity_table:
+    name: entity_table
+    path: /querybuilder/entity_table
+    controller: MyCrm\Modules\LibertaQueryBuilder\Controllers\MainController::entityTableAction
