@@ -6,7 +6,7 @@
  * Time: 01:08
  */
 include '../lib/DatabaseTools.php';
-
+include '../lib/InstallerTools.php';
 /**
  * Create global configurations
  */
@@ -28,6 +28,7 @@ $array_parameters['var_usr_last_name'] = $_POST['usr_last_name'];
 $array_parameters['var_usr_email'] = $_POST['usr_email'];
 
 $database_tool = new DatabaseTools();
+$installer_tool = new InstallerTools();
 
 /**
  * Create Database
