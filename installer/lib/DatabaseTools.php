@@ -58,4 +58,34 @@ class DatabaseTools {
             echo $e->getMessage();
         }
     }
+
+    public function createAdminUser($parameters)
+    {
+        $database_server = $parameters['var_database_server'];
+        $database_database = $parameters['var_database_schema'];
+        $database_user = $parameters['var_database_user'];
+        $database_password = $parameters['var_database_password'];
+
+        try {
+            $dbh = new PDO('mysql:host=' . $database_server . ';dbname=' . $database_database, $database_user, $database_password);
+            $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+            $stmt = $dbh->prepare("INSERT INTO users (usr_first_name, usr_last_name, usr_password, usr_email, usr_language, usr_function) VALUES (:usr_first_name, :usr_last_name, :usr_password, :usr_email, :usr_language, :usr_function)");
+
+            $administrator = "administrator";
+            $password = md5($parameters['var_admin_password']);
+            $stmt->bindParam(':usr_first_name', $parameters['var_usr_first_name']);
+            $stmt->bindParam(':usr_last_name', $parameters['var_usr_last_name']);
+            $stmt->bindParam(':usr_password', $password);
+            $stmt->bindParam(':usr_email', $parameters['var_usr_email']);
+            $stmt->bindParam(':usr_language', $parameters['var_usr_language']);
+            $stmt->bindParam(':usr_function', $administrator);
+
+            $stmt->execute();
+
+            $dbh = null;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
 }

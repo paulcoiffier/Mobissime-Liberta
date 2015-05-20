@@ -32,14 +32,28 @@ $("#form").submit(function (event) {
 
         $.ajax({
             type: 'POST',
-            url: "ajax/install.php",
+            url: "ajax/install_files.php",
             data: "usr_language=" + lang + "&database_server=" + database_server + "&database_user=" + database_user + "&database_password=" + database_password + "&database_database=" + database_database
             + "&admin_user=" + admin_user + "&admin_password=" + admin_password + "&path_url=" + path_url + "&path_system=" + path_system + "&usr_first_name=" + usr_first_name + "&usr_last_name=" + usr_last_name + "&usr_email=" + usr_email,
             dataType: "html",
             success: function (response) {
 
                 if (response == "ok") {
-                    window.location.href = path_url + "/web/front.php/app";
+                    $.ajax({
+                        type: 'POST',
+                        url: "ajax/install_database.php",
+                        data: "usr_language=" + lang + "&database_server=" + database_server + "&database_user=" + database_user + "&database_password=" + database_password + "&database_database=" + database_database
+                        + "&admin_user=" + admin_user + "&admin_password=" + admin_password + "&path_url=" + path_url + "&path_system=" + path_system + "&usr_first_name=" + usr_first_name + "&usr_last_name=" + usr_last_name + "&usr_email=" + usr_email,
+                        dataType: "html",
+                        success: function (response) {
+                            alert("Response : " + response);
+                            if (response == "ok") {
+                                window.location.href = path_url + "/web/front.php/app";
+                            } else {
+                                $("#databaseError").html("Error : " + response);
+                            }
+                        }
+                    });
                 } else {
                     $("#databaseError").html("Error : " + response);
                 }

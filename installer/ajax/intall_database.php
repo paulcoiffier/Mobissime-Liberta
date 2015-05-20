@@ -1,9 +1,11 @@
 <?php
-
-include '../lib/InstallerTools.php';
-//include '../lib/DatabaseTools.php';
-
-$installer_tool = new InstallerTools();
+/**
+ * Created by IntelliJ IDEA.
+ * User: Paul
+ * Date: 21/05/2015
+ * Time: 01:08
+ */
+include '../lib/DatabaseTools.php';
 
 /**
  * Create global configurations
@@ -25,34 +27,22 @@ $array_parameters['var_usr_first_name'] = $_POST['usr_first_name'];
 $array_parameters['var_usr_last_name'] = $_POST['usr_last_name'];
 $array_parameters['var_usr_email'] = $_POST['usr_email'];
 
-$installer_tool->createParametersFile($array_parameters);
-
-//$database_tool = new DatabaseTools();
+$database_tool = new DatabaseTools();
 
 /**
  * Create Database
  */
-//$database_tool->createDatabase($array_parameters, $entityManager);
+$database_tool->createDatabase($array_parameters, $entityManager);
 
 /**
  * Create admin user
  */
 
-$installer_tool->createAdminUser($array_parameters);
+$database_tool->createAdminUser($array_parameters);
 
 /**
  * Create and register modules
  */
 $installer_tool->createAndRegisterModules($entityManager);
-
-/**
- * Create data directories
- */
-$installer_tool->createDirectories($array_parameters);
-
-/**
- * Copy default avatar picture
- */
-$installer_tool->copyDefaultAvatar($array_parameters);
 
 echo "ok";
