@@ -20,7 +20,7 @@ use Symfony\Component\HttpKernel\Client;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * SecurityServiceProvider
+ * SecurityServiceProvider.
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
@@ -200,7 +200,9 @@ class SecurityServiceProviderTest extends WebTestCase
                 'default' => array(
                     'pattern' => '^.*$',
                     'anonymous' => true,
-                    'form' => true,
+                    'form' => array(
+                        'require_previous_session' => false,
+                    ),
                     'logout' => true,
                     'users' => array(
                         // password is foo
@@ -224,15 +226,15 @@ class SecurityServiceProviderTest extends WebTestCase
         });
 
         $app->get('/', function () use ($app) {
-            $user = $app['security']->getToken()->getUser();
+            $user = $app['security.token_storage']->getToken()->getUser();
 
             $content = is_object($user) ? $user->getUsername() : 'ANONYMOUS';
 
-            if ($app['security']->isGranted('IS_AUTHENTICATED_FULLY')) {
+            if ($app['security.authorization_checker']->isGranted('IS_AUTHENTICATED_FULLY')) {
                 $content .= 'AUTHENTICATED';
             }
 
-            if ($app['security']->isGranted('ROLE_ADMIN')) {
+            if ($app['security.authorization_checker']->isGranted('ROLE_ADMIN')) {
                 $content .= 'ADMIN';
             }
 
@@ -269,15 +271,14 @@ class SecurityServiceProviderTest extends WebTestCase
         ));
 
         $app->get('/', function () use ($app) {
-            $user = $app['security']->getToken()->getUser();
-
+            $user = $app['security.token_storage']->getToken()->getUser();
             $content = is_object($user) ? $user->getUsername() : 'ANONYMOUS';
 
-            if ($app['security']->isGranted('IS_AUTHENTICATED_FULLY')) {
+            if ($app['security.authorization_checker']->isGranted('IS_AUTHENTICATED_FULLY')) {
                 $content .= 'AUTHENTICATED';
             }
 
-            if ($app['security']->isGranted('ROLE_ADMIN')) {
+            if ($app['security.authorization_checker']->isGranted('ROLE_ADMIN')) {
                 $content .= 'ADMIN';
             }
 

@@ -8,6 +8,7 @@ require '../src/App/Lib/globalUtils.php';
 
 spl_autoload_register();
 
+use App\Application;
 use Symfony\Component\Routing;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use App\Lib\Login;
@@ -15,6 +16,7 @@ use App\Controller;
 use App\Engine\AppInstance;
 use App\Engine\YamlParser;
 use App\Lib\ModuleUtils;
+
 
 $container = new ContainerBuilder();
 $container->register('annotationsParser', 'App\Services\AnnotationsParser');

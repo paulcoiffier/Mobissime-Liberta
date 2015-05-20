@@ -48,11 +48,11 @@ Registering
 
         composer require twig/twig
 
-Symfony2 Components Integration
--------------------------------
+Symfony Components Integration
+------------------------------
 
 Symfony provides a Twig bridge that provides additional integration between
-some Symfony2 components and Twig. Add it as a dependency:
+some Symfony components and Twig. Add it as a dependency:
 
 .. code-block:: bash
 
@@ -63,24 +63,24 @@ additional capabilities:
 
 * **UrlGeneratorServiceProvider**: If you are using the
   ``UrlGeneratorServiceProvider``, you will have access to the ``path()`` and
-  ``url()`` functions. You can find more information in the `Symfony2 Routing
+  ``url()`` functions. You can find more information in the `Symfony Routing
   documentation
   <http://symfony.com/doc/current/book/routing.html#generating-urls-from-a-template>`_.
 
 * **TranslationServiceProvider**: If you are using the
   ``TranslationServiceProvider``, you will get the ``trans()`` and
   ``transchoice()`` functions for translation in Twig templates. You can find
-  more information in the `Symfony2 Translation documentation
+  more information in the `Symfony Translation documentation
   <http://symfony.com/doc/current/book/translation.html#twig-templates>`_.
 
 * **FormServiceProvider**: If you are using the ``FormServiceProvider``, you
   will get a set of helpers for working with forms in templates. You can find
-  more information in the `Symfony2 Forms reference
+  more information in the `Symfony Forms reference
   <http://symfony.com/doc/current/reference/forms/twig_reference.html>`_.
 
 * **SecurityServiceProvider**: If you are using the
   ``SecurityServiceProvider``, you will have access to the ``is_granted()``
-  function in templates. You can find more information in the `Symfony2
+  function in templates. You can find more information in the `Symfony
   Security documentation
   <http://symfony.com/doc/current/book/security.html#access-control-in-templates>`_.
 
@@ -150,12 +150,12 @@ Customization
 You can configure the Twig environment before using it by extending the
 ``twig`` service::
 
-    $app['twig'] = $app->share($app->extend('twig', function($twig, $app) {
+    $app->extend('twig', function($twig, $app) {
         $twig->addGlobal('pi', 3.14);
         $twig->addFilter('levenshtein', new \Twig_Filter_Function('levenshtein'));
 
         return $twig;
-    }));
+    });
 
 For more information, check out the `official Twig documentation
 <http://twig.sensiolabs.org>`_.

@@ -14,7 +14,7 @@ Services
 --------
 
 * **validator**: An instance of `Validator
-  <http://api.symfony.com/master/Symfony/Component/Validator/Validator.html>`_.
+  <http://api.symfony.com/master/Symfony/Component/Validator/ValidatorInterface.html>`_.
 
 * **validator.mapping.class_metadata_factory**: Factory for metadata loaders,
   which can read validation constraint information from classes. Defaults to
@@ -75,18 +75,6 @@ collection of constraints::
 
     use Symfony\Component\Validator\Constraints as Assert;
 
-    class Book
-    {
-        public $title;
-        public $author;
-    }
-
-    class Author
-    {
-        public $first_name;
-        public $last_name;
-    }
-
     $book = array(
         'title' => 'My Book',
         'author' => array(
@@ -119,6 +107,18 @@ If you want to add validations to a class, you can define the constraint for
 the class properties and getters, and then call the ``validate`` method::
 
     use Symfony\Component\Validator\Constraints as Assert;
+
+    class Book
+    {
+        public $title;
+        public $author;
+    }
+
+    class Author
+    {
+        public $first_name;
+        public $last_name;
+    }
 
     $author = new Author();
     $author->first_name = 'Fabien';
@@ -217,5 +217,5 @@ provider and register the messages under the ``validators`` domain::
         ),
     );
 
-For more information, consult the `Symfony2 Validation documentation
+For more information, consult the `Symfony Validation documentation
 <http://symfony.com/doc/master/book/validation.html>`_.

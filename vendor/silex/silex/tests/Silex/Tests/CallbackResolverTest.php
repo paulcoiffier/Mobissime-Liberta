@@ -11,13 +11,14 @@
 
 namespace Silex\Tests;
 
+use Pimple\Container;
 use Silex\CallbackResolver;
 
 class CallbackResolverTest extends \PHPUnit_Framework_Testcase
 {
     public function setup()
     {
-        $this->app = new \Pimple();
+        $this->app = new Container();
         $this->resolver = new CallbackResolver($this->app);
     }
 
@@ -39,7 +40,7 @@ class CallbackResolverTest extends \PHPUnit_Framework_Testcase
     }
 
     /**
-     * @expectedException          InvalidArgumentException
+     * @expectedException          \InvalidArgumentException
      * @expectedExceptionMessage   Service "some_service" does not exist.
      */
     public function testShouldThrowAnExceptionIfServiceIsMissing()

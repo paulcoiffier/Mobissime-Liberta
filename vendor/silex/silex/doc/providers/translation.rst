@@ -37,6 +37,7 @@ Registering
 
 .. code-block:: php
 
+    $app->register(new Silex\Provider\LocaleServiceProvider());
     $app->register(new Silex\Provider\TranslationServiceProvider(), array(
         'locale_fallbacks' => array('en'),
     ));
@@ -118,7 +119,7 @@ YAML-based language files
 Having your translations in PHP files can be inconvenient. This recipe will
 show you how to load translations from external YAML files.
 
-First, add the Symfony2 ``Config`` and ``Yaml`` components as dependencies:
+First, add the Symfony ``Config`` and ``Yaml`` components as dependencies:
 
 .. code-block:: bash
 
@@ -137,7 +138,7 @@ translation files::
 
     use Symfony\Component\Translation\Loader\YamlFileLoader;
 
-    $app['translator'] = $app->share($app->extend('translator', function($translator, $app) {
+    $app->extend('translator', function($translator, $app) {
         $translator->addLoader('yaml', new YamlFileLoader());
 
         $translator->addResource('yaml', __DIR__.'/locales/en.yml', 'en');
@@ -145,13 +146,13 @@ translation files::
         $translator->addResource('yaml', __DIR__.'/locales/fr.yml', 'fr');
 
         return $translator;
-    }));
+    });
 
 XLIFF-based language files
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Just as you would do with YAML translation files, you first need to add the
-Symfony2 ``Config`` component as a dependency (see above for details).
+Symfony ``Config`` component as a dependency (see above for details).
 
 Then, similarly, create XLIFF files in your locales directory and add them to
 the translator::

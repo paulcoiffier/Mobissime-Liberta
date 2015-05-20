@@ -1,9 +1,9 @@
 Services
 ========
 
-Silex is not only a microframework. It is also a micro service container. It
-does this by extending `Pimple <http://pimple.sensiolabs.org>`_ which provides
-service goodness in just 44 NCLOC.
+Silex is not only a framework, it is also a service container. It does this by
+extending `Pimple <http://pimple.sensiolabs.org>`_ which provides service
+goodness in just 44 NCLOC.
 
 Dependency Injection
 --------------------
@@ -43,30 +43,20 @@ passed to the constructor. This means you can create several independent
 instances with different base paths. Of course dependencies do not have to be
 simple strings. More often they are in fact other services.
 
-Container
-~~~~~~~~~
-
-A DIC or service container is responsible for creating and storing services.
-It can recursively create dependencies of the requested services and inject
-them. It does so lazily, which means a service is only created when you
-actually need it.
-
-Most containers are quite complex and are configured through XML or YAML
-files.
-
-Pimple is different.
+A service container is responsible for creating and storing services. It can
+recursively create dependencies of the requested services and inject them. It
+does so lazily, which means a service is only created when you actually need it.
 
 Pimple
 ------
 
-Pimple is probably the simplest service container out there. It makes strong
-use of closures and implements the ArrayAccess interface.
+Pimple makes strong use of closures and implements the ArrayAccess interface.
 
 We will start off by creating a new instance of Pimple -- and because
-``Silex\Application`` extends ``Pimple`` all of this applies to Silex as
-well::
+``Silex\Application`` extends ``Pimple\Container`` all of this applies to Silex
+as well::
 
-    $container = new Pimple();
+    $container = new Pimple\Container();
 
 or::
 
@@ -104,21 +94,21 @@ And to retrieve the service, use::
 
     $service = $app['some_service'];
 
-Every time you call ``$app['some_service']``, a new instance of the service is
-created.
+On first invocation, this will create the service; the same instance will then
+be returned on any subsequent access.
 
-Shared services
-~~~~~~~~~~~~~~~
+Factory services
+~~~~~~~~~~~~~~~~
 
-You may want to use the same instance of a service across all of your code. In
-order to do that you can make a *shared* service::
+If you want a different instance to be returned for each service access, wrap
+the service definition with the ``factory()`` method::
 
-    $app['some_service'] = $app->share(function () {
+    $app['some_service'] = $app->factory(function () {
         return new Service();
     });
 
-This will create the service on first invocation, and then return the existing
-instance on any subsequent access.
+Every time you call ``$app['some_service']``, a new instance of the service is
+created.
 
 Access container from closure
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -139,17 +129,13 @@ options. The dependency is only created when ``some_service`` is accessed, and
 it is possible to replace either of the dependencies by simply overriding
 those definitions.
 
-.. note::
-
-    This also works for shared services.
-
 Going back to our initial example, here's how we could use the container
 to manage its dependencies::
 
     $app['user.persist_path'] = '/tmp/users';
-    $app['user.persister'] = $app->share(function ($app) {
+    $app['user.persister'] = function ($app) {
         return new JsonUserPersister($app['user.persist_path']);
-    });
+    };
 
 
 Protected closures
@@ -179,8 +165,7 @@ Note that protected closures do not get access to the container.
 Core services
 -------------
 
-Silex defines a range of services which can be used or replaced. You probably
-don't want to mess with most of them.
+Silex defines a range of services.
 
 * **request**: Contains the current request object, which is an instance of
   `Request
@@ -191,7 +176,7 @@ don't want to mess with most of them.
 
     $id = $app['request']->get('id');
 
-  This is only available when a request is being served, you can only access
+  This is only available when a request is being served; you can only access
   it from within a controller, an application before/after middlewares, or an
   error handler.
 
@@ -204,7 +189,7 @@ don't want to mess with most of them.
 
 * **dispatcher**: The `EventDispatcher
   <http://api.symfony.com/master/Symfony/Component/EventDispatcher/EventDispatcher.html>`_
-  that is used internally. It is the core of the Symfony2 system and is used
+  that is used internally. It is the core of the Symfony system and is used
   quite a bit by Silex.
 
 * **resolver**: The `ControllerResolver
@@ -214,28 +199,21 @@ don't want to mess with most of them.
 
 * **kernel**: The `HttpKernel
   <http://api.symfony.com/master/Symfony/Component/HttpKernel/HttpKernel.html>`_
-  that is used internally. The HttpKernel is the heart of Symfony2, it takes a
+  that is used internally. The HttpKernel is the heart of Symfony, it takes a
   Request as input and returns a Response as output.
 
 * **request_context**: The request context is a simplified representation of
   the request that is used by the Router and the UrlGenerator.
 
 * **exception_handler**: The Exception handler is the default handler that is
-  used when you don't register one via the ``error()`` method or if your handler
-  does not return a Response. Disable it with
-  ``$app['exception_handler']->disable()``.
+  used when you don't register one via the ``error()`` method or if your
+  handler does not return a Response. Disable it with
+  ``unset($app['exception_handler'])``.
 
 * **logger**: A ``Psr\Log\LoggerInterface`` instance. By default, logging is
   disabled as the value is set to ``null``. To enable logging you can either use
   the ``MonologServiceProvider`` or define your own ``logger`` service that
   conforms to the PSR logger interface.
-
-  In versions of Silex before 1.1 this must be a
-  ``Symfony\Component\HttpKernel\Log\LoggerInterface``.
-
-.. note::
-
-    All of these Silex core services are shared.
 
 Core parameters
 ---------------
@@ -255,11 +233,6 @@ Core parameters
   Defaults to 443.
 
   This parameter can be used by the ``UrlGeneratorProvider``.
-
-* **locale** (optional): The locale of the user. When set before any request
-  handling, it defines the default locale (``en`` by default). When a request
-  is being handled, it is automatically set according to the ``_locale``
-  request attribute of the current route.
 
 * **debug** (optional): Returns whether or not the application is running in
   debug mode.

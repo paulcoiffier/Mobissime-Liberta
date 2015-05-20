@@ -11,8 +11,8 @@
 
 namespace Silex\Provider;
 
-use Silex\Application;
-use Silex\ServiceProviderInterface;
+use Pimple\Container;
+use Pimple\ServiceProviderInterface;
 use Symfony\Component\Form\Extension\Csrf\CsrfExtension;
 use Symfony\Component\Form\Extension\Csrf\CsrfProvider\DefaultCsrfProvider;
 use Symfony\Component\Form\Extension\Csrf\CsrfProvider\SessionCsrfProvider;
@@ -20,6 +20,9 @@ use Symfony\Component\Form\Extension\HttpFoundation\HttpFoundationExtension;
 use Symfony\Component\Form\Extension\Validator\ValidatorExtension as FormValidatorExtension;
 use Symfony\Component\Form\Forms;
 use Symfony\Component\Form\ResolvedFormTypeFactory;
+use Symfony\Component\Security\Csrf\CsrfTokenManager;
+use Symfony\Component\Security\Csrf\TokenStorage\NativeSessionTokenStorage;
+use Symfony\Component\Security\Csrf\TokenStorage\SessionTokenStorage;
 
 /**
  * Symfony Form component Provider.
@@ -28,7 +31,7 @@ use Symfony\Component\Form\ResolvedFormTypeFactory;
  */
 class FormServiceProvider implements ServiceProviderInterface
 {
-    public function register(Application $app)
+    public function register(Container $app)
     {
         if (!class_exists('Locale') && !class_exists('Symfony\Component\Locale\Stub\StubLocale')) {
             throw new \RuntimeException('You must either install the PHP intl extension or the Symfony Locale Component to use the Form extension.');
@@ -47,27 +50,27 @@ class FormServiceProvider implements ServiceProviderInterface
 
         $app['form.secret'] = md5(__DIR__);
 
-        $app['form.types'] = $app->share(function ($app) {
+        $app['form.types'] = function ($app) {
             return array();
-        });
+        };
 
-        $app['form.type.extensions'] = $app->share(function ($app) {
+        $app['form.type.extensions'] = function ($app) {
             return array();
-        });
+        };
 
-        $app['form.type.guessers'] = $app->share(function ($app) {
+        $app['form.type.guessers'] = function ($app) {
             return array();
-        });
+        };
 
-        $app['form.extension.csrf'] = $app->share(function ($app) {
+        $app['form.extension.csrf'] = function ($app) {
             if (isset($app['translator'])) {
                 return new CsrfExtension($app['form.csrf_provider'], $app['translator']);
             }
 
             return new CsrfExtension($app['form.csrf_provider']);
-        });
+        };
 
-        $app['form.extensions'] = $app->share(function ($app) {
+        $app['form.extensions'] = function ($app) {
             $extensions = array(
                 $app['form.extension.csrf'],
                 new HttpFoundationExtension(),
@@ -76,7 +79,7 @@ class FormServiceProvider implements ServiceProviderInterface
             if (isset($app['validator'])) {
                 $extensions[] = new FormValidatorExtension($app['validator']);
 
-                if (isset($app['translator'])) {
+                if (isset($app['translator']) && method_exists($app['translator'], 'addResource')) {
                     $r = new \ReflectionClass('Symfony\Component\Form\Form');
                     $file = dirname($r->getFilename()).'/Resources/translations/validators.'.$app['locale'].'.xlf';
                     if (file_exists($file)) {
@@ -86,9 +89,9 @@ class FormServiceProvider implements ServiceProviderInterface
             }
 
             return $extensions;
-        });
+        };
 
-        $app['form.factory'] = $app->share(function ($app) {
+        $app['form.factory'] = function ($app) {
             return Forms::createFormFactoryBuilder()
                 ->addExtensions($app['form.extensions'])
                 ->addTypes($app['form.types'])
@@ -97,22 +100,16 @@ class FormServiceProvider implements ServiceProviderInterface
                 ->setResolvedTypeFactory($app['form.resolved_type_factory'])
                 ->getFormFactory()
             ;
-        });
+        };
 
-        $app['form.resolved_type_factory'] = $app->share(function ($app) {
+        $app['form.resolved_type_factory'] = function ($app) {
             return new ResolvedFormTypeFactory();
-        });
+        };
 
-        $app['form.csrf_provider'] = $app->share(function ($app) {
-            if (isset($app['session'])) {
-                return new SessionCsrfProvider($app['session'], $app['form.secret']);
-            }
+        $app['form.csrf_provider'] = function ($app) {
+            $storage = isset($app['session']) ? new SessionTokenStorage($app['session']) : new NativeSessionTokenStorage();
 
-            return new DefaultCsrfProvider($app['form.secret']);
-        });
-    }
-
-    public function boot(Application $app)
-    {
+            return new CsrfTokenManager(null, $storage);
+        };
     }
 }

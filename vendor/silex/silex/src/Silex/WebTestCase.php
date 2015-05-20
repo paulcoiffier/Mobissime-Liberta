@@ -21,6 +21,11 @@ use Symfony\Component\HttpKernel\HttpKernel;
  */
 abstract class WebTestCase extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * Application instance.
+     *
+     * @var Application
+     */
     protected $app;
 
     /**
@@ -29,7 +34,7 @@ abstract class WebTestCase extends \PHPUnit_Framework_TestCase
      * Note: Child classes that define a setUp method must call
      * parent::setUp().
      */
-    public function setUp()
+    protected function setUp()
     {
         $this->app = $this->createApplication();
     }

@@ -22,11 +22,11 @@ class LazyDispatcherTest extends \PHPUnit_Framework_TestCase
         $dispatcherCreated = false;
 
         $app = new Application();
-        $app['dispatcher'] = $app->share($app->extend('dispatcher', function ($dispatcher, $app) use (&$dispatcherCreated) {
+        $app->extend('dispatcher', function ($dispatcher, $app) use (&$dispatcherCreated) {
             $dispatcherCreated = true;
 
             return $dispatcher;
-        }));
+        });
 
         $app->before(function () {});
 
@@ -44,7 +44,7 @@ class LazyDispatcherTest extends \PHPUnit_Framework_TestCase
         $app = new Application();
 
         $fired = false;
-        $app->get("/", function () use ($app, &$fired) {
+        $app->get('/', function () use ($app, &$fired) {
             $app->finish(function () use (&$fired) {
                 $fired = true;
             });

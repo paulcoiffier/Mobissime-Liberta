@@ -14,7 +14,12 @@ Services
 --------
 
 * **security**: The main entry point for the security provider. Use it to get
-  the current user token.
+  the current user token (only for Symfony up to 2.5).
+
+* **security.token_storage**: Gives access to the user token (Symfony 2.6+).
+
+* **security.authorization_checker**: Allows to check authorizations for the
+  users (Symfony 2.6+).
 
 * **security.authentication_manager**: An instance of
   `AuthenticationProviderManager
@@ -63,22 +68,22 @@ Registering
 
 .. caution::
 
+    If you're using a form to authenticate users, you need to enable
+    ``SessionServiceProvider``.
+
+.. caution::
+
     The security features are only available after the Application has been
     booted. So, if you want to use it outside of the handling of a request,
     don't forget to call ``boot()`` first::
 
         $application->boot();
 
-.. caution::
-
-    If you're using a form to authenticate users, you need to enable
-    ``SessionServiceProvider``.
-
 Usage
 -----
 
 The Symfony Security component is powerful. To learn more about it, read the
-`Symfony2 Security documentation
+`Symfony Security documentation
 <http://symfony.com/doc/2.3/book/security.html>`_.
 
 .. tip::
@@ -95,6 +100,10 @@ Accessing the current User
 The current user information is stored in a token that is accessible via the
 ``security`` service::
 
+    // Symfony 2.6+
+    $token = $app['security.token_storage']->getToken();
+
+    // Symfony 2.3/2.5
     $token = $app['security']->getToken();
 
 If there is no information about the user, the token is ``null``. If the user
@@ -327,6 +336,12 @@ Checking User Roles
 To check if a user is granted some role, use the ``isGranted()`` method on the
 security context::
 
+    // Symfony 2.6+
+    if ($app['security.authorization_checker']->isGranted('ROLE_ADMIN')) {
+        // ...
+    }
+
+    // Symfony 2.3/2.5
     if ($app['security']->isGranted('ROLE_ADMIN')) {
         // ...
     }
@@ -442,9 +457,9 @@ The ``users`` setting can be defined as a service that returns an instance of
 `UserProviderInterface
 <http://api.symfony.com/master/Symfony/Component/Security/Core/User/UserProviderInterface.html>`_::
 
-    'users' => $app->share(function () use ($app) {
+    'users' => function () use ($app) {
         return new UserProvider($app['db']);
-    }),
+    },
 
 Here is a simple example of a user provider, where Doctrine DBAL is used to
 store the users::
@@ -542,12 +557,12 @@ service::
 
     use Symfony\Component\Security\Core\Encoder\MessageDigestPasswordEncoder;
 
-    $app['security.encoder.digest'] = $app->share(function ($app) {
+    $app['security.encoder.digest'] = function ($app) {
         // use the sha1 algorithm
         // don't base64 encode the password
         // use only 1 iteration
         return new MessageDigestPasswordEncoder('sha1', false, 1);
-    });
+    };
 
 Defining a custom Authentication Provider
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -560,14 +575,15 @@ use in your configuration::
 
     $app['security.authentication_listener.factory.wsse'] = $app->protect(function ($name, $options) use ($app) {
         // define the authentication provider object
-        $app['security.authentication_provider.'.$name.'.wsse'] = $app->share(function () use ($app) {
+        $app['security.authentication_provider.'.$name.'.wsse'] = function () use ($app) {
             return new WsseProvider($app['security.user_provider.default'], __DIR__.'/security_cache');
-        });
+        };
 
         // define the authentication listener object
-        $app['security.authentication_listener.'.$name.'.wsse'] = $app->share(function () use ($app) {
-            return new WsseListener($app['security'], $app['security.authentication_manager']);
-        });
+        $app['security.authentication_listener.'.$name.'.wsse'] = function () use ($app) {
+            // use 'security' instead of 'security.token_storage' on Symfony <2.6
+            return new WsseListener($app['security.token_storage'], $app['security.authentication_manager']);
+        };
 
         return array(
             // the authentication provider id

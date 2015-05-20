@@ -10,9 +10,18 @@ use Symfony\Component\Routing;
 use Symfony\Component\HttpKernel;
 use App\Controller;
 use App\Listeners;
+use App\Application;
+
+
 
 $request = Request::createFromGlobals();
 $routes = include __DIR__ . '/../src/app.php';
+
+$routes->add('app', new Routing\Route('/app', array(
+    'appParams' => $appParams,
+    'container' => $container,
+    '_controller' => 'App\\Controller\\AppController::indexAction'
+)));
 
 $context = new Routing\RequestContext();
 $context->fromRequest($request);
@@ -21,11 +30,22 @@ $resolver = new HttpKernel\Controller\ControllerResolver();
 
 $dispatcher = new EventDispatcher();
 $dispatcher->addSubscriber(new App\Listeners\ContentLengthListener());
+
+
+
 //$dispatcher->addSubscriber(new App\GoogleListener());
 
 $framework = new App\Framework($dispatcher, $matcher, $resolver);
 $response = $framework->handle($request);
 
+
+
 $response->send();
+
+/*$test = new Application($dispatcher, $routes);
+$test->run();*/
+
+
+
 
 ?>

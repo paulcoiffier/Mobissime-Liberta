@@ -13,6 +13,7 @@ namespace Silex\Tests;
 
 use Silex\Application;
 use Silex\ControllerCollection;
+use Silex\Api\ControllerProviderInterface;
 use Silex\Route;
 use Silex\Provider\MonologServiceProvider;
 use Symfony\Component\HttpFoundation\Request;
@@ -416,30 +417,6 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
         $app->handle(Request::create('/'), HttpKernelInterface::MASTER_REQUEST, false);
     }
 
-    /**
-     * @expectedException \RuntimeException
-     */
-    public function testAccessingRequestOutsideOfScopeShouldThrowRuntimeException()
-    {
-        $app = new Application();
-
-        $request = $app['request'];
-    }
-
-    /**
-     * @expectedException \RuntimeException
-     */
-    public function testAccessingRequestOutsideOfScopeShouldThrowRuntimeExceptionAfterHandling()
-    {
-        $app = new Application();
-        $app->get('/', function () {
-            return 'hello';
-        });
-        $app->handle(Request::create('/'), HttpKernelInterface::MASTER_REQUEST, false);
-
-        $request = $app['request'];
-    }
-
     public function testSubRequest()
     {
         $app = new Application();
@@ -453,31 +430,10 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('foo', $app->handle(Request::create('/'))->getContent());
     }
 
-    public function testSubRequestDoesNotReplaceMainRequestAfterHandling()
-    {
-        $mainRequest = Request::create('/');
-        $subRequest = Request::create('/sub');
-
-        $app = new Application();
-        $app->get('/sub', function (Request $request) {
-            return new Response('foo');
-        });
-        $app->get('/', function (Request $request) use ($subRequest, $app) {
-            $response = $app->handle($subRequest, HttpKernelInterface::SUB_REQUEST);
-
-            // request in app must be the main request here
-            $response->setContent($response->getContent().' '.$app['request']->getPathInfo());
-
-            return $response;
-        });
-
-        $this->assertEquals('foo /', $app->handle($mainRequest)->getContent());
-    }
-
     public function testRegisterShouldReturnSelf()
     {
         $app = new Application();
-        $provider = $this->getMock('Silex\ServiceProviderInterface');
+        $provider = $this->getMock('Pimple\ServiceProviderInterface');
 
         $this->assertSame($app, $app->register($provider));
     }
@@ -505,17 +461,33 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(array('first', 'second', 'third'), array_keys(iterator_to_array($app['routes'])));
     }
 
+    /**
+     * @expectedException        \LogicException
+     * @expectedExceptionMessage The "mount" method takes either a "ControllerCollection" or a "ControllerProviderInterface" instance.
+     */
+    public function testMountNullException()
+    {
+        $app = new Application();
+        $app->mount('/exception', null);
+    }
+
+    /**
+     * @expectedException        \LogicException
+     * @expectedExceptionMessage The method "Silex\Tests\IncorrectControllerCollection::connect" must return a "ControllerCollection" instance. Got: "NULL"
+     */
+    public function testMountWrongConnectReturnValueException()
+    {
+        $app = new Application();
+        $app->mount('/exception', new IncorrectControllerCollection());
+    }
+
     public function testSendFile()
     {
         $app = new Application();
 
-        try {
-            $response = $app->sendFile(__FILE__, 200, array('Content-Type: application/php'));
-            $this->assertInstanceOf('Symfony\Component\HttpFoundation\BinaryFileResponse', $response);
-            $this->assertEquals(__FILE__, (string) $response->getFile());
-        } catch (\RuntimeException $e) {
-            $this->assertFalse(class_exists('Symfony\Component\HttpFoundation\BinaryFileResponse'));
-        }
+        $response = $app->sendFile(__FILE__, 200, array('Content-Type: application/php'));
+        $this->assertInstanceOf('Symfony\Component\HttpFoundation\BinaryFileResponse', $response);
+        $this->assertEquals(__FILE__, (string) $response->getFile());
     }
 
     /**
@@ -525,7 +497,7 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
     public function testGetRouteCollectionWithRouteWithoutController()
     {
         $app = new Application();
-        $app['exception_handler']->disable();
+        unset($app['exception_handler']);
         $app->match('/')->bind('homepage');
         $app->handle(Request::create('/'));
     }
@@ -542,6 +514,18 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
         $response = $app->handle(Request::create('/foo'));
         $this->assertEquals(301, $response->getStatusCode());
     }
+
+    public function testBeforeFilterOnMountedControllerGroupIsolatedToGroup()
+    {
+        $app = new Application();
+        $app->match('/', function() { return new Response('ok'); });
+        $mounted = $app['controllers_factory'];
+        $mounted->before(function() { return new Response('not ok'); });
+        $app->mount('/group', $mounted);
+
+        $response = $app->handle(Request::create('/'));
+        $this->assertEquals('ok', $response->getContent());
+    }
 }
 
 class FooController
@@ -549,5 +533,13 @@ class FooController
     public function barAction(Application $app, $name)
     {
         return 'Hello '.$app->escape($name);
+    }
+}
+
+class IncorrectControllerCollection implements ControllerProviderInterface
+{
+    public function connect(Application $app)
+    {
+        return;
     }
 }

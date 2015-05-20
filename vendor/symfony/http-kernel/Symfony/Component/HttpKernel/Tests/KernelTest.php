@@ -312,21 +312,30 @@ EOF;
         $this->assertEquals($expected, $output);
     }
 
-    public function testIsClassInActiveBundleFalse()
+    /**
+     * @group legacy
+     */
+    public function testLegacyIsClassInActiveBundleFalse()
     {
         $kernel = $this->getKernelMockForIsClassInActiveBundleTest();
 
         $this->assertFalse($kernel->isClassInActiveBundle('Not\In\Active\Bundle'));
     }
 
-    public function testIsClassInActiveBundleFalseNoNamespace()
+    /**
+     * @group legacy
+     */
+    public function testLegacyIsClassInActiveBundleFalseNoNamespace()
     {
         $kernel = $this->getKernelMockForIsClassInActiveBundleTest();
 
         $this->assertFalse($kernel->isClassInActiveBundle('NotNamespacedClass'));
     }
 
-    public function testIsClassInActiveBundleTrue()
+    /**
+     * @group legacy
+     */
+    public function testLegacyIsClassInActiveBundleTrue()
     {
         $kernel = $this->getKernelMockForIsClassInActiveBundleTest();
 
@@ -335,6 +344,8 @@ EOF;
 
     protected function getKernelMockForIsClassInActiveBundleTest()
     {
+        $this->iniSet('error_reporting', -1 & ~E_USER_DEPRECATED);
+
         $bundle = new FooBarBundle();
 
         $kernel = $this->getKernel(array('getBundles'));
