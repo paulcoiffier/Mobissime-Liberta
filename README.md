@@ -9,6 +9,6 @@ Web Software Development Solution<br />
 
 The original name of <strong>Liberta</strong> was <strong>MyCRM</strong> so you can see many references to the <strong>MyCRM</strong> word in the source code.<br />
 
-<strong>To install Liberta</strong>, please first run the "composer update" command from <strong>Liberta</strong> web root. and check folder that "src/App/Conf" is writable.
+<strong>To install Liberta</strong>, please first run the "<i>composer update</i>" command from <strong>Liberta</strong> web root. and check folder that "src/App/Conf" is writable.
 
 To run the graphical installer, go to <strong>http://<i>your_ip</i>/Mobissime-Liberta/installer/</strong>
