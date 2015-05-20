@@ -6,7 +6,7 @@
  * Time: 22:47
  */
 
-require_once '../../bootstrap.php';
+include '../../bootstrap.php';
 
 class DatabaseTools {
 

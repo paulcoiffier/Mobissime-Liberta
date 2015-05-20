@@ -1,6 +1,8 @@
 <?php
 
 include '../lib/InstallerTools.php';
+include '../lib/DatabaseTools.php';
+
 $installer_tool = new InstallerTools();
 
 /**
@@ -26,7 +28,7 @@ $array_parameters['var_usr_email'] = $_POST['usr_email'];
 $installer_tool->createParametersFile($array_parameters);
 
 
-include '../lib/DatabaseTools.php';
+
 $database_tool = new DatabaseTools();
 
 /**
