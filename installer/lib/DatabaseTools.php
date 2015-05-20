@@ -8,7 +8,8 @@
 
 require_once '../../bootstrap.php';
 
-class DatabaseTools {
+class DatabaseTools
+{
 
     public function createDatabase($parameters, $entityManager)
     {
@@ -33,11 +34,24 @@ class DatabaseTools {
             echo $e->getMessage();
         }
 
-        /** Generate entities */
-        exec('cd ../.. && vendor\\bin\\doctrine orm:schema-tool:create');
+        $sys = strtoupper(PHP_OS);
 
-        /** Generate proxies entity classes */
-        exec('cd ../.. && vendor\\bin\\doctrine orm:generate-proxies');
+        if (substr($sys, 0, 3) == "WIN") {
+            /** Generate entities */
+            exec('cd ../.. && vendor\\bin\\doctrine orm:schema-tool:create');
+
+            /** Generate proxies entity classes */
+            exec('cd ../.. && vendor\\bin\\doctrine orm:generate-proxies');
+        } // Win
+        else {
+            /** Generate entities */
+            exec('cd ../.. && vendor/bin/doctrine orm:schema-tool:create');
+
+            /** Generate proxies entity classes */
+            exec('cd ../.. && vendor/bin/doctrine orm:generate-proxies');
+        }
+
+
 
         try {
             $stmt = $dbh->prepare("INSERT INTO mycrm.menu(menu_name,menu_description,menu_order,menu_font_awesome_icon) values (:menu_name,:menu_description,:menu_order,:menu_font_awesome_icon)");
