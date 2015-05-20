@@ -1,10 +1,7 @@
 <?php
 
 include '../lib/InstallerTools.php';
-include '../lib/DatabaseTools.php';
-
 $installer_tool = new InstallerTools();
-$database_tool = new DatabaseTools();
 
 /**
  * Create global configurations
@@ -27,6 +24,10 @@ $array_parameters['var_usr_last_name'] = $_POST['usr_last_name'];
 $array_parameters['var_usr_email'] = $_POST['usr_email'];
 
 $installer_tool->createParametersFile($array_parameters);
+
+
+include '../lib/DatabaseTools.php';
+$database_tool = new DatabaseTools();
 
 /**
  * Create Database
