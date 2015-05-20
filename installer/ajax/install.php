@@ -1,7 +1,7 @@
 <?php
 
 include '../lib/InstallerTools.php';
-include '../lib/DatabaseTools.php';
+//include '../lib/DatabaseTools.php';
 
 $installer_tool = new InstallerTools();
 
@@ -27,14 +27,12 @@ $array_parameters['var_usr_email'] = $_POST['usr_email'];
 
 $installer_tool->createParametersFile($array_parameters);
 
-
-
-$database_tool = new DatabaseTools();
+//$database_tool = new DatabaseTools();
 
 /**
  * Create Database
  */
-$database_tool->createDatabase($array_parameters, $entityManager);
+//$database_tool->createDatabase($array_parameters, $entityManager);
 
 /**
  * Create admin user
