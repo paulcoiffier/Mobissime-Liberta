@@ -51,8 +51,6 @@ class DatabaseTools
             exec('cd ../.. && vendor/bin/doctrine orm:generate-proxies');
         }
 
-
-
         try {
             $stmt = $dbh->prepare("INSERT INTO mycrm.menu(menu_name,menu_description,menu_order,menu_font_awesome_icon) values (:menu_name,:menu_description,:menu_order,:menu_font_awesome_icon)");
 

@@ -1,8 +1,10 @@
 <?php
 
 include '../lib/InstallerTools.php';
+include '../lib/GlobalTools.php';
 
 $installer_tool = new InstallerTools();
+$global_tools = new GlobalTools();
 
 $array_parameters = array();
 $array_parameters['var_install_path'] = $_POST['path_url'];
@@ -20,6 +22,16 @@ $array_parameters['var_admin_password'] = $_POST['admin_password'];
 $array_parameters['var_usr_first_name'] = $_POST['usr_first_name'];
 $array_parameters['var_usr_last_name'] = $_POST['usr_last_name'];
 $array_parameters['var_usr_email'] = $_POST['usr_email'];
+
+/**
+ * Execute "composer update"
+ */
+if ($global_tools->getServerOs() == "WIN") {
+    exec('cd ../.. && composer update');
+} else {
+    exec('cd ../.. && composer update');
+}
+
 
 /**
  * Create global configurations
