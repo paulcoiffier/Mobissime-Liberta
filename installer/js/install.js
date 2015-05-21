@@ -83,7 +83,7 @@ function showRecap() {
     $('#recap_database_database').html(database_database);
 
     $('#recap_admin_user').html(admin_user);
-    $('#recap_admin_password').html(admin_password);
+    $('#recap_admin_password').html("*************");
 
     $('#recap_path_url').text(path_url);
     $('#recap_path_system').text(path_system);
@@ -93,6 +93,7 @@ $(document).ready(function () {
 
     var database_validation = false;
     var pdo_validation = false;
+    var errorDir = false;
 
     $("#wizard").steps();
     $("#form").steps({
@@ -101,12 +102,6 @@ $(document).ready(function () {
             // Always allow going backward even if the current step contains invalid fields!
             if (currentIndex > newIndex) {
                 return true;
-            }
-
-
-            // Forbid suppressing "Warning" step if the user is to young
-            if (newIndex === 3 && Number($("#age").val()) < 18) {
-                return false;
             }
 
             var form = $(this);
@@ -121,14 +116,33 @@ $(document).ready(function () {
             // Disable validation on fields that are disabled or hidden.
             form.validate().settings.ignore = ":disabled,:hidden";
 
-            if ((currentIndex == 3)) {
-                path_url = $("#path_url").val();
-                path_system = $("#path_system").val();
-            }
-
-
             if ((currentIndex == 4)) {
                 showRecap();
+            }
+
+            if (currentIndex == 2) {
+
+                path_url = $("#path_url").val();
+                path_system = $("#path_system").val();
+
+                var path_system = $("#path_system").val();
+                $('#directory_test_write_path').text(path_system);
+
+                $.ajax({
+                    type: 'POST',
+                    url: "ajax/CheckDirectories.php",
+                    data: "path_system=" + path_system,
+                    dataType: "html",
+                    success: function (response) {
+                        if (response == "true") {
+                            $("#directoryError").html("ok");
+                            errorDir = true;
+                        } else {
+                            $("#directoryError").html('<font color="red">Error : Directory "' + path_system + 'src/App/Conf/" has to be writable</font>');
+                            errorDir = false;
+                        }
+                    }
+                });
             }
 
             if ((currentIndex == 1) && (form.validate()) && (database_validation == false)) {
@@ -153,16 +167,22 @@ $(document).ready(function () {
                         }
                     }
                 });
-            } else if ((currentIndex == 2) && (pdo_validation = false)) {
+            } else if ((currentIndex == 3) && (pdo_validation == false) && (errorDir == false)) {
                 /** Check php.ini validation */
                 var pdo_error = $('#pdo_error').html();
-                alert(pdo_error);
-                if (pdo_error == "ok") {
+                var directoryError = $('#directoryError').html();
+                console.log("directoryError : " + directoryError);
+
+                if ((pdo_error == "ok") && (directoryError == "ok")) {
+                    errorDir = true;
                     pdo_validation = true;
                     $("#form").steps("next");
                     pdo_validation = false;
+                    errorDir = false;
                 }
-            } else {
+
+            }
+            else {
                 return form.valid();
             }
             // Start validation; Prevent going forward if false

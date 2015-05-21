@@ -25,6 +25,7 @@ $lang_strings = parse_ini_file("i18n/$lang.ini");
     <link href="../css/plugins/steps/jquery.steps.css" rel="stylesheet">
     <link href="../css/animate.css" rel="stylesheet">
     <link href="../css/style.css" rel="stylesheet">
+    <script src="../js/jquery-2.1.1.js"></script>
 
 </head>
 
@@ -62,16 +63,16 @@ $lang_strings = parse_ini_file("i18n/$lang.ini");
                                 <?php include 'steps/stepDatabase.php'; ?>
                             </fieldset>
 
-                            <!-- Step php.ini -->
-                            <h1><?php echo $lang_strings['title_phpconfig']; ?></h1>
-                            <fieldset>
-                                <?php include 'steps/stepPhpIni.php'; ?>
-                            </fieldset>
-
                             <!-- Step paths -->
                             <h1><?php echo $lang_strings['title_paths']; ?></h1>
                             <fieldset>
                                 <?php include 'steps/stepPaths.php'; ?>
+                            </fieldset>
+
+                            <!-- Step php.ini -->
+                            <h1><?php echo $lang_strings['title_phpconfig']; ?></h1>
+                            <fieldset>
+                                <?php include 'steps/stepPhpIni.php'; ?>
                             </fieldset>
 
                             <!-- Step admin user -->
@@ -107,7 +108,6 @@ $lang_strings = parse_ini_file("i18n/$lang.ini");
 
 
 <!-- Mainly scripts -->
-<script src="../js/jquery-2.1.1.js"></script>
 <script src="../js/bootstrap.min.js"></script>
 <script src="../js/plugins/metisMenu/jquery.metisMenu.js"></script>
 <script src="../js/plugins/slimscroll/jquery.slimscroll.min.js"></script>

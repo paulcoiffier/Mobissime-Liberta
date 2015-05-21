@@ -23,15 +23,6 @@ $array_parameters['var_usr_first_name'] = $_POST['usr_first_name'];
 $array_parameters['var_usr_last_name'] = $_POST['usr_last_name'];
 $array_parameters['var_usr_email'] = $_POST['usr_email'];
 
-/**
- * Execute "composer update"
- */
-if ($global_tools->getServerOs() == "WIN") {
-    exec('cd ../.. && composer update');
-} else {
-    exec('cd ../.. && composer update');
-}
-
 
 /**
  * Create global configurations
