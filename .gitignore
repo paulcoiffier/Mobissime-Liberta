@@ -5,3 +5,5 @@ data/users_profiles
 .idea/
 data/
 cache/
+
+vendor/*
