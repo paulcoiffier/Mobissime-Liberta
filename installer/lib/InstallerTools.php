@@ -148,7 +148,7 @@ class InstallerTools
         return '../../src/App/Conf/Parameters.php';
 
     }
-    
+
     public function createDirectories($parameters)
     {
 

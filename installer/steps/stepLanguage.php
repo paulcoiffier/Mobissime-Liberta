@@ -7,15 +7,15 @@
                     onchange="javascript:changeLang()">
                 <?php
                 if ($lang == "french") {
-                    echo '<option value="french" selected>French</option>';
+                    echo '<option value="French" selected>French</option>';
                 } else {
-                    echo '<option value="french">French</option>';
+                    echo '<option value="French">French</option>';
                 }
 
                 if ($lang == "english") {
-                    echo '<option value="english" selected>English</option>';
+                    echo '<option value="English" selected>English</option>';
                 } else {
-                    echo '<option value="english">English</option>';
+                    echo '<option value="English">English</option>';
                 }
                 ?>
             </select>

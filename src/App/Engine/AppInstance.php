@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Created by PhpStorm.
- * User: Paul
- * Date: 24/01/2015
- * Time: 00:28
- * Application Singleton
+ * Created by Paul Coiffier.
+ * Framework integration : PCSoft
+ * Date: 24/05/2015
+ * Time: 10:28
+ * Application Singleton Instance
  */
 
 namespace App\Engine;
@@ -28,24 +28,21 @@ class AppInstance
 
         $this->_app_language = $app_language;
         $this->_entityManager = $entityManager;
-        $this->_array_words = parse_ini_file($serverRoot.'/i18n/' . $app_language . '.ini');
+        $this->_array_words = parse_ini_file($serverRoot . '/i18n/' . $app_language . '.ini');
 
         /** Load ini file for each module in a global array */
         $words = array();
         $moduleRepository = $this->_entityManager->getRepository('App\Entities\Module');
         $modules = $moduleRepository->findAll();
         foreach ($modules as $module) {
-            $words[$module->getModName()] = parse_ini_file($serverRoot.'src/MyCrm/Modules/' . $module->getModName() . '/i18n/' . $app_language . '.ini');
+            $words[$module->getModName()] = parse_ini_file($serverRoot . 'src/MyCrm/Modules/' . $module->getModName() . '/i18n/' . $app_language . '.ini');
         }
         $this->_array_modules_words = $words;
     }
 
     /**
-     * Méthode qui crée l'unique instance de la classe
-     * si elle n'existe pas encore puis la retourne.
-     *
-     * @param void
-     * @return Singleton
+     * Instanciante if not exist and/or return app instance
+     * @return Singleton instance
      */
     public static function getInstance($app_language, $entityManager)
     {

@@ -60,6 +60,7 @@ class DatabaseTools
             $menu_font_awesome_icon = "fa-edit";
 
             $stmt->bindParam(':menu_name', $menu_name);
+            $stmt->bindParam(':menu_name', $menu_name);
             $stmt->bindParam(':menu_description', $menu_description);
             $stmt->bindParam(':menu_order', $menu_order);
             $stmt->bindParam(':menu_font_awesome_icon', $menu_font_awesome_icon);
