@@ -152,7 +152,7 @@ class InstallerTools
     public function createDirectories($parameters)
     {
 
-        $path = $parameters['var_install_sys_dir'];
+        /*$path = $parameters['var_install_sys_dir'];
 
         if (!file_exists($path . '/data')) {
             mkdir($path . '/data', 0777, true);
@@ -160,7 +160,7 @@ class InstallerTools
 
         if (!file_exists($path . '/data/users_profiles')) {
             mkdir($path . '/data/users_profiles', 0777, true);
-        }
+        }*/
 
     }
 
