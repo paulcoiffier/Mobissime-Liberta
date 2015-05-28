@@ -2,3 +2,9 @@ querybuilder:
     name: querybuilder
     path: /querybuilder/see/{moduleId}
     controller: MyCrm\Modules\LibertaQueryBuilder\Controllers\MainController::indexAction
+
+# Ajax routes
+update_query:
+    name: update_query
+    path: /querybuilder/update_query
+    controller: MyCrm\Modules\LibertaQueryBuilder\Controllers\MainController::updateQueryAjax

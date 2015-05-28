@@ -1,0 +1,45 @@
+<div class="modal inmodal" id="modalQuery" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content animated bounceInRight">
+            <form name="queryForm" id="queryForm">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span
+                            aria-hidden="true">&times;</span><span
+                            class="sr-only">{{module_words.action_close}}</span></button>
+                    <i class="fa fa-info-circle modal-icon"></i>
+                    <h4 class="modal-title">MyCRM</h4>
+                    <small class="font-bold">Add query
+                    </small>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label for="query_name" class='control-label'>&nbsp;Name : </label>
+                        <input type="text" name="query_name"
+                               id="query_name" data-error="{{module_words.title_error}}" required>
+                        <div class="help-block with-errors"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="query_description" class='control-label'>&nbsp;Description : </label>
+                        <input type="text" name="query_description"
+                               id="query_description" data-error="{{module_words.title_error}}" required>
+                        <div class="help-block with-errors"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="query_value" class='control-label'>&nbsp;Value : </label>
+                        <input type="text" name="query_value"
+                               id="query_value" data-error="{{module_words.title_error}}" required>
+                        <div class="help-block with-errors"></div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-white" data-dismiss="modal">{{module_words.action_cancel}}</button>
+                    <button type="submit" class="btn btn-primary">{{module_words.action_confirmation}}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

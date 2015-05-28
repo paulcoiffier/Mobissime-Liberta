@@ -125,7 +125,7 @@ $(document).ready(function () {
                 path_url = $("#path_url").val();
                 path_system = $("#path_system").val();
 
-                var path_system = $("#path_system").val();
+                //var path_system = $("#path_system").val();
                 $('#directory_test_write_path').text(path_system);
 
                 $.ajax({

@@ -1,15 +1,8 @@
+<?xml version="1.0"?>
 <queries>
 
-    <query>
-        <name>Query1</name>
-        <description>Description</description>
-        <valeur>Value</valeur>
-    </query>
+    <query><id>1</id><name>Query11</name><description>Description1</description><valeur>Value 1</valeur></query>
 
-    <query>
-        <name>Query2</name>
-        <description>Description</description>
-        <valeur>Value</valeur>
-    </query>
+    <query><id>2</id><name>Query2_toto</name><description>Description_toto</description><valeur>Value _toto</valeur></query>
 
 </queries>

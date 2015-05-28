@@ -8,8 +8,63 @@
 
 {% block main_content %}
 
-List of queries<br />
+<input type="hidden" name="install_url" id="install_url" value="{{install_url}}">
+<input type="hidden" name="moduleToView" id="moduleToView" value="{{moduleToView}}">
 
-<br />
+<div class="row">
+    <span name="entitiesDiv" id="entitiesDiv"></span>
 
+    <div class="col-lg-12 animated fadeInRight">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5><label id="entityLabel">List of queries</label>
+                        </h5>
+
+                        <div class="ibox-tools">
+                            <a href="javascript:window.history.back();" class="close-link">
+                                <i class="fa fa-arrow-left"></i>
+                            </a>
+
+
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+
+                        <a data-toggle="modal" data-target="#modalQuery" class="btn btn-primary">Add new query</a><br/><br/>
+
+                        {% for query in queries %}
+                        <h3>{{query.name}}</h3>
+
+                        <div class="form-group">
+                            <input type="test" name="{{query.id}}_name" id="{{query.id}}_name"
+                                   class="form-control" value="{{query.name}}">
+                        </div>
+
+                        <div class="form-group">
+                            <input type="test" name="{{query.id}}_description" id="{{query.id}}_description"
+                                   class="form-control" value="{{query.description}}">
+                        </div>
+                        <div class="form-group">
+                            <textarea name="{{query.id}}_value" id="{{query.id}}_value" rows="4" class="form-control">{{query.value}} </textarea>
+                        </div>
+
+                        <a onclick="javascript:saveQuery('{{query.id}}');" class="btn btn-primary">Save</a><br/>
+                        <hr/>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</div>
+
+{% include 'Popups/QueryPopup.html' %}
+<script src="{{install_url}}/src/MyCrm/Modules/{{module_name}}/Js/index.js"></script>
 {% endblock %}
+
+
