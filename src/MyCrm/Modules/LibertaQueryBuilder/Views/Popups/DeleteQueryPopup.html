@@ -1,0 +1,26 @@
+<div class="modal inmodal" id="modalDeleteQuery" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content animated bounceInRight">
+            <form name="deleteQueryForm" id="deleteQueryForm">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span
+                            aria-hidden="true">&times;</span><span
+                            class="sr-only">{{module_words.action_close}}</span></button>
+                    <i class="fa fa-info-circle modal-icon"></i>
+                    <h4 class="modal-title">Liberta</h4>
+                    <small class="font-bold">Delete query
+                    </small>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" name="rowidToDelete" id="rowidToDelete">
+                    Delete this query ?
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-white" data-dismiss="modal">{{module_words.action_cancel}}</button>
+                    <button type="button" class="btn btn-primary" onclick="javascript:deleteQuery();">{{module_words.action_confirmation}}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

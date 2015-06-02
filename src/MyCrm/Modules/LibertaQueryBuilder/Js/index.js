@@ -23,7 +23,14 @@ function saveQuery(id) {
     });
 }
 
-function deleteQuery(id) {
+function setQueryToDelete(id){
+    $("#queryidToDelete").val(id);
+}
+
+
+function deleteQuery() {
+
+    var id = $("#queryidToDelete").val();
 
     var moduleToView = $("#moduleToView").val();
 
@@ -34,7 +41,8 @@ function deleteQuery(id) {
         dataType: "html",
         success: function (response) {
             showLongToaster("success", "Query deleted");
-            location.reload();
+            $("#modalDeleteQuery").modal('hide');
+            $("#" + id).remove();
         }
     });
 }

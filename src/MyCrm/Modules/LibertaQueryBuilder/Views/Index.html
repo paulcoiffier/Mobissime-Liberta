@@ -10,6 +10,7 @@
 
 <input type="hidden" name="install_url" id="install_url" value="{{install_url}}">
 <input type="hidden" name="moduleToView" id="moduleToView" value="{{moduleToView}}">
+<input type="hidden" name="queryidToDelete" id="queryidToDelete" value="{{queryidToDelete}}">
 
 <div class="row">
     <span name="entitiesDiv" id="entitiesDiv"></span>
@@ -41,24 +42,27 @@
                     <div class="ibox-content">
 
                         {% for query in queries %}
-                        <h3>{{query.name}}</h3>
+                        <div id="{{query.id}}">
+                            <h3>{{query.name}}</h3>
 
-                        <div class="form-group">
-                            <input type="test" name="{{query.id}}_name" id="{{query.id}}_name"
-                                   class="form-control" value="{{query.name}}">
-                        </div>
+                            <div class="form-group">
+                                <input type="test" name="{{query.id}}_name" id="{{query.id}}_name"
+                                       class="form-control" value="{{query.name}}">
+                            </div>
 
-                        <div class="form-group">
-                            <input type="test" name="{{query.id}}_description" id="{{query.id}}_description"
-                                   class="form-control" value="{{query.description}}">
-                        </div>
-                        <div class="form-group">
-                            <textarea name="{{query.id}}_value" id="{{query.id}}_value" rows="4" class="form-control">{{query.value}} </textarea>
-                        </div>
+                            <div class="form-group">
+                                <input type="test" name="{{query.id}}_description" id="{{query.id}}_description"
+                                       class="form-control" value="{{query.description}}">
+                            </div>
+                            <div class="form-group">
+                                <textarea name="{{query.id}}_value" id="{{query.id}}_value" rows="4"
+                                          class="form-control">{{query.value}} </textarea>
+                            </div>
 
-                        <a onclick="javascript:deleteQuery('{{query.id}}');" class="btn btn-danger">Delete</a>&nbsp;
-                        <a onclick="javascript:saveQuery('{{query.id}}');" class="btn btn-primary">Save</a><br/>
-                        <hr/>
+                            <a data-toggle="modal" data-target="#modalDeleteQuery" onclick="javascript:setQueryToDelete('{{query.id}}');" class="btn btn-danger">Delete</a>&nbsp;
+                            <a onclick="javascript:saveQuery('{{query.id}}');" class="btn btn-primary">Save</a><br/>
+                            <hr/>
+                        </div>
                         {% endfor %}
 
                     </div>
@@ -71,6 +75,7 @@
 </div>
 
 {% include 'Popups/QueryPopup.html' %}
+{% include 'Popups/DeleteQueryPopup.html' %}
 <script src="{{install_url}}/src/MyCrm/Modules/{{module_name}}/Js/index.js"></script>
 {% endblock %}
 
