@@ -45,21 +45,49 @@
                         <div id="{{query.id}}">
                             <h3>{{query.name}}</h3>
 
-                            <div class="form-group">
-                                <input type="test" name="{{query.id}}_name" id="{{query.id}}_name"
-                                       class="form-control" value="{{query.name}}">
-                            </div>
+                            <fieldset>
 
-                            <div class="form-group">
-                                <input type="test" name="{{query.id}}_description" id="{{query.id}}_description"
-                                       class="form-control" value="{{query.description}}">
-                            </div>
-                            <div class="form-group">
-                                <textarea name="{{query.id}}_value" id="{{query.id}}_value" rows="4"
-                                          class="form-control">{{query.value}} </textarea>
-                            </div>
+                                <div class="control-group">
+                                
 
-                            <a data-toggle="modal" data-target="#modalDeleteQuery" onclick="javascript:setQueryToDelete('{{query.id}}');" class="btn btn-danger">Delete</a>&nbsp;
+                                    <div class="controls">
+                                        <input type="test" name="{{query.id}}_name" id="{{query.id}}_name"
+                                               class="form-control" value="{{query.name}}">
+
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label class="control-label" for="{{query.id}}_description">Description</label>
+
+                                    <div class="controls">
+                                        <input type="test" name="{{query.id}}_description" id="{{query.id}}_description"
+                                               class="form-control" value="{{query.description}}">
+
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label class="control-label" for="{{query.id}}_value">DQL Query</label>
+
+                                    <div class="controls">
+                                        <textarea name="{{query.id}}_value" id="{{query.id}}_value" rows="4"
+                                                  class="form-control">{{query.value}} </textarea>
+
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+
+                            </fieldset>
+
+
+
+
+
+                            <a data-toggle="modal" data-target="#modalDeleteQuery"
+                               onclick="javascript:setQueryToDelete('{{query.id}}');" class="btn btn-danger">Delete</a>&nbsp;
                             <a onclick="javascript:saveQuery('{{query.id}}');" class="btn btn-primary">Save</a><br/>
                             <hr/>
                         </div>
