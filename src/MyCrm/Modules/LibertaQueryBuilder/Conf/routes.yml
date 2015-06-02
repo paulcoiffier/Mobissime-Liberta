@@ -8,3 +8,14 @@ update_query:
     name: update_query
     path: /querybuilder/update_query
     controller: MyCrm\Modules\LibertaQueryBuilder\Controllers\MainController::updateQueryAjax
+
+
+add_query:
+    name: add_query
+    path: /querybuilder/add_query
+    controller: MyCrm\Modules\LibertaQueryBuilder\Controllers\MainController::addQueryAjax
+
+delete_query:
+    name: delete_query
+    path: /querybuilder/delete_query
+    controller: MyCrm\Modules\LibertaQueryBuilder\Controllers\MainController::deleteQueryAjax

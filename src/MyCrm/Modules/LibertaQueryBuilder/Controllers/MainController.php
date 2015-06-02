@@ -58,4 +58,44 @@ class MainController extends TwigController
             return new Response('ok');
         }
     }
+
+    public function addQueryAjax(Request $request, $appParams)
+    {
+        $request = Request::createFromGlobals();
+
+        if ($request->isXmlHttpRequest()) {
+
+            $query_name = $_REQUEST['query_name'];
+            $query_description = $_REQUEST['query_description'];
+            $query_value = $_REQUEST['query_value'];
+            $module_name = $_REQUEST['module_name'];
+
+            $q = new \MyCrm\Modules\LibertaQueryBuilder\Model\QueriesModel;
+            $id = $q->getNewQueryId();
+
+            $q->addQuery($module_name, $id, $query_name, $query_description, $query_value);
+
+            return new Response('ok');
+        }
+    }
+
+    public function deleteQueryAjax(Request $request, $appParams)
+    {
+        $request = Request::createFromGlobals();
+
+        if ($request->isXmlHttpRequest()) {
+
+            $id = $_REQUEST['id'];
+            $module_name = $_REQUEST['module_name'];
+
+            $q = new \MyCrm\Modules\LibertaQueryBuilder\Model\QueriesModel;
+
+            $q->deleteQuery($module_name, $id);
+
+            return new Response('ok');
+        }
+    }
+
+
+
 }

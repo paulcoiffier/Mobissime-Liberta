@@ -1,8 +1,9 @@
 <?xml version="1.0"?>
 <queries>
 
-    <query><id>1</id><name>Query11</name><description>Description1</description><valeur>Value 1</valeur></query>
+    
 
-    <query><id>2</id><name>Query2_toto</name><description>Description_toto</description><valeur>Value _toto</valeur></query>
+    
 
-</queries>
+    
+<query><id>158</id><name>tata</name><description>tata</description><valeur>tata</valeur></query></queries>

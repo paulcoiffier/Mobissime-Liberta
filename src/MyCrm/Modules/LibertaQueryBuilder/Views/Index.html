@@ -27,12 +27,18 @@
                                 <i class="fa fa-arrow-left"></i>
                             </a>
 
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-gear"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a data-toggle="modal" data-target="#modalQuery">Create query</a>
+                                </li>
+
+                            </ul>
 
                         </div>
                     </div>
                     <div class="ibox-content">
-
-                        <a data-toggle="modal" data-target="#modalQuery" class="btn btn-primary">Add new query</a><br/><br/>
 
                         {% for query in queries %}
                         <h3>{{query.name}}</h3>
@@ -50,6 +56,7 @@
                             <textarea name="{{query.id}}_value" id="{{query.id}}_value" rows="4" class="form-control">{{query.value}} </textarea>
                         </div>
 
+                        <a onclick="javascript:deleteQuery('{{query.id}}');" class="btn btn-danger">Delete</a>&nbsp;
                         <a onclick="javascript:saveQuery('{{query.id}}');" class="btn btn-primary">Save</a><br/>
                         <hr/>
                         {% endfor %}
