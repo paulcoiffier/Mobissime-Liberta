@@ -10,6 +10,12 @@ view_module:
     path: /modules/view/{moduleToSee}
     controller: MyCrm\Modules\LibertaModules\Controllers\MainController::viewModuleAction
 
+    # View module details
+doc_module:
+    name: doc_module
+    path: /modules/doc/{moduleToSee}
+    controller: MyCrm\Modules\LibertaModules\Controllers\MainController::doc
+
 # Create new module
 create_module:
     name: create_module

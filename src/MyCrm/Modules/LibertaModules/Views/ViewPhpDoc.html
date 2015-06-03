@@ -1,0 +1,15 @@
+{% extends MainTpl %}
+
+{% block header %}Todos{% endblock %}
+
+{% block header_block %}
+{% include 'Header.html' %}
+{% endblock %}
+
+{% block main_content %}
+<div class="tab-pane" id="jsframework" style="height: 3000px;">
+    <iframe src="{{install_url}}/src/MyCrm/Modules/{{module}}/Doc/index.html" scrolling="no" frameborder="0"
+            style="overflow:hidden;height:100%;width:100%"></iframe>
+</div>
+
+{% endblock %}

@@ -37,6 +37,31 @@ class MainController extends TwigController
         return $this->getResponse();
     }
 
+
+
+    public function doc($appParams, $moduleToSee)
+    {
+        $path = $_SERVER["DOCUMENT_ROOT"] . install_path . 'src/MyCrm/Modules/';
+
+        /** Internal controller mixture */
+        $moduleModel = new ModulesModel($appParams['entityManager']);
+        $moduleToView = $moduleModel->getModuleById($moduleToSee);
+        $this->setValues(__DIR__ . '/../Views/', $appParams, $moduleToView, $appParams['container']);
+
+        /** Special case */
+        $this->setModule($moduleToView);
+
+        /** Read module ini file */
+        $config = parse_ini_file($path . $moduleToView->getModName() . '/module.ini');
+
+        $this->setPageTemplate('ViewPhpDoc.html');
+        $this->setModuleRendererOptions(array(
+            'module' => $moduleToView->getModName()));
+
+        /** Response */
+        return $this->getResponse();
+    }
+
     public function viewModuleAction($appParams, $moduleToSee)
     {
         $path = $_SERVER["DOCUMENT_ROOT"] . install_path . 'src/MyCrm/Modules/';
