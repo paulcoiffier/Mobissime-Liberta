@@ -1,1 +1,50 @@
-{% extends MainTpl %}{% block header %}{{module_title}}{% endblock %}{% block header_block %}{% include 'Header.html' %}{% endblock %}{% block main_content %}<div class="lyrow ui-draggable databased" style="display: block;" name="DXBsb"><a href="#close" onclick="javascript:removeXmlComponent(this);" class="remove label label-danger"><i class="glyphicon glyphicon-remove"></i> remove</a><span class="drag label label-default"><i class="glyphicon glyphicon-move"></i> drag</span><span class="configuration"><span class="btn-group btn-group-xs"><a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">Style<span class="caret"></span></a><ul class="dropdown-menu"> <li class="active"><a href="#" rel="">Default</a></li><li class=""><a href="#" rel="table-striped">Striped</a></li><li class=""><a href="#" rel="table-bordered">Bordered</a></li></ul></span><a class="btn btn-xs btn-default" href="#" rel="table-hover">Hover</a><a class="btn btn-xs btn-default" href="#" rel="table-condensed">Condensed</a></span><div class="preview">Table</div><div class="view"><table class="table" contenteditable="true"><thead><tr><th>case_status</th><th>case_type</th><th>case_subject</th><th>case_description</th><th>case_resolution</th><th>case_date_open</th></tr></thead><tbody><!-- DXBsb --><tr><td>fields.case_status</td><td>fields.case_type</td><td>fields.case_subject</td><td>fields.case_description</td><td>fields.case_resolution</td><td>fields.case_date_open</td></tr></tbody></table></div></div>{% endblock %}
+{% extends MainTpl %}{% block header %}{{module_title}}{% endblock %}{% block header_block %}{% include 'Header.html' %}{% endblock %}{% block main_content %}<div class="lyrow ui-draggable" style="display: block;">
+                <a href="#close" class="remove label label-danger"><i class="glyphicon-remove glyphicon"></i> remove</a>
+                <span class="drag label label-default"><i class="glyphicon glyphicon-move"></i> drag</span>
+
+                <div class="preview">Classic panel</div>
+                <div class="view">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>Panel
+                            </h5>
+
+                            <div class="ibox-tools">
+
+                                <a href="javascript:window.history.back();" class="close-link">
+                                    <i class="fa fa-arrow-left"></i>
+                                </a>
+
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-gear"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-user">
+                                    <li><a href="">Empty action</a>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+                        <div class="ibox-content">
+
+                            <div class="lyrow ui-draggable">
+                                <a href="#close" class="remove label label-danger"><i class="glyphicon-remove glyphicon"></i> remove</a>
+                                <span class="drag label label-default"><i class="glyphicon glyphicon-move"></i> drag</span>
+
+                                <div class="preview"><input type="text" value="12" class="form-control"></div>
+                                <div class="view">
+                                    <div class="row clearfix">
+                                        <div class="col-md-12 column ui-sortable"><div class="lyrow ui-draggable databased" style="display: block; position: relative; opacity: 1; z-index: 0;" name="DXBsb"><a href="#close" onclick="javascript:removeXmlComponent(this);" class="remove label label-danger"><i class="glyphicon glyphicon-remove"></i> remove</a><span class="drag label label-default"><i class="glyphicon glyphicon-move"></i> drag</span><span class="configuration"><span class="btn-group btn-group-xs"><a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">Style<span class="caret"></span></a><ul class="dropdown-menu"> <li class="active"><a href="#" rel="">Default</a></li><li class=""><a href="#" rel="table-striped">Striped</a></li><li class=""><a href="#" rel="table-bordered">Bordered</a></li></ul></span><a class="btn btn-xs btn-default" href="#" rel="table-hover">Hover</a><a class="btn btn-xs btn-default" href="#" rel="table-condensed">Condensed</a></span><div class="preview">Table</div><div class="view"><table class="table" contenteditable="true"><thead><tr><th>case_status</th><th>case_type</th><th>case_subject</th><th>case_description</th><th>case_resolution</th><th>case_date_open</th></tr></thead><tbody><!-- DXBsb --><tr><td>fields.case_status</td><td>fields.case_type</td><td>fields.case_subject</td><td>fields.case_description</td><td>fields.case_resolution</td><td>fields.case_date_open</td></tr></tbody></table></div></div></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <br><br>
+
+                        </div>
+                    </div>
+                    <!--<div class="row clearfix">
+                        <div class="col-md-12 column"></div>
+                    </div>-->
+                </div>
+            </div>{% endblock %}

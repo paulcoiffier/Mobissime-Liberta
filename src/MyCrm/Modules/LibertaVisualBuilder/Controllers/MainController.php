@@ -52,6 +52,8 @@ class MainController extends TwigController
         $entityUtils = new EntitiesUtils();
         $options = array("entities" => "");
 
+        /** TODO : FIX IF WE CONTINUE TO USE ENTITIES OR QUERIES.XML FILE FOR EACH MODULE */
+
         /** Add each entity in module array for twig usages */
         foreach ($entities as $entity) {
             $array = $entityUtils->getEntityFields($entity->name, $appParams['entityManager']);
@@ -180,7 +182,7 @@ class MainController extends TwigController
             fwrite($file, "{% endblock %}");
             fwrite($file, "{% block main_content %}");
 
-            $content = str_replace('<div class="container">','<div class="container" style="width:100%;">',$content);
+            $content = str_replace('<div class="container">', '<div class="container" style="width:100%;">', $content);
 
             fwrite($file, $content);
             fwrite($file, "{% endblock %}");

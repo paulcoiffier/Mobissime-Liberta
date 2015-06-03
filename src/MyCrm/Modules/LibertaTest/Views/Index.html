@@ -1,64 +1,87 @@
-{% extends MainTpl %}{% block header %}{{module_title}}{% endblock %}{% block header_block %}{% include 'Header.html' %}{% endblock %}{% block main_content %}
-<div class="container" style="width:100%;">
-    <div class="lyrow ui-draggable databased removeClean">
-        <div class="view">
-            <table class="table">
-                <thead>
-                <tr>
-                    <th>
-                        case_status
-                    </th>
-                    <th>
-                        case_type
-                    </th>
-                    <th>
-                        case_subject
-                    </th>
-                    <th>
-                        case_description
-                    </th>
-                    <th>
-                        case_resolution
-                    </th>
-                    <th>
-                        case_date_open
-                    </th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for var in DXBsb %}
-                <tr>
-                    <td>{{ var.case_status }}</td>
-                    <td>{{ var.case_type }}</td>
-                    <td>{{ var.case_subject }}</td>
-                    <td>{{ var.case_description }}</td>
-                    <td>{{ var.case_resolution }}</td>
-                    <td>{{ var.case_date_open }}</td>
-                </tr>
-                {% endfor %}
+{% extends MainTpl %}{% block header %}{{module_title}}{% endblock %}{% block header_block %}{% include 'Header.html' %}{% endblock %}{% block main_content %}<div class="container" style="width:100%;">
+	<div class="lyrow ui-draggable removeClean">
+		<div class="view">
+			<div class="ibox float-e-margins">
+				<div class="ibox-title">
+					<h5>
+						Panel
+					</h5>
+					<div class="ibox-tools">
+						 <a href="javascript:window.history.back();" class="close-link"><em class="fa fa-arrow-left"></em></a> <a class="dropdown-toggle" data-toggle="dropdown" href="#"><em class="fa fa-gear"></em></a>
+						<ul class="dropdown-menu dropdown-user">
+							<li>
+								<a>Empty action</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="ibox-content">
+					<div class="lyrow ui-draggable removeClean">
+						<div class="view">
+							<div class="row clearfix">
+								<div class="col-md-12 column">
+									<div class="lyrow ui-draggable databased removeClean">
+										<div class="view">
+											<table class="table">
+												<thead>
+													<tr>
+														<th>
+															case_status
+														</th>
+														<th>
+															case_type
+														</th>
+														<th>
+															case_subject
+														</th>
+														<th>
+															case_description
+														</th>
+														<th>
+															case_resolution
+														</th>
+														<th>
+															case_date_open
+														</th>
+													</tr>
+												</thead>
+												<tbody>
+													<!-- DXBsb -->
 
-                <tr>
-                    <td>
-                        fields.case_status
-                    </td>
-                    <td>
-                        fields.case_type
-                    </td>
-                    <td>
-                        fields.case_subject
-                    </td>
-                    <td>
-                        fields.case_description
-                    </td>
-                    <td>
-                        fields.case_resolution
-                    </td>
-                    <td>
-                        fields.case_date_open
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
+													<tr>
+														<td>
+															fields.case_status
+														</td>
+														<td>
+															fields.case_type
+														</td>
+														<td>
+															fields.case_subject
+														</td>
+														<td>
+															fields.case_description
+														</td>
+														<td>
+															fields.case_resolution
+														</td>
+														<td>
+															fields.case_date_open
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div><br /><br />
+				</div>
+			</div> <!--
+			<div class="row clearfix">
+				<div class="col-md-12 column">
+				</div>
+			</div> -->
+		</div>
+	</div>
 </div>{% endblock %}
