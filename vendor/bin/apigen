@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+SRC_DIR="`pwd`"
+cd "`dirname "$0"`"
+cd "../apigen/apigen/bin"
+BIN_TARGET="`pwd`/apigen"
+cd "$SRC_DIR"
+"$BIN_TARGET" "$@"

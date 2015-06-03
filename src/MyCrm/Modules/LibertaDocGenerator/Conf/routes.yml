@@ -1,0 +1,4 @@
+docgen:
+    name: docgen
+    path: /docgen
+    controller: MyCrm\Modules\LibertaDocGenerator\Controllers\MainController::indexAction

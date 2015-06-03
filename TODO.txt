@@ -1,0 +1,42 @@
+
+A VOIR URGENT AVANT LE RESTE : comment gérer le passage de paramètres à une query / bind variables + moteur pour remplacer les variables
+
+Implémenter la gestion de bind variables pour une query, donc à sauvegarder dans le XML... :(
+On ajout un onglet sur la visu des query. On ne l'ajoute pas dans la création pour le moment, ou alors à voir...
+
+/********************************************************************************/
+Exemple de requete DQL avec bind variable : 
+$query = $em->createQuery('SELECT u FROM ForumUser u WHERE u.username = :name');
+$query->setParameter('name', 'Bob');
+/********************************************************************************/
+
+==> Commencer à appliquer les best pratices partout. A savoir : 
+=> Prendre un exemple de fonction déjà faite ou la gestion d'erreur est maitrisée via le retour d'une payload JSON et l'application PARTOUT
+=======> Peut-être penser à écrire un petit framework javascript pour gérer l'AJAX et un certain nombre d'autres choses, comme l'affichage des messages, l'ajout d'éléments HTML, 
+la suppression, etc.
+
+=> Utiliser les AjaxController pour tout ce qui est Ajax
+=> Plus le nom de l'application en dur
+
+---------------------------------------------------------------------------------------------------
+Delire à étudier : 
+
+Après le FORK de JSDoc sur GitHub, il faut voir pour créer des templates mais comme le système est moche...
+Etudier comment fonctionne la génération et essayer de la lancer depuis un cycle php, et de maitriser le rendu via des templates html...Voir si enorme ou pas à faire...
+---------------------------------------------------------------------------------------------------
+
+On avait prévu le dossier "Src/App/Repositories_xml" pour stocker les queries dans les entités.
+Mais il ne faut pas partager les queries entre les modules je pense.
+
+==> Il faut proposer un "findAll" pour chaque entités 
+
+Est-il vraiment necesaire de continuer à générer ces repositories car il faut impérativement que le module soit autonome et indépendant
+DONC les queries doivent être dans un fichier XML du module comme déjà fait
+
+Inconvénient : pas de partage de queries entre les modules . Mais on pourrai imaginer une popup sur la page ou un système de copie de queries entre modules afin de pouvoir
+gagner du temps et éviter les copier/coller.
+
+
+TODO
+
+Etudier la génération des services WEB pour chaque QUERY (donc voir pour le passage de paramètres)

@@ -175,7 +175,7 @@ class __TwigTemplate_e4be7d592d4551ddd22b67b4b61670997aee12f5cb0bd0c42d09a3a8270
     <script src=\"";
         // line 71
         echo twig_escape_filter($this->env, (isset($context["install_url"]) ? $context["install_url"] : null), "html", null, true);
-        echo "/src/App/Js/Libs.js\"></script>
+        echo "/src/App/Js/LibertaFramework.js\"></script>
 
     <!-- Custom and plugin javascript -->
     <script src=\"";
