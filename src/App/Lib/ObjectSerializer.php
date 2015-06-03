@@ -15,9 +15,24 @@ use Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer;
 
 use \App\Objects\Field;
 
+/**
+ * XML Object serializer
+ *
+ * For the full copyright and license information, please view
+ * the file LICENSE that was distributed with this source code.
+ *
+ * @author Paul Coiffier <coiffier.paul@gmail.com>
+ * @copyright 2015 Paul Coiffier | Mobissime - <http://www.mobissime.com>
+ */
 class ObjectSerializer
 {
 
+    /**
+     * Serialize to file
+     * @param $file Filename
+     * @param $format Format (xml, etc)
+     * @param $content Content to serialize
+     */
     public function serializeFile($file, $format, $content)
     {
 
@@ -34,6 +49,12 @@ class ObjectSerializer
         fclose($fp);
     }
 
+    /**
+     * Serialize a doctrine entity
+     * @param $entity_name Entity name
+     * @param $format Format (xml, etc)
+     * @param $content Content to serialize
+     */
     public function serializeEntity($entity_name, $format, $content){
         $encoders = array(new XmlEncoder('Entity'), new JsonEncoder());
         $normalizers = array(new GetSetMethodNormalizer());
@@ -44,6 +65,11 @@ class ObjectSerializer
         fclose($fp);
     }
 
+    /**
+     * Find and return an xml entity
+     * @param $entity_name Entity to find
+     * @return \App\Objects\Entity Entity object
+     */
     public function find_xml_entity($entity_name){
         $encoders = array(new XmlEncoder('Entity'), new JsonEncoder());
         $normalizers = array(new GetSetMethodNormalizer());

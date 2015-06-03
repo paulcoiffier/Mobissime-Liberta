@@ -1,28 +1,38 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Paul
- * Date: 15/01/2015
- * Time: 21:57
- * Load All Modules from database
- */
 
 namespace App\Lib;
 
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
 
+/**
+ * Module utility class
+ *
+ * For the full copyright and license information, please view
+ * the file LICENSE that was distributed with this source code.
+ *
+ * @author Paul Coiffier <coiffier.paul@gmail.com>
+ * @copyright 2015 Paul Coiffier | Mobissime - <http://www.mobissime.com>
+ */
 class ModuleUtils
 {
 
+    /**
+     * @var EntityManager
+     */
     public $entityManager;
 
+    /**
+     * @param EntityManager $entityManager
+     */
     public function __construct(EntityManager $entityManager)
     {
         $this->entityManager = $entityManager;
     }
 
-    /** List & Check Modules */
+    /**
+     * Update all modules
+     */
     public function updateModules()
     {
         $path = $_SERVER["DOCUMENT_ROOT"] . install_path . 'modules/';
@@ -205,21 +215,30 @@ class ModuleUtils
         echo '</div></div>';
     }
 
+    /**
+     * Get all modules
+     * @return array App\Entities\Module
+     */
     public function getAllModules()
     {
         return $this->entityManager->getRepository('App\Entities\Module')->findAll();
     }
 
     /**
-     * Get Object "module" by module name
-     * @param $moduleName
-     * @return null|object
+     * Find App\Entities\Module by name
+     * @param $moduleName Module name
+     * @return null|\App\Entities\Module
      */
     public function getModuleByName($moduleName)
     {
         return $this->entityManager->getRepository('App\Entities\Module')->findOneBy(array('mod_name' => $moduleName));
     }
 
+    /**
+     * Find App\Entities\Module by Id
+     * @param $moduleId Module ID
+     * @return null|\App\Entities\Module
+     */
     public function getModuleById($moduleId)
     {
         return $this->entityManager->getRepository('App\Entities\Module')->findOneBy(array('id' => $moduleId));

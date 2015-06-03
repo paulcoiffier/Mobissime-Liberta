@@ -8,11 +8,26 @@
 
 namespace App\Lib;
 
-
+/**
+ * Login utility class
+ *
+ * For the full copyright and license information, please view
+ * the file LICENSE that was distributed with this source code.
+ *
+ * @author Paul Coiffier <coiffier.paul@gmail.com>
+ * @copyright 2015 Paul Coiffier | Mobissime - <http://www.mobissime.com>
+ */
 class Login
 {
 
+    /**
+     * @var bool if user is logged in
+     */
     private $user_is_logged_in = false;
+
+    /**
+     * @var user connected
+     */
     private $user;
 
     public function __construct()

@@ -10,9 +10,23 @@ namespace App\Lib;
 
 use App\Services\AnnotationsParser;
 
+/**
+ * Doctrine entities utility class
+ *
+ * For the full copyright and license information, please view
+ * the file LICENSE that was distributed with this source code.
+ *
+ * @author Paul Coiffier <coiffier.paul@gmail.com>
+ * @copyright 2015 Paul Coiffier | Mobissime - <http://www.mobissime.com>
+ */
 class EntitiesUtils
 {
 
+    /**
+     * Get list of all doctrine entities
+     *
+     * @return array List of entities
+     */
     public function getEntitiesList()
     {
         $root = $_SERVER["DOCUMENT_ROOT"] . install_path . 'src/App/Entities';
@@ -44,6 +58,13 @@ class EntitiesUtils
         return $rootFiles;
     }
 
+    /**
+     * Get list of fields for an entity
+     *
+     * @param $entity : Entity name
+     * @param $entityManager : Doctrine entity manager
+     * @return array List of entities
+     */
     public function getEntityFields($entity, $entityManager)
     {
         /** Class properties parsing */

@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Mobissime Liberta source code Documentation</title>
+
+	<link rel="stylesheet" href="resources/bootstrap.min.css?973e37a8502921d56bc02bb55321f45b072b6f71">
+	<link rel="stylesheet" href="resources/style.css?a2b5efb503881470385230f40f9bcc3c94d665e7">
+
+</head>
+
+<body>
+	<nav id="navigation" class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a href="index.html" class="navbar-brand">Liberta Doc</a>
+			</div>
+			<div class="collapse navbar-collapse">
+
+                <form id="search" class="navbar-form navbar-left" role="search">
+                    <input type="hidden" name="cx" value="">
+                    <input type="hidden" name="ie" value="UTF-8">
+                    <div class="form-group">
+                        <input type="text" name="q" class="search-query form-control" placeholder="Search">
+					</div>
+				</form>
+
+				<ul class="nav navbar-nav">
+					<li>
+						<a href="namespace-App.Lib.html" title="Summary of App\Lib"><span>Namespace</span></a>
+					</li>
+					<li class="active">
+<span>Class</span>					</li>
+
+
+
+
+
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div id="left">
+	<div id="menu">
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+					<li class="active">
+						<a href="namespace-App.html">
+							App<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.Controller.html">
+							Controller						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Engine.html">
+							Engine						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Entities.html">
+							Entities						</a>
+							</li>
+					<li class="active">
+						<a href="namespace-App.Lib.html">
+							Lib<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.Lib.Crud.html">
+							Crud						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Lib.Entities.html">
+							Entities						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Lib.Module.html">
+							Module						</a>
+							</li>
+								</ul></li>
+					<li>
+						<a href="namespace-App.Listeners.html">
+							Listeners						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Model.html">
+							Model						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Objects.html">
+							Objects						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Repositories.html">
+							Repositories						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Services.html">
+							Services						</a>
+							</li>
+								</ul></li>
+					<li>
+						<a href="namespace-None.html">
+							None						</a>
+							</li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-App.Lib.EntitiesUtils.html">EntitiesUtils</a></li>
+				<li><a href="class-App.Lib.Login.html">Login</a></li>
+				<li><a href="class-App.Lib.ModuleUtils.html">ModuleUtils</a></li>
+				<li><a href="class-App.Lib.ObjectSerializer.html">ObjectSerializer</a></li>
+				<li class="active"><a href="class-App.Lib.TwigController.html">TwigController</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Class TwigController</h1>
+
+
+	<div class="description">
+	<p>Twig Controller</p>
+
+<p>For the full copyright and license information, please view
+the file LICENSE that was distributed with this source code.</p>
+	</div>
+
+
+
+	<div>
+		<h3>Direct known subclasses</h3>
+		<p class="elementList">
+			<code><a href="class-App.Controller.AppController.html">App\Controller\AppController</a></code>
+		</p>
+	</div>
+
+
+
+
+
+
+	<div class="alert alert-info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-App.html">App</a>\<a href="namespace-App.Lib.html">Lib</a><br>
+		
+
+				<b>Copyright:</b>
+				2015 Paul Coiffier | Mobissime - <a href="http://www.mobissime.com">http://www.mobissime.com</a><br>
+				<b>Author:</b>
+				Paul Coiffier <a href="&#109;&#x61;&#x69;&#108;&#116;&#x6f;&#58;&#99;&#x6f;&#105;&#102;&#x66;i&#101;&#x72;&#x2e;&#112;&#x61;&#x75;&#108;&#64;&#x67;&#109;&#97;&#x69;l&#46;&#x63;&#x6f;&#109;">&#99;&#x6f;&#105;&#102;&#x66;i&#101;&#x72;&#x2e;&#112;&#x61;&#x75;&#108;&#64;&#x67;&#109;&#97;&#x69;l&#46;&#x63;&#x6f;&#109;</a><br>
+			<b>Located at</b> <a href="source-class-App.Lib.TwigController.html#9-355" title="Go to source code">Lib/TwigController.php</a>
+		<br>
+	</div>
+
+
+
+		<div class="panel panel-default">
+			<div class="panel-heading"><h2>Methods summary</h2></div>
+			<table class="summary table table-bordered table-striped methods" id="methods">
+		<tr data-order="setValues" id="_setValues">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_setValues">#</a>
+			<code><a href="source-class-App.Lib.TwigController.html#80-105" title="Go to source code">setValues</a>( <span> <var>$templateFolder</var></span>, <span> <var>$appParams</var></span>, <span> <var>$container</var></span> )</code>
+
+			<div class="description short">
+				<p>Set values for controller vars</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Set values for controller vars</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$templateFolder</var></dt>
+						<dd>folder</dd>
+						<dt><var>$appParams</var></dt>
+						<dd>app params</dd>
+						<dt><var>$container</var></dt>
+						<dd>container</dd>
+					</dl></div>
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getLoader" id="_getLoader">
+
+			<td class="attributes"><code>
+				 public 
+				mixed
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getLoader">#</a>
+			<code><a href="source-class-App.Lib.TwigController.html#107-114" title="Go to source code">getLoader</a>( )</code>
+
+			<div class="description short">
+				<p>Get twig loader</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Get twig loader</p>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						mixed
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getTwig" id="_getTwig">
+
+			<td class="attributes"><code>
+				 public 
+				mixed
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getTwig">#</a>
+			<code><a href="source-class-App.Lib.TwigController.html#116-125" title="Go to source code">getTwig</a>( )</code>
+
+			<div class="description short">
+				<p>Get twig object</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Get twig object</p>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						mixed
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="setTemplatesFolder" id="_setTemplatesFolder">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_setTemplatesFolder">#</a>
+			<code><a href="source-class-App.Lib.TwigController.html#127-134" title="Go to source code">setTemplatesFolder</a>( <span>mixed <var>$templatesFolder</var></span> )</code>
+
+			<div class="description short">
+				<p>Set template folder</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Set template folder</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$templatesFolder</var></dt>
+						<dd></dd>
+					</dl></div>
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getAppParams" id="_getAppParams">
+
+			<td class="attributes"><code>
+				 public 
+				mixed
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getAppParams">#</a>
+			<code><a href="source-class-App.Lib.TwigController.html#136-143" title="Go to source code">getAppParams</a>( )</code>
+
+			<div class="description short">
+				<p>Get global application parameters</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Get global application parameters</p>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						mixed
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="setAppParams" id="_setAppParams">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_setAppParams">#</a>
+			<code><a href="source-class-App.Lib.TwigController.html#145-152" title="Go to source code">setAppParams</a>( <span>mixed <var>$appParams</var></span> )</code>
+
+			<div class="description short">
+				<p>Set global application parameters</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Set global application parameters</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$appParams</var></dt>
+						<dd></dd>
+					</dl></div>
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getGlobalRenderedOptions" id="_getGlobalRenderedOptions">
+
+			<td class="attributes"><code>
+				 public 
+				mixed
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getGlobalRenderedOptions">#</a>
+			<code><a href="source-class-App.Lib.TwigController.html#154-189" title="Go to source code">getGlobalRenderedOptions</a>( )</code>
+
+			<div class="description short">
+				<p>Get global rendered options</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Get global rendered options</p>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						mixed
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getWordsList" id="_getWordsList">
+
+			<td class="attributes"><code>
+				 public 
+				mixed
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getWordsList">#</a>
+			<code><a href="source-class-App.Lib.TwigController.html#191-198" title="Go to source code">getWordsList</a>( )</code>
+
+			<div class="description short">
+				<p>getWordsList</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>getWordsList</p>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						mixed
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="setWordsList" id="_setWordsList">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_setWordsList">#</a>
+			<code><a href="source-class-App.Lib.TwigController.html#200-207" title="Go to source code">setWordsList</a>( <span>mixed <var>$wordsList</var></span> )</code>
+
+			<div class="description short">
+				<p>setWordsList</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>setWordsList</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$wordsList</var></dt>
+						<dd></dd>
+					</dl></div>
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getModule" id="_getModule">
+
+			<td class="attributes"><code>
+				 public 
+				mixed
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getModule">#</a>
+			<code><a href="source-class-App.Lib.TwigController.html#209-216" title="Go to source code">getModule</a>( )</code>
+
+			<div class="description short">
+				<p>getModule</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>getModule</p>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						mixed
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="setModule" id="_setModule">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_setModule">#</a>
+			<code><a href="source-class-App.Lib.TwigController.html#218-225" title="Go to source code">setModule</a>( <span>mixed <var>$module</var></span> )</code>
+
+			<div class="description short">
+				<p>getModule</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>getModule</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$module</var></dt>
+						<dd></dd>
+					</dl></div>
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getModuleRendererOptions" id="_getModuleRendererOptions">
+
+			<td class="attributes"><code>
+				 public 
+				mixed
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getModuleRendererOptions">#</a>
+			<code><a href="source-class-App.Lib.TwigController.html#227-233" title="Go to source code">getModuleRendererOptions</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						mixed
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="setModuleRendererOptions" id="_setModuleRendererOptions">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_setModuleRendererOptions">#</a>
+			<code><a href="source-class-App.Lib.TwigController.html#235-241" title="Go to source code">setModuleRendererOptions</a>( <span>mixed <var>$moduleRendererOptions</var></span> )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$moduleRendererOptions</var></dt>
+						<dd></dd>
+					</dl></div>
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getResponse" id="_getResponse">
+
+			<td class="attributes"><code>
+				 public 
+				mixed
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getResponse">#</a>
+			<code><a href="source-class-App.Lib.TwigController.html#243-263" title="Go to source code">getResponse</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						mixed
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="setResponse" id="_setResponse">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_setResponse">#</a>
+			<code><a href="source-class-App.Lib.TwigController.html#265-271" title="Go to source code">setResponse</a>( <span>mixed <var>$response</var></span> )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$response</var></dt>
+						<dd></dd>
+					</dl></div>
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getPageTemplate" id="_getPageTemplate">
+
+			<td class="attributes"><code>
+				 public 
+				mixed
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getPageTemplate">#</a>
+			<code><a href="source-class-App.Lib.TwigController.html#273-279" title="Go to source code">getPageTemplate</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						mixed
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="setPageTemplate" id="_setPageTemplate">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_setPageTemplate">#</a>
+			<code><a href="source-class-App.Lib.TwigController.html#281-287" title="Go to source code">setPageTemplate</a>( <span>mixed <var>$pageTemplate</var></span> )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$pageTemplate</var></dt>
+						<dd></dd>
+					</dl></div>
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getContainer" id="_getContainer">
+
+			<td class="attributes"><code>
+				 public 
+				mixed
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getContainer">#</a>
+			<code><a href="source-class-App.Lib.TwigController.html#289-295" title="Go to source code">getContainer</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						mixed
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="setContainer" id="_setContainer">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_setContainer">#</a>
+			<code><a href="source-class-App.Lib.TwigController.html#297-303" title="Go to source code">setContainer</a>( <span>mixed <var>$container</var></span> )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$container</var></dt>
+						<dd></dd>
+					</dl></div>
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getRouteName" id="_getRouteName">
+
+			<td class="attributes"><code>
+				 public 
+				mixed
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getRouteName">#</a>
+			<code><a href="source-class-App.Lib.TwigController.html#305-311" title="Go to source code">getRouteName</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						mixed
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="setRouteName" id="_setRouteName">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_setRouteName">#</a>
+			<code><a href="source-class-App.Lib.TwigController.html#313-319" title="Go to source code">setRouteName</a>( <span>mixed <var>$routeName</var></span> )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$routeName</var></dt>
+						<dd></dd>
+					</dl></div>
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getRequest" id="_getRequest">
+
+			<td class="attributes"><code>
+				 public 
+				mixed
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getRequest">#</a>
+			<code><a href="source-class-App.Lib.TwigController.html#321-327" title="Go to source code">getRequest</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						mixed
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="setRequest" id="_setRequest">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_setRequest">#</a>
+			<code><a href="source-class-App.Lib.TwigController.html#329-336" title="Go to source code">setRequest</a>( <span>mixed <var>$request</var></span> )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$request</var></dt>
+						<dd></dd>
+					</dl></div>
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getAppWords" id="_getAppWords">
+
+			<td class="attributes"><code>
+				 public 
+				mixed
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getAppWords">#</a>
+			<code><a href="source-class-App.Lib.TwigController.html#338-344" title="Go to source code">getAppWords</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						mixed
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="setAppWords" id="_setAppWords">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_setAppWords">#</a>
+			<code><a href="source-class-App.Lib.TwigController.html#346-352" title="Go to source code">setAppWords</a>( <span>mixed <var>$appWords</var></span> )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$appWords</var></dt>
+						<dd></dd>
+					</dl></div>
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+			</table>
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+		<div class="panel panel-default">
+            <div class="panel-heading"><h2>Properties summary</h2></div>
+			<table class="summary table table-bordered table-striped properties" id="properties">
+		<tr data-order="response" id="$response">
+			<td class="attributes"><code>
+				public  
+				Symfony\Component\HttpFoundation\Response
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-App.Lib.TwigController.html#71-74" title="Go to source code"><var>$response</var></a>
+
+				<div class="description short">
+					<p>object</p>
+				</div>
+
+				<div class="description detailed hidden">
+					<p>object</p>
+
+				</div>
+			</td>
+			<td class="value">
+				<div>
+					<a href="#$response" class="anchor">#</a>
+					<code></code>
+				</div>
+			</td>
+		</tr>
+		<tr data-order="container" id="$container">
+			<td class="attributes"><code>
+				public  
+				Http
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-App.Lib.TwigController.html#75-78" title="Go to source code"><var>$container</var></a>
+
+				<div class="description short">
+					<p>container</p>
+				</div>
+
+				<div class="description detailed hidden">
+					<p>container</p>
+
+				</div>
+			</td>
+			<td class="value">
+				<div>
+					<a href="#$container" class="anchor">#</a>
+					<code></code>
+				</div>
+			</td>
+		</tr>
+			</table>
+		</div>
+
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		API documentation generated by <a href="https://github.com/paulcoiffier/Liberta-PhpApiGen">Liberta PhpApiGen plugin</a>
+	</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>

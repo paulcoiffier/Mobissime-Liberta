@@ -17,6 +17,12 @@ use App\Engine\AppInstance;
 use App\Engine\YamlParser;
 use App\Lib\ModuleUtils;
 
+/**
+ * Global Application Controller
+ * @version 0.1
+ * @author Paul Coiffier <coiffier.paul@gmail.com>
+ * @copyright 2015 Paul Coiffier | Mobissime - <http://www.mobissime.com>
+ */
 
 $container = new ContainerBuilder();
 $container->register('annotationsParser', 'App\Services\AnnotationsParser');

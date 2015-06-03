@@ -7,9 +7,27 @@
 {% endblock %}
 
 {% block main_content %}
-<div style="height: 3000px;">
-<iframe src="http://localhost/Mobissime-Liberta/doc/" scrolling="no" frameborder="0" style="overflow:hidden;height:100%;width:100%" ></iframe>
 
+<div id="content">
+    <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+        <li class="active"><a href="#phpframework" data-toggle="tab">PHP Framework</a></li>
+        <li><a href="#phpmodules" data-toggle="tab">PHP Modules</a></li>
+        <li><a href="#jsframework" data-toggle="tab">Javascript Framework</a></li>
+    </ul>
+    <div id="my-tab-content" class="tab-content">
+        <div class="tab-pane active" id="phpframework" style="height: 3000px;">
+            <iframe src="http://localhost/Mobissime-Liberta/doc/framework/" scrolling="no" frameborder="0"
+                    style="overflow:hidden;height:100%;width:100%"></iframe>
+        </div>
+        <div class="tab-pane" id="phpmodules" style="height: 3000px;">
+            <iframe src="http://localhost/Mobissime-Liberta/doc/modules/" scrolling="no" frameborder="0"
+                    style="overflow:hidden;height:100%;width:100%"></iframe>
+        </div>
+        <div class="tab-pane" id="jsframework">
+            <h1>jsframework</h1>
+            <p>jsframework</p>
+        </div>
+    </div>
 </div>
 
 

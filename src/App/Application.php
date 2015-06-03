@@ -17,6 +17,15 @@ use App\ControllerResolver;
 use App\RoutingServiceProvider;
 use Pimple\Container;
 
+/**
+ * Application instance file
+ *
+ * For the full copyright and license information, please view
+ * the file LICENSE that was distributed with this source code.
+ *
+ * @author Paul Coiffier <coiffier.paul@gmail.com>
+ * @copyright 2015 Paul Coiffier | Mobissime - <http://www.mobissime.com>
+ */
 class Application extends Container implements HttpKernelInterface
 {
 

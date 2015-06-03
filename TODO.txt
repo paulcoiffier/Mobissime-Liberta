@@ -40,3 +40,11 @@ gagner du temps et éviter les copier/coller.
 TODO
 
 Etudier la génération des services WEB pour chaque QUERY (donc voir pour le passage de paramètres)
+
+
+Créer une commande pour générer la doc javascript : 
+- Du framework
+- Pour chaque module
+- Pour tous les modules
+
++ Personnaliser un peu + le template / conteneur de la doc JS

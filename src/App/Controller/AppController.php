@@ -1,20 +1,30 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Paul
- * Date: 28/01/2015
- * Time: 15:56
- */
 
 namespace App\Controller;
 
 use App\Lib\TwigController;
 use Symfony\Component\HttpFoundation\Request;
 
+/**
+ * Global Application Controller
+ *
+ * For the full copyright and license information, please view
+ * the file LICENSE that was distributed with this source code.
+ *
+ * @author Paul Coiffier <coiffier.paul@gmail.com>
+ * @copyright 2015 Paul Coiffier | Mobissime - <http://www.mobissime.com>
+ */
 class AppController extends TwigController
 {
 
-    public function indexAction(Request $request, $appParams, $container)
+    /**
+     * Authentication / Login method
+     *
+     * @param Request $request Http Request (Symfony)
+     * @param Array $appParams Array that contains application global parameters
+     * @return Response
+     */
+    public function indexAction(Request $request, $appParams)
     {
 
         /** Internal controller mixture */
@@ -29,6 +39,12 @@ class AppController extends TwigController
         return $this->getResponse();
     }
 
+    /**
+     * Show Login Page
+     *
+     * @param Array $appParams Array that contains application global parameters
+     * @return Response
+     */
     public function LoginAction($appParams)
     {
 
@@ -43,6 +59,11 @@ class AppController extends TwigController
         return $this->getResponse();
     }
 
+    /**
+     * Show html 404 Error
+     *
+     * @return Response
+     */
     public function notFoundPage()
     {
         $this->setTemplatesFolder(__DIR__ . '/../Views/');
@@ -51,6 +72,12 @@ class AppController extends TwigController
         return $this->getResponse();
     }
 
+    /**
+     * Show internal error page
+     *
+     * @param Array $appParams Array that contains application global parameters
+     * @return Response
+     */
     public function internalErrorPage()
     {
         $this->setTemplatesFolder(__DIR__ . '/../Views/');

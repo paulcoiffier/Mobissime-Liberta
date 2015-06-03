@@ -2,13 +2,31 @@
 
 namespace App\Controller;
 
+
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 
 use App\Lib\Login;
 
+define("version","Test");
+
+/**
+ * Global Ajax Controller
+ *
+ * For the full copyright and license information, please view
+ * the file LICENSE that was distributed with this source code.
+ *
+ * @author Paul Coiffier <coiffier.paul@gmail.com>
+ * @copyright 2015 Paul Coiffier | Mobissime - <http://www.mobissime.com>
+ */
 class AjaxAppController
 {
+    /**
+     * Authentication / Login method
+     *
+     * @param Array $appParams Array that contains application global parameters
+     * @return Response|JSON
+     */
     public function ajaxLogin($appParams)
     {
 

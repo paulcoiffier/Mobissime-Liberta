@@ -1,26 +1,55 @@
 <?php
 
-/**
- * Created by Paul Coiffier.
- * Framework integration : PCSoft
- * Date: 24/05/2015
- * Time: 10:28
- * Application Singleton Instance
- */
-
 namespace App\Engine;
 
+/**
+ * App Instance Singleton
+ *
+ * For the full copyright and license information, please view
+ * the file LICENSE that was distributed with this source code.
+ *
+ * @author Paul Coiffier <coiffier.paul@gmail.com>
+ * @copyright 2015 Paul Coiffier | Mobissime - <http://www.mobissime.com>
+ */
 class AppInstance
 {
 
+    /**
+     * Singleton instance
+     * @var
+     */
     private static $_instance = null;
 
-
+    /**
+     * Application language to use
+     * @var string
+     */
     private $_app_language = '';
+
+    /**
+     * Array for application words (translation)
+     * @var array
+     */
     private $_array_words = '';
+
+    /**
+     * Array for modules words (for translation)
+     * @var array
+     */
     private $_array_modules_words = '';
+
+    /**
+     * EntityManager
+     * @var Doctrine EntityManager
+     */
     private $_entityManager;
 
+    /**
+     * Contructor
+     *
+     * @param string $app_language Language to use
+     * @param EntityManager $entityManager Doctrine entity manager
+     */
     private function __construct($app_language, $entityManager)
     {
 
@@ -42,6 +71,8 @@ class AppInstance
 
     /**
      * Instanciante if not exist and/or return app instance
+     * @param string $app_language Language to use
+     * @param EntityManager $entityManager Doctrine entity manager
      * @return Singleton instance
      */
     public static function getInstance($app_language, $entityManager)
@@ -57,16 +88,28 @@ class AppInstance
         return self::$_instance;
     }
 
+    /**
+     * Get application language
+     * @return string Application language
+     */
     public function getAppLanguage()
     {
         return $this->_app_language;
     }
 
+    /**
+     * Get application language (for translation)
+     * @return array Array with application words (for translation)
+     */
     public function getArrayWords()
     {
         return $this->_array_words;
     }
 
+    /**
+     * Get modules words (for translation)
+     * @return array Array with all modules words (for translation)
+     */
     public function getArrayModulesWords()
     {
         return $this->_array_modules_words;

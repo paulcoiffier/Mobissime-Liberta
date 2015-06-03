@@ -6,24 +6,83 @@ use Twig_Loader_Filesystem;
 use Twig_Environment;
 use Symfony\Component\HttpFoundation\Response;
 
+/**
+ * Twig Controller
+ *
+ * For the full copyright and license information, please view
+ * the file LICENSE that was distributed with this source code.
+ *
+ * @author Paul Coiffier <coiffier.paul@gmail.com>
+ * @copyright 2015 Paul Coiffier | Mobissime - <http://www.mobissime.com>
+ */
 class TwigController
 {
 
+    /**
+     * @var loader
+     */
     private $loader;
+    /**
+     * @var twig
+     */
     private $twig;
+    /**
+     * @var templatesFolder
+     */
     private $templatesFolder;
+    /**
+     * @var array appParams
+     */
     private $appParams;
+    /**
+     * @var
+     */
     private $globalRenderedOptions;
+    /**
+     * @var
+     */
     private $moduleRendererOptions;
-    public $response;
+
+    /**
+     * @var
+     */
     private $wordsList;
+    /**
+     * @var
+     */
     private $module;
+    /**
+     * @var
+     */
     private $pageTemplate;
-    public $container;
+    /**
+     * @var
+     */
     private $routeName;
+    /**
+     * @var
+     */
     private $request;
+    /**
+     * @var
+     */
     private $appWords;
 
+    /**
+     * @var \Symfony\Component\HttpFoundation\Response object
+     */
+    public $response;
+    /**
+     * @var Http container
+     */
+    public $container;
+
+    /**
+     * Set values for controller vars
+     * @param $templateFolder Template folder
+     * @param $appParams Global app params
+     * @param $container Symfony container
+     */
     public function setValues($templateFolder, $appParams, $container)
     {
         $this->setTemplatesFolder($templateFolder);
@@ -46,6 +105,7 @@ class TwigController
     }
 
     /**
+     * Get twig loader
      * @return mixed
      */
     public function getLoader()
@@ -54,6 +114,7 @@ class TwigController
     }
 
     /**
+     * Get twig object
      * @return mixed
      */
     public function getTwig()
@@ -64,6 +125,7 @@ class TwigController
     }
 
     /**
+     * Set template folder
      * @param mixed $templatesFolder
      */
     public function setTemplatesFolder($templatesFolder)
@@ -72,6 +134,7 @@ class TwigController
     }
 
     /**
+     * Get global application parameters
      * @return mixed
      */
     public function getAppParams()
@@ -80,6 +143,7 @@ class TwigController
     }
 
     /**
+     * Set global application parameters
      * @param mixed $appParams
      */
     public function setAppParams($appParams)
@@ -88,6 +152,7 @@ class TwigController
     }
 
     /**
+     * Get global rendered options
      * @return mixed
      */
     public function getGlobalRenderedOptions()
@@ -124,6 +189,7 @@ class TwigController
     }
 
     /**
+     * getWordsList
      * @return mixed
      */
     public function getWordsList()
@@ -132,6 +198,7 @@ class TwigController
     }
 
     /**
+     * setWordsList
      * @param mixed $wordsList
      */
     public function setWordsList($wordsList)
@@ -140,6 +207,7 @@ class TwigController
     }
 
     /**
+     * getModule
      * @return mixed
      */
     public function getModule()
@@ -148,6 +216,7 @@ class TwigController
     }
 
     /**
+     * getModule
      * @param mixed $module
      */
     public function setModule($module)
@@ -281,8 +350,6 @@ class TwigController
     {
         $this->appWords = $appWords;
     }
-
-
 
 
 }
