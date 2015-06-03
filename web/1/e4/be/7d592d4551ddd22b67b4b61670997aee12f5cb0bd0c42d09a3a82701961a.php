@@ -171,7 +171,7 @@ class __TwigTemplate_e4be7d592d4551ddd22b67b4b61670997aee12f5cb0bd0c42d09a3a8270
         echo twig_escape_filter($this->env, (isset($context["install_url"]) ? $context["install_url"] : null), "html", null, true);
         echo "/js/plugins/toastr/toastr.min.js\"></script>
 
-    <!-- MyCRM Javascript Libs -->
+    <!-- Liberta Javascript Libs -->
     <script src=\"";
         // line 71
         echo twig_escape_filter($this->env, (isset($context["install_url"]) ? $context["install_url"] : null), "html", null, true);
@@ -196,7 +196,7 @@ class __TwigTemplate_e4be7d592d4551ddd22b67b4b61670997aee12f5cb0bd0c42d09a3a8270
     <div id=\"leftMenuDiv\">
     ";
         // line 84
-        $this->env->resolveTemplate((isset($context["menuLeft"]) ? $context["menuLeft"] : null))->display($context);
+        $this->loadTemplate((isset($context["menuLeft"]) ? $context["menuLeft"] : null), "MainTpl.html", 84)->display($context);
         // line 85
         echo "    </div>
 
@@ -204,7 +204,7 @@ class __TwigTemplate_e4be7d592d4551ddd22b67b4b61670997aee12f5cb0bd0c42d09a3a8270
         <div class=\"row border-bottom\">
             ";
         // line 89
-        $this->env->resolveTemplate((isset($context["navBar"]) ? $context["navBar"] : null))->display($context);
+        $this->loadTemplate((isset($context["navBar"]) ? $context["navBar"] : null), "MainTpl.html", 89)->display($context);
         // line 90
         echo "        </div>
         ";

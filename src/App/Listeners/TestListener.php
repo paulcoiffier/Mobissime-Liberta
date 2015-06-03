@@ -5,7 +5,11 @@ namespace App\Listeners;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use App\ResponseEvent;
 
-class ContentLengthListener implements EventSubscriberInterface
+/**
+ * No listeners are implemented. This call is not used and never call in the application
+ */
+
+class TestListener implements EventSubscriberInterface
 {
     public function onResponse(ResponseEvent $event)
     {

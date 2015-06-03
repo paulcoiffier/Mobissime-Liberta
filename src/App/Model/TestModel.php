@@ -6,11 +6,14 @@
  * Time: 17:33
  */
 
+/**
+ * No model are implemented. This call is not used and never call in the application
+ */
 namespace App\Model;
 
-class LeapYear
+class TestModel
 {
-    public function isLeapYear($year = null)
+    public function TestModel($year = null)
     {
         if (null === $year) {
             $year = date('Y');
