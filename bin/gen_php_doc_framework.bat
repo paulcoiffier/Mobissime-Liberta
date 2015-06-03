@@ -1,3 +1,6 @@
-cd ..\
-apigen generate --source src/App --destination doc/framework --template-theme=bootstrap --debug
-pause
+@ECHO OFF
+echo --------------------------------------------------
+echo * Liberta Php framework documentation generation *
+echo *          Liberta-PhpApiGen plugin              *
+echo --------------------------------------------------
+apigen generate --source ../src/App --destination ../doc/php/framework --template-theme=bootstrap

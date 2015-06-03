@@ -47,4 +47,4 @@ Créer une commande pour générer la doc javascript :
 - Pour chaque module
 - Pour tous les modules
 
-+ Personnaliser un peu + le template / conteneur de la doc JS
++ Personnaliser un peu + le template 
