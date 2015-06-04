@@ -28,6 +28,7 @@ $container = new ContainerBuilder();
 $container->register('annotationsParser', 'App\Services\AnnotationsParser');
 $container->register('CrudGenerator', 'App\Services\CrudGenerator');
 
+
 $login = new Login();
 
 /** YAML Parser declaration */

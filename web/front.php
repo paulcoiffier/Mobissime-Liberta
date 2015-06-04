@@ -9,6 +9,8 @@ use Symfony\Component\HttpKernel;
 use App\Controller;
 use App\Listeners;
 
+use App\Application;
+
 $request = Request::createFromGlobals();
 $routes = include __DIR__ . '/../src/app.php';
 
@@ -29,14 +31,11 @@ $dispatcher = new EventDispatcher();
 
 $framework = new App\Framework($dispatcher, $matcher, $resolver);
 $response = $framework->handle($request);
-
-
-
 $response->send();
 
-/*$test = new Application($dispatcher, $routes);
-$test->run();*/
 
+/**$liberta = new Application($dispatcher, $matcher, $resolver);
+$liberta->run($request);**/
 
 
 

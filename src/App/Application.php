@@ -33,8 +33,17 @@ class Application extends Container implements HttpKernelInterface
     protected $providers = array();
 
 
-    public function __construct(\Symfony\Component\EventDispatcher\EventDispatcher $dispatcher, $routes)
+    protected $matcher;
+    protected $resolver;
+    protected $dispatcher;
+
+    public function __construct(\Symfony\Component\EventDispatcher\EventDispatcher $dispatcher, \Symfony\Component\Routing\Matcher\UrlMatcher $matcher, \Symfony\Component\HttpKernel\Controller\ControllerResolver $resolver)
     {
+
+        $this->matcher = $matcher;
+        $this->resolver = $resolver;
+        $this->dispatcher = $dispatcher;
+
         parent::__construct();
         $app = $this;
 
@@ -42,7 +51,7 @@ class Application extends Container implements HttpKernelInterface
             return new RouteCollection();
         };*/
 
-        $this['routes'] = $routes;
+        //$this['routes'] = $routes;
 
         $this['controllers'] = function () use ($app) {
             return $app['controllers_factory'];
@@ -73,7 +82,7 @@ class Application extends Container implements HttpKernelInterface
             }
         });
 
-        $this->register(new RoutingServiceProvider());
+        //$this->register(new RoutingServiceProvider());
 
     }
 
@@ -87,6 +96,24 @@ class Application extends Container implements HttpKernelInterface
         if (null === $request) {
             $request = Request::createFromGlobals();
         }
+
+        try {
+            $request->attributes->add($this->matcher->match($request->getPathInfo()));
+
+            $controller = $this->resolver->getController($request);
+            $arguments = $this->resolver->getArguments($request, $controller);
+
+            $response = call_user_func_array($controller, $arguments);
+        } catch (ResourceNotFoundException $e) {
+            //$response = new RedirectResponse("http://localhost/test/web/front.php/notFoundPage");
+            $response = new Response('404 Error : '.$e, 404);
+        } catch (\Exception $e) {
+            $response = new Response('An error occurred : '.$e, 500);
+        }
+
+        // dispatch a response event
+        $this->dispatcher->dispatch('response', new ResponseEvent($response, $request));
+
         $response = $this->handle($request);
         $response->send();
         $this->terminate($request, $response);

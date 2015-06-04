@@ -19,6 +19,7 @@ return array(
     'Symfony\\Component\\Config\\' => array($vendorDir . '/symfony/config'),
     'Symfony\\Component\\ClassLoader' => array($vendorDir . '/symfony/class-loader'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log'),
+    'Pimple' => array($vendorDir . '/pimple/pimple/src'),
     'MyCrm' => array($baseDir . '/src'),
     'Michelf' => array($vendorDir . '/michelf/php-markdown'),
     'Kdyby\\Events\\' => array($vendorDir . '/kdyby/events/src'),

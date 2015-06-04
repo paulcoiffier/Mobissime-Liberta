@@ -1,0 +1,24 @@
+#!/usr/bin/env php
+<?php
+
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use App\Commands\TestCommand;
+use App\Commands\ModuleCommand;
+/**
+ * Created by IntelliJ IDEA.
+ * User: Paul
+ * Date: 04/06/2015
+ * Time: 01:19
+ */
+
+ require __DIR__ . '/bootstrap.php';
+
+$container = new ContainerBuilder();
+$container->register('app', 'App\Console\Application');
+
+
+$app = new App\Console\Application;
+$app->add(new TestCommand());
+$app->add(new ModuleCommand());
+
+$app->run();
