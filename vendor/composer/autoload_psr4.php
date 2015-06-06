@@ -10,5 +10,6 @@ return array(
     'Symfony\\Component\\Filesystem\\' => array($vendorDir . '/symfony/filesystem'),
     'Symfony\\Component\\Debug\\' => array($vendorDir . '/symfony/debug'),
     'Seld\\JsonLint\\' => array($vendorDir . '/seld/jsonlint/src/Seld/JsonLint'),
+    'Liberta\\MLogger\\' => array($vendorDir . '/liberta/mlogger/src'),
     'ApiGen\\' => array($vendorDir . '/apigen/apigen/src'),
 );

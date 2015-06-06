@@ -31,7 +31,7 @@ class ModuleUtils
     }
 
     /**
-     * Update all modules
+     * OBSOLETE : Update all modules
      */
     public function updateModules()
     {
@@ -174,7 +174,7 @@ class ModuleUtils
     }
 
     /**
-     * Test if all databases modules exists in "modules" directory
+     * OBSOLETE : Test if all databases modules exists in "modules" directory
      */
     public function cleanModules()
     {

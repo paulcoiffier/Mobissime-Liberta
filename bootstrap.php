@@ -12,27 +12,6 @@ require "src/App/Conf/Parameters.php";
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
 
-/** Get Module List */
-/*$objects = new RecursiveIteratorIterator(new RecursiveDirectoryIterator("../modules/"),
-    RecursiveIteratorIterator::SELF_FIRST | FilesystemIterator::SKIP_DOTS);*/
-
-//$paths = array("../include/entities");
-
-$i = 0;
-/*foreach ($objects as $name => $object) {
-    $localPath = str_replace("modules\\", '', $name);
-
-    if ($object->isDir()) {
-        $fileName = str_replace("modules\\", '', $name);
-        if (($fileName != ".") && ($fileName != "..")) {
-            if (is_dir('modules/'.$fileName . "/entities/")) {
-                $paths[] = 'modules/'.$fileName . "/entities/";
-            }
-        }
-    }
-
-    $i++;
-}*/
 
 $paths[] = "src/App/Entities/";
 

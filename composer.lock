@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "30c27b58938746fcf7eca3c6d5fc8f8d",
+    "hash": "b28fe4bf6af2cb8b306593546009fdbb",
     "packages": [
         {
             "name": "andrewsville/php-token-reflection",
@@ -1190,6 +1190,60 @@
                 "twig"
             ],
             "time": "2015-05-04 14:29:27"
+        },
+        {
+            "name": "liberta/mlogger",
+            "version": "2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/paulcoiffier/MLogger.git",
+                "reference": "449f4fcfaf2a5485cb956e7bdd964cfceffb091b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/paulcoiffier/MLogger/zipball/449f4fcfaf2a5485cb956e7bdd964cfceffb091b",
+                "reference": "449f4fcfaf2a5485cb956e7bdd964cfceffb091b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3",
+                "psr/log": "1.0.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.0.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Liberta\\MLogger\\": "src/"
+                },
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kenny Katzgrau",
+                    "email": "katzgrau@gmail.com"
+                },
+                {
+                    "name": "Dan Horrigan",
+                    "email": "dan@dhorrigan.com"
+                },
+                {
+                    "name": "Paul Coiffier",
+                    "email": "coiffier.paul@gmail.com"
+                }
+            ],
+            "description": "A Simple Logging System",
+            "keywords": [
+                "logging"
+            ],
+            "time": "2015-06-05 15:19:10"
         },
         {
             "name": "michelf/php-markdown",

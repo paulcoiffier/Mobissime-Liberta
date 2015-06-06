@@ -11,7 +11,8 @@ use App\Commands\ModuleCommand;
  * Time: 01:19
  */
 
- require __DIR__ . '/bootstrap.php';
+require __DIR__ . '/bootstrap.php';
+require 'bootstrap.php';
 
 $container = new ContainerBuilder();
 $container->register('app', 'App\Console\Application');
@@ -19,6 +20,8 @@ $container->register('app', 'App\Console\Application');
 
 $app = new App\Console\Application;
 $app->add(new TestCommand());
-$app->add(new ModuleCommand());
+$module_command = new ModuleCommand();
+$module_command->setEntityManager($entityManager);
+$app->add($module_command);
 
 $app->run();

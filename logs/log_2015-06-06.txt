@@ -1,0 +1,145 @@
+[2015-06-06 1:52:56.408724] [INFO] [App\Commands\ModuleCommand] Init logger
+[06/06/2015 01:52:56] [DEBUG] [App\Commands\ModuleCommand] function execute
+[06/06/2015 01:52:56] [DEBUG] [App\Commands\ModuleCommand] getOption 'update'
+[06/06/2015 01:52:57] [DEBUG] [App\Commands\ModuleCommand] Module trouvé : LibertaTest
+[06/06/2015 01:52:57] [DEBUG] [App\Commands\ModuleCommand] register_module LibertaTest
+[06/06/2015 01:52:57] [INFO] [MyCrm\Modules\LibertaModules\Lib\ModUtils] Init logger
+[06/06/2015 01:52:57] [INFO] [MyCrm\Modules\LibertaModules\Lib\ModUtils] register_module : LibertaTest
+[06/06/2015 01:52:57] [DEBUG] [MyCrm\Modules\LibertaModules\Lib\ModUtils] serverRoot : C:/Program Files (x86)/EasyPHP-DevServer-14.1VC11/data/localweb/Mobissime-Liberta/
+[06/06/2015 01:52:57] [DEBUG] [MyCrm\Modules\LibertaModules\Lib\ModUtils] moduleRoot : C:/Program Files (x86)/EasyPHP-DevServer-14.1VC11/data/localweb/Mobissime-Liberta/src/MyCrm/Modules/LibertaTest/module.ini
+[2015-06-06 1:54:52.276022] [INFO] [App\Commands\ModuleCommand] Init logger
+[06/06/2015 01:54:52] [DEBUG] [App\Commands\ModuleCommand] function execute
+[06/06/2015 01:54:52] [DEBUG] [App\Commands\ModuleCommand] getOption 'update'
+[06/06/2015 01:54:53] [DEBUG] [App\Commands\ModuleCommand] Module trouvé : LibertaTest
+[06/06/2015 01:54:53] [DEBUG] [App\Commands\ModuleCommand] register_module LibertaTest
+[06/06/2015 01:54:53] [INFO] [MyCrm\Modules\LibertaModules\Lib\ModUtils] Init logger
+[06/06/2015 01:54:53] [INFO] [MyCrm\Modules\LibertaModules\Lib\ModUtils] register_module : LibertaTest
+[06/06/2015 01:54:53] [DEBUG] [MyCrm\Modules\LibertaModules\Lib\ModUtils] serverRoot : C:/Program Files (x86)/EasyPHP-DevServer-14.1VC11/data/localweb/Mobissime-Liberta/
+[06/06/2015 01:54:53] [DEBUG] [MyCrm\Modules\LibertaModules\Lib\ModUtils] moduleRoot : C:/Program Files (x86)/EasyPHP-DevServer-14.1VC11/data/localweb/Mobissime-Liberta/src/MyCrm/Modules/LibertaTest/module.ini
+[2015-06-06 1:55:50.251876] [INFO] [App\Commands\ModuleCommand] Init logger
+[06/06/2015 01:55:50.310909] [DEBUG] [App\Commands\ModuleCommand] function execute
+[06/06/2015 01:55:50.312036] [DEBUG] [App\Commands\ModuleCommand] getOption 'update'
+[06/06/2015 01:55:51.650751] [DEBUG] [App\Commands\ModuleCommand] Module trouvé : LibertaTest
+[06/06/2015 01:55:51.651063] [DEBUG] [App\Commands\ModuleCommand] register_module LibertaTest
+[06/06/2015 01:55:51.670367] [INFO] [MyCrm\Modules\LibertaModules\Lib\ModUtils] Init logger
+[06/06/2015 01:55:51.670803] [INFO] [MyCrm\Modules\LibertaModules\Lib\ModUtils] register_module : LibertaTest
+[06/06/2015 01:55:51.672755] [DEBUG] [MyCrm\Modules\LibertaModules\Lib\ModUtils] serverRoot : C:/Program Files (x86)/EasyPHP-DevServer-14.1VC11/data/localweb/Mobissime-Liberta/
+[06/06/2015 01:55:51.673055] [DEBUG] [MyCrm\Modules\LibertaModules\Lib\ModUtils] moduleRoot : C:/Program Files (x86)/EasyPHP-DevServer-14.1VC11/data/localweb/Mobissime-Liberta/src/MyCrm/Modules/LibertaTest/module.ini
+[2015-06-06 1:56:44.696947] [INFO] [App\Commands\ModuleCommand] Init logger
+[06/06/2015 01:56:44.754923] [DEBUG] [App\Commands\ModuleCommand] function execute
+[06/06/2015 01:56:44.756050] [DEBUG] [App\Commands\ModuleCommand] getOption 'update'
+[06/06/2015 01:56:46.087567] [DEBUG] [App\Commands\ModuleCommand] Module trouvé : LibertaTest
+[06/06/2015 01:56:46.087907] [DEBUG] [App\Commands\ModuleCommand] register_module LibertaTest
+[06/06/2015 01:56:46.108388] [INFO] [MyCrm\Modules\LibertaModules\Lib\ModUtils] Init logger
+[06/06/2015 01:56:46.108818] [INFO] [MyCrm\Modules\LibertaModules\Lib\ModUtils] register_module : LibertaTest
+[06/06/2015 01:56:46.110572] [DEBUG] [MyCrm\Modules\LibertaModules\Lib\ModUtils] serverRoot : C:/Program Files (x86)/EasyPHP-DevServer-14.1VC11/data/localweb/Mobissime-Liberta/
+[06/06/2015 01:56:46.110869] [DEBUG] [MyCrm\Modules\LibertaModules\Lib\ModUtils] moduleRoot : C:/Program Files (x86)/EasyPHP-DevServer-14.1VC11/data/localweb/Mobissime-Liberta/src/MyCrm/Modules/LibertaTest/module.ini
+[06/06/2015 01:56:46.413515] [INFO] [MyCrm\Modules\LibertaModules\Lib\ModUtils] create menu item : LibertaDocGenerator
+[2015-06-06 1:57:46.708542] [INFO] [App\Commands\ModuleCommand] Init logger
+[06/06/2015 01:57:46.766385] [DEBUG] [App\Commands\ModuleCommand] function execute
+[06/06/2015 01:57:46.767498] [DEBUG] [App\Commands\ModuleCommand] getOption 'update'
+[06/06/2015 01:57:48.102880] [DEBUG] [App\Commands\ModuleCommand] Module trouvé : LibertaTest
+[06/06/2015 01:57:48.103189] [DEBUG] [App\Commands\ModuleCommand] register_module LibertaTest
+[06/06/2015 01:57:48.123816] [INFO] [MyCrm\Modules\LibertaModules\Lib\ModUtils] Init logger
+[06/06/2015 01:57:48.124255] [INFO] [MyCrm\Modules\LibertaModules\Lib\ModUtils] register_module : LibertaTest
+[06/06/2015 01:57:48.126032] [DEBUG] [MyCrm\Modules\LibertaModules\Lib\ModUtils] serverRoot : C:/Program Files (x86)/EasyPHP-DevServer-14.1VC11/data/localweb/Mobissime-Liberta/
+[06/06/2015 01:57:48.126334] [DEBUG] [MyCrm\Modules\LibertaModules\Lib\ModUtils] moduleRoot : C:/Program Files (x86)/EasyPHP-DevServer-14.1VC11/data/localweb/Mobissime-Liberta/src/MyCrm/Modules/LibertaTest/module.ini
+[06/06/2015 01:57:48.126638] [DEBUG] [MyCrm\Modules\LibertaModules\Lib\ModUtils] module 1 : LibertaTest
+[06/06/2015 01:57:48.255536] [DEBUG] [MyCrm\Modules\LibertaModules\Lib\ModUtils] module 2 : LibertaTest
+[06/06/2015 01:57:48.429271] [INFO] [MyCrm\Modules\LibertaModules\Lib\ModUtils] create menu item : LibertaDocGenerator
+[2015-06-06 1:58:22.581999] [INFO] [App\Commands\ModuleCommand] Init logger
+[06/06/2015 01:58:22.640089] [DEBUG] [App\Commands\ModuleCommand] function execute
+[06/06/2015 01:58:22.641244] [DEBUG] [App\Commands\ModuleCommand] getOption 'update'
+[06/06/2015 01:58:23.966988] [DEBUG] [App\Commands\ModuleCommand] Module trouvé : LibertaTest
+[06/06/2015 01:58:23.967319] [DEBUG] [App\Commands\ModuleCommand] register_module LibertaTest
+[06/06/2015 01:58:23.988413] [INFO] [MyCrm\Modules\LibertaModules\Lib\ModUtils] Init logger
+[06/06/2015 01:58:23.988854] [INFO] [MyCrm\Modules\LibertaModules\Lib\ModUtils] register_module : LibertaTest
+[06/06/2015 01:58:23.990680] [DEBUG] [MyCrm\Modules\LibertaModules\Lib\ModUtils] serverRoot : C:/Program Files (x86)/EasyPHP-DevServer-14.1VC11/data/localweb/Mobissime-Liberta/
+[06/06/2015 01:58:23.990981] [DEBUG] [MyCrm\Modules\LibertaModules\Lib\ModUtils] moduleRoot : C:/Program Files (x86)/EasyPHP-DevServer-14.1VC11/data/localweb/Mobissime-Liberta/src/MyCrm/Modules/LibertaTest/module.ini
+[06/06/2015 01:58:23.991285] [DEBUG] [MyCrm\Modules\LibertaModules\Lib\ModUtils] module 1 : LibertaTest
+[06/06/2015 01:58:24.121409] [DEBUG] [MyCrm\Modules\LibertaModules\Lib\ModUtils] module 2 : LibertaTest
+[06/06/2015 01:58:24.191024] [DEBUG] [MyCrm\Modules\LibertaModules\Lib\ModUtils] module 3 : LibertaTest
+[06/06/2015 01:58:24.195405] [DEBUG] [MyCrm\Modules\LibertaModules\Lib\ModUtils] module 4 : LibertaTest
+[06/06/2015 01:58:24.195708] [DEBUG] [MyCrm\Modules\LibertaModules\Lib\ModUtils] module 5 : LibertaTest
+[06/06/2015 01:58:24.295443] [DEBUG] [MyCrm\Modules\LibertaModules\Lib\ModUtils] module 6 : LibertaDocGenerator
+[06/06/2015 01:58:24.295907] [INFO] [MyCrm\Modules\LibertaModules\Lib\ModUtils] create menu item : LibertaDocGenerator
+[2015-06-06 1:59:33.148699] [INFO] [App\Commands\ModuleCommand] Init logger
+[06/06/2015 01:59:33.207184] [DEBUG] [App\Commands\ModuleCommand] function execute
+[06/06/2015 01:59:33.208347] [DEBUG] [App\Commands\ModuleCommand] getOption 'update'
+[06/06/2015 01:59:34.546411] [DEBUG] [App\Commands\ModuleCommand] Module trouvé : LibertaTest
+[06/06/2015 01:59:34.546725] [DEBUG] [App\Commands\ModuleCommand] register_module LibertaTest
+[06/06/2015 01:59:34.566961] [INFO] [MyCrm\Modules\LibertaModules\Lib\ModUtils] Init logger
+[06/06/2015 01:59:34.567410] [INFO] [MyCrm\Modules\LibertaModules\Lib\ModUtils] register_module : LibertaTest
+[06/06/2015 01:59:34.569190] [DEBUG] [MyCrm\Modules\LibertaModules\Lib\ModUtils] serverRoot : C:/Program Files (x86)/EasyPHP-DevServer-14.1VC11/data/localweb/Mobissime-Liberta/
+[06/06/2015 01:59:34.569487] [DEBUG] [MyCrm\Modules\LibertaModules\Lib\ModUtils] moduleRoot : C:/Program Files (x86)/EasyPHP-DevServer-14.1VC11/data/localweb/Mobissime-Liberta/src/MyCrm/Modules/LibertaTest/module.ini
+[06/06/2015 01:59:34.770842] [DEBUG] [MyCrm\Modules\LibertaModules\Lib\ModUtils] module 5 : LibertaTest
+[06/06/2015 01:59:34.874422] [DEBUG] [MyCrm\Modules\LibertaModules\Lib\ModUtils] module 6 : LibertaTest
+[06/06/2015 01:59:34.874888] [INFO] [MyCrm\Modules\LibertaModules\Lib\ModUtils] create menu item : LibertaTest
+[2015-06-06 1:59:59.521389] [INFO] [App\Commands\ModuleCommand] Init logger
+[06/06/2015 01:59:59.579539] [DEBUG] [App\Commands\ModuleCommand] function execute
+[06/06/2015 01:59:59.580652] [DEBUG] [App\Commands\ModuleCommand] getOption 'update'
+[06/06/2015 02:00:00.914812] [DEBUG] [App\Commands\ModuleCommand] Module trouvé : LibertaTest
+[06/06/2015 02:00:00.915122] [DEBUG] [App\Commands\ModuleCommand] register_module LibertaTest
+[06/06/2015 02:00:00.937331] [INFO] [MyCrm\Modules\LibertaModules\Lib\ModUtils] Init logger
+[06/06/2015 02:00:00.937792] [INFO] [MyCrm\Modules\LibertaModules\Lib\ModUtils] register_module : LibertaTest
+[06/06/2015 02:00:00.939810] [DEBUG] [MyCrm\Modules\LibertaModules\Lib\ModUtils] serverRoot : C:/Program Files (x86)/EasyPHP-DevServer-14.1VC11/data/localweb/Mobissime-Liberta/
+[06/06/2015 02:00:00.940109] [DEBUG] [MyCrm\Modules\LibertaModules\Lib\ModUtils] moduleRoot : C:/Program Files (x86)/EasyPHP-DevServer-14.1VC11/data/localweb/Mobissime-Liberta/src/MyCrm/Modules/LibertaTest/module.ini
+[06/06/2015 02:00:01.109144] [DEBUG] [MyCrm\Modules\LibertaModules\Lib\ModUtils] module 5 : LibertaTest
+[06/06/2015 02:00:01.210030] [DEBUG] [MyCrm\Modules\LibertaModules\Lib\ModUtils] module 6 : LibertaTest
+[06/06/2015 02:00:01.210495] [INFO] [MyCrm\Modules\LibertaModules\Lib\ModUtils] create menu item : LibertaTest
+[2015-06-06 2:00:07.670839] [INFO] [App\Commands\ModuleCommand] Init logger
+[06/06/2015 02:00:07.729688] [DEBUG] [App\Commands\ModuleCommand] function execute
+[06/06/2015 02:00:07.730823] [DEBUG] [App\Commands\ModuleCommand] getOption 'update'
+[06/06/2015 02:00:09.060745] [DEBUG] [App\Commands\ModuleCommand] Module trouvé : LibertaTest
+[06/06/2015 02:00:09.061054] [DEBUG] [App\Commands\ModuleCommand] register_module LibertaTest
+[06/06/2015 02:00:09.081468] [INFO] [MyCrm\Modules\LibertaModules\Lib\ModUtils] Init logger
+[06/06/2015 02:00:09.081897] [INFO] [MyCrm\Modules\LibertaModules\Lib\ModUtils] register_module : LibertaTest
+[06/06/2015 02:00:09.083653] [DEBUG] [MyCrm\Modules\LibertaModules\Lib\ModUtils] serverRoot : C:/Program Files (x86)/EasyPHP-DevServer-14.1VC11/data/localweb/Mobissime-Liberta/
+[06/06/2015 02:00:09.083950] [DEBUG] [MyCrm\Modules\LibertaModules\Lib\ModUtils] moduleRoot : C:/Program Files (x86)/EasyPHP-DevServer-14.1VC11/data/localweb/Mobissime-Liberta/src/MyCrm/Modules/LibertaTest/module.ini
+[06/06/2015 02:00:09.260740] [DEBUG] [MyCrm\Modules\LibertaModules\Lib\ModUtils] module 5 : LibertaTest
+[06/06/2015 02:00:09.360245] [DEBUG] [MyCrm\Modules\LibertaModules\Lib\ModUtils] module 6 : LibertaTest
+[06/06/2015 02:00:09.360707] [INFO] [MyCrm\Modules\LibertaModules\Lib\ModUtils] create menu item : LibertaTest
+[2015-06-06 2:00:28.239636] [INFO] [App\Commands\ModuleCommand] Init logger
+[06/06/2015 02:00:28.298648] [DEBUG] [App\Commands\ModuleCommand] function execute
+[06/06/2015 02:00:28.299778] [DEBUG] [App\Commands\ModuleCommand] getOption 'update'
+[06/06/2015 02:00:29.633852] [DEBUG] [App\Commands\ModuleCommand] Module trouvé : LibertaDocGenerator
+[06/06/2015 02:00:29.634157] [DEBUG] [App\Commands\ModuleCommand] register_module LibertaDocGenerator
+[06/06/2015 02:00:29.654653] [INFO] [MyCrm\Modules\LibertaModules\Lib\ModUtils] Init logger
+[06/06/2015 02:00:29.655083] [INFO] [MyCrm\Modules\LibertaModules\Lib\ModUtils] register_module : LibertaDocGenerator
+[06/06/2015 02:00:29.662816] [DEBUG] [MyCrm\Modules\LibertaModules\Lib\ModUtils] serverRoot : C:/Program Files (x86)/EasyPHP-DevServer-14.1VC11/data/localweb/Mobissime-Liberta/
+[06/06/2015 02:00:29.663130] [DEBUG] [MyCrm\Modules\LibertaModules\Lib\ModUtils] moduleRoot : C:/Program Files (x86)/EasyPHP-DevServer-14.1VC11/data/localweb/Mobissime-Liberta/src/MyCrm/Modules/LibertaDocGenerator/module.ini
+[06/06/2015 02:00:29.889786] [DEBUG] [MyCrm\Modules\LibertaModules\Lib\ModUtils] module 5 : LibertaDocGenerator
+[06/06/2015 02:00:29.989521] [DEBUG] [MyCrm\Modules\LibertaModules\Lib\ModUtils] module 6 : LibertaDocGenerator
+[06/06/2015 02:00:29.989943] [INFO] [MyCrm\Modules\LibertaModules\Lib\ModUtils] create menu item : LibertaDocGenerator
+[2015-06-06 2:04:39.255002] [INFO] [App\Commands\ModuleCommand] Init logger
+[06/06/2015 02:04:39.312422] [DEBUG] [App\Commands\ModuleCommand] function execute
+[06/06/2015 02:04:39.313563] [DEBUG] [App\Commands\ModuleCommand] getOption 'update'
+[06/06/2015 02:04:40.637382] [DEBUG] [App\Commands\ModuleCommand] register_module LibertaDocGenerator
+[2015-06-06 2:05:28.784012] [INFO] [App\Commands\ModuleCommand] Init logger
+[06/06/2015 02:05:28.841582] [DEBUG] [App\Commands\ModuleCommand] function execute
+[06/06/2015 02:05:28.842726] [DEBUG] [App\Commands\ModuleCommand] getOption 'update'
+[06/06/2015 02:05:30.164630] [DEBUG] [App\Commands\ModuleCommand] register_module LibertaDocGenerator
+[2015-06-06 2:06:00.483520] [INFO] [App\Commands\ModuleCommand] Init logger
+[06/06/2015 02:06:00.541210] [DEBUG] [App\Commands\ModuleCommand] function execute
+[06/06/2015 02:06:00.542354] [DEBUG] [App\Commands\ModuleCommand] getOption 'update'
+[06/06/2015 02:06:01.867496] [DEBUG] [App\Commands\ModuleCommand] register_module LibertaDocGenerator
+[2015-06-06 2:07:09.846795] [INFO] [App\Commands\ModuleCommand] Init logger
+[06/06/2015 02:07:09.903547] [DEBUG] [App\Commands\ModuleCommand] function execute
+[06/06/2015 02:07:09.904666] [DEBUG] [App\Commands\ModuleCommand] getOption 'update'
+[06/06/2015 02:07:11.229763] [DEBUG] [App\Commands\ModuleCommand] register_module LibertaDocGenerator
+[2015-06-06 2:07:44.419961] [INFO] [App\Commands\ModuleCommand] Init logger
+[06/06/2015 02:07:44.476546] [DEBUG] [App\Commands\ModuleCommand] function execute
+[06/06/2015 02:07:44.477705] [DEBUG] [App\Commands\ModuleCommand] getOption 'update'
+[06/06/2015 02:07:45.801440] [DEBUG] [App\Commands\ModuleCommand] register_module LibertaDocGenerator
+[2015-06-06 2:10:34.118261] [INFO] [App\Commands\ModuleCommand] Init logger
+[06/06/2015 02:10:34.176482] [DEBUG] [App\Commands\ModuleCommand] function execute
+[06/06/2015 02:10:34.177642] [DEBUG] [App\Commands\ModuleCommand] getOption 'update'
+[06/06/2015 02:10:34.179596] [DEBUG] [App\Commands\ModuleCommand] Update all modules
+[2015-06-06 2:11:16.491983] [INFO] [App\Commands\ModuleCommand] Init logger
+[06/06/2015 02:11:16.549545] [DEBUG] [App\Commands\ModuleCommand] function execute
+[06/06/2015 02:11:16.550765] [DEBUG] [App\Commands\ModuleCommand] getOption 'update'
+[06/06/2015 02:11:16.552752] [DEBUG] [App\Commands\ModuleCommand] Update all modules
+[2015-06-06 2:11:33.238364] [INFO] [App\Commands\ModuleCommand] Init logger
+[06/06/2015 02:11:33.295551] [DEBUG] [App\Commands\ModuleCommand] function execute
+[06/06/2015 02:11:33.296715] [DEBUG] [App\Commands\ModuleCommand] getOption 'update'
+[06/06/2015 02:11:33.298739] [DEBUG] [App\Commands\ModuleCommand] Update all modules

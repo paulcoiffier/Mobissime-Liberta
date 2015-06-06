@@ -1,87 +1,91 @@
 {% extends MainTpl %}{% block header %}{{module_title}}{% endblock %}{% block header_block %}{% include 'Header.html' %}{% endblock %}{% block main_content %}<div class="container" style="width:100%;">
 	<div class="lyrow ui-draggable removeClean">
 		<div class="view">
-			<div class="ibox float-e-margins">
-				<div class="ibox-title">
-					<h5>
-						Panel
-					</h5>
-					<div class="ibox-tools">
-						 <a href="javascript:window.history.back();" class="close-link"><em class="fa fa-arrow-left"></em></a> <a class="dropdown-toggle" data-toggle="dropdown" href="#"><em class="fa fa-gear"></em></a>
-						<ul class="dropdown-menu dropdown-user">
-							<li>
-								<a>Empty action</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-				<div class="ibox-content">
-					<div class="lyrow ui-draggable removeClean">
-						<div class="view">
-							<div class="row clearfix">
-								<div class="col-md-12 column">
-									<div class="lyrow ui-draggable databased removeClean">
-										<div class="view">
-											<table class="table">
-												<thead>
-													<tr>
-														<th>
-															case_status
-														</th>
-														<th>
-															case_type
-														</th>
-														<th>
-															case_subject
-														</th>
-														<th>
-															case_description
-														</th>
-														<th>
-															case_resolution
-														</th>
-														<th>
-															case_date_open
-														</th>
-													</tr>
-												</thead>
-												<tbody>
-													<!-- DXBsb -->
-
-													<tr>
-														<td>
-															fields.case_status
-														</td>
-														<td>
-															fields.case_type
-														</td>
-														<td>
-															fields.case_subject
-														</td>
-														<td>
-															fields.case_description
-														</td>
-														<td>
-															fields.case_resolution
-														</td>
-														<td>
-															fields.case_date_open
-														</td>
-													</tr>
-												</tbody>
-											</table>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div><br /><br />
-				</div>
-			</div> <!--
 			<div class="row clearfix">
 				<div class="col-md-12 column">
+					<div class="box box-element ui-draggable removeClean">
+						<div class="view">
+							<div class="page-header">
+								<h1>
+									This is my page
+									<div>
+										<small>Subtext for header</small>
+									</div>
+								</h1>
+							</div>
+						</div>
+					</div>
+					<div class="box box-element ui-draggable removeClean">
+						<div class="view">
+							<h2>
+								Welcome !
+							</h2>
+							<p>
+								Here you can write what you want...
+							</p>
+							<div>
+								And plus..
+							</div>
+							<div>
+								And plus...
+							</div>
+							<div>
+								etc !!
+							</div>
+							
+							<p>
+								<a class="btn" href="#">View details button / action »</a>
+							</p>
+						</div>
+					</div>
+					<div class="lyrow ui-draggable databased removeClean">
+						<div class="view">
+							<table class="table">
+								<thead>
+									<tr>
+										<th>
+											case_priority
+										</th>
+										<th>
+											case_status
+										</th>
+										<th>
+											case_type
+										</th>
+										<th>
+											case_subject
+										</th>
+										<th>
+											case_description
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									{% for var in FGhJf %}<tr><td>{{ var.case_priority }}</td><td>{{ var.case_status }}</td><td>{{ var.case_type }}</td><td>{{ var.case_subject }}</td><td>{{ var.case_description }}</td></tr>{% endfor %}
+
+									<tr>
+										<td>
+											fields.case_priority
+										</td>
+										<td>
+											fields.case_status
+										</td>
+										<td>
+											fields.case_type
+										</td>
+										<td>
+											fields.case_subject
+										</td>
+										<td>
+											fields.case_description
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
 				</div>
-			</div> -->
+			</div>
 		</div>
 	</div>
 </div>{% endblock %}

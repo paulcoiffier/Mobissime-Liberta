@@ -53,7 +53,12 @@ class AppInstance
     private function __construct($app_language, $entityManager)
     {
 
-        $serverRoot = $_SERVER['DOCUMENT_ROOT'] . '/' . install_path;
+        if($_SERVER['DOCUMENT_ROOT']==null){
+            $serverRoot = install_sys_dir;
+        } else {
+            $serverRoot = $_SERVER['DOCUMENT_ROOT'] . '/' . install_path;
+        }
+
 
         $this->_app_language = $app_language;
         $this->_entityManager = $entityManager;

@@ -14,7 +14,8 @@
     "doctrine/dbal": "~2.4",
     "twig/twig": ">=1.8.0,<2.0-dev",
     "apigen/apigen": "^4.1",
-    "pimple/pimple": "~3.0"
+    "pimple/pimple": "~3.0",
+    "liberta/mlogger":"2.0"
   },
   "autoload": {
     "psr-0": {

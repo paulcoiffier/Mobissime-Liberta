@@ -1,0 +1,37 @@
+Liberta console commands
+--------------------------------------------
+
+MODULE
+|-> update (-n : module name)
+|-> update (-a : update all modules)
+|-> install (-n : module name to install)
+|-> create (wizard)
+
+	
+DATABASE
+|-> create (create DB)
+|-> proxies (create doctrine class proxies)
+
+CONFIG
+|-> global (create parameters and configuration files with a wizard)
+
+	
+SHOW	
+|-> parameters (show parameters.php)
+|-> routes (show all application routes)
+|-> module
+	|-> config (show module.ini)	
+	|-> routes (show all module routes)
+	
+INSTALL (run installation wizard)
+
+
+- voir les logs sur ios
+
+
+Chaque module comporte 
+
+Lse commandes sont dans le framework.
+Mais si on veux les commandes module ? Et qu'on ne veux pas du module de gestion des modules ? alors il faut sortir les fonctions de geston / update etc des modules 
+pour les intégrer au framework dans "ModuleUtils" et pouvoir les utiliser depuis la console.
+

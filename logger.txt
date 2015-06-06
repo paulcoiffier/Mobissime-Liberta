@@ -1,0 +1,24 @@
+
+private $logger;
+
+/** Logger init */
+$this->logger = new \Liberta\MLogger\Logger(log_dir);
+$this->logger->setLogLevelThreshold(log_threshold);
+$this->logger->logWithClass(LEVEL_DEBUG, "Init logger", get_class());
+
+$this->logger->setDateFormat("d/m/Y H:i:s");
+or
+$this->logger->setDateFormat("d/m/Y H:i:s.u");
+
+$this->logger->logWithClass(LEVEL_INFO, "function execute", get_class());
+
+LEVELS :
+---------------------------------------
+LEVEL_DEBUG
+LEVEL_INFO
+LEVEL_NOTICE
+LEVEL_WARNING
+LEVEL_ERROR
+LEVEL_CRITICAL
+LEVEL_ALERT
+LEVEL_EMERGENCY

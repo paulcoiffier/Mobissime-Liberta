@@ -1,0 +1,4 @@
+[2015-06-05 15:44:32.919689] [INFO] Returned a million search results
+[2015-06-05 15:44:32.919876] [ERROR] Oh dear.
+[2015-06-05 15:45:28.040863] [INFO] Returned a million search results
+[2015-06-05 15:45:28.041353] [ERROR] Oh dear.

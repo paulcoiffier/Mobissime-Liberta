@@ -6,19 +6,22 @@ use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
 use App\Engine\AppInstance;
 
-/**
- * Created by PhpStorm.
- * User: Paul
- * Date: 24/01/2015
- * Time: 22:21
- */
+
 Class ModUtils
 {
     private $entityManager;
+    //private $logger;
 
     public function __construct(EntityManager $entityManager)
     {
         $this->entityManager = $entityManager;
+
+        /** Logger init */
+        //$this->logger = new \Liberta\MLogger\Logger(log_dir);
+        //$this->logger->setLogLevelThreshold(log_threshold);
+        //$this->logger->setDateFormat("d/m/Y H:i:s.u");
+        //$this->logger->logWithClass(LEVEL_INFO, "Init logger", get_class());
+
     }
 
     public function createDefaultEntitiesXml($module_name)
@@ -108,9 +111,13 @@ Class ModUtils
         }
     }
 
-    public function register_module($module)
+    public function register_module($module, $serverRoot = null)
     {
-        $serverRoot = $_SERVER['DOCUMENT_ROOT'] . '/' . install_path;
+
+        if ($serverRoot == null) {
+            $serverRoot = $_SERVER['DOCUMENT_ROOT'] . '/' . install_path;
+        }
+
         $config = parse_ini_file($serverRoot . 'src/MyCrm/Modules/' . $module->getModName() . '/module.ini');
 
         $moduleFind = true;
@@ -125,6 +132,7 @@ Class ModUtils
         $module->setModDescription($config['module_description']);
 
         $module->setModIcon($config['module_icon']);
+
         /**
          * Register module actions
          */
@@ -153,7 +161,6 @@ Class ModUtils
             $this->entityManager->flush();
         }
 
-
         /**
          * Delete SubMenu entries
          */
@@ -164,11 +171,13 @@ Class ModUtils
             $this->entityManager->remove($menuEntry);
         }
 
+
         /**
          * Delete Menu entries
          */
         $modulesActionRepostitory = $this->entityManager->getRepository('App\Entities\Menu');
         $menu_entries = $modulesActionRepostitory->findBy(array('module' => $module->getId()));
+
 
         foreach ($menu_entries as $menuEntry) {
             $this->entityManager->remove($menuEntry);
@@ -185,8 +194,8 @@ Class ModUtils
 
         $moduleRepository = $this->entityManager->getRepository('App\Entities\Module');
         $modules = $moduleRepository->findAll();
-        foreach ($modules as $module) {
-            $words[$module->getModName()] = parse_ini_file($serverRoot . 'src/MyCrm/Modules/' . $module->getModName() . '/i18n/' . $app->getAppLanguage() . '.ini');
+        foreach ($modules as $mod) {
+            $words[$mod->getModName()] = parse_ini_file($serverRoot . 'src/MyCrm/Modules/' . $mod->getModName() . '/i18n/' . $app->getAppLanguage() . '.ini');
         }
 
         $arrayWords = $words;
@@ -433,5 +442,6 @@ Class ModUtils
 
         fclose($indexFile);
     }
+
 
 }
