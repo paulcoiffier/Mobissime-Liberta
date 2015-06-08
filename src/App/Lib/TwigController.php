@@ -105,14 +105,9 @@ class TwigController
         }
 
         /**
-         * Init logger
+         * Set logger
          */
-
-        /**
-         * Example to get Logger by dependancy injection
-         */
-        $logger = $container->get('Logger');
-        $this->logger = $logger;
+        $this->logger = $container->get('Logger');
 
     }
 

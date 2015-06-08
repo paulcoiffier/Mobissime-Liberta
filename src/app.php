@@ -25,15 +25,6 @@ use App\Lib\ModuleUtils;
  */
 
 
-/**
- * LOGGER Init
- */
-$logger = new \Liberta\MLogger\Logger(log_dir);
-$logger->setLogLevelThreshold(log_threshold);
-$logger->setDateFormat("d/m/Y H:i:s.u");
-$logger->logWithClass(LEVEL_INFO, "Init logger", "app");
-
-
 /** Get connected user or set admin user by default (typically after a fresh installation) */
 if (isset($_SESSION['mycrmlogin'])) {
     $username = $_SESSION['mycrmlogin'];
@@ -50,17 +41,15 @@ if (isset($_SESSION['mycrmlogin'])) {
 $container = new ContainerBuilder();
 $container->register('annotationsParser', 'App\Services\AnnotationsParser');
 $container->register('CrudGenerator', 'App\Services\CrudGenerator');
-//$container->register('liberta.logger', "\Liberta\MLogger\Logger");
 
+/**
+ * Logger Service
+ */
 $container
     ->register('Logger', 'Liberta\MLogger\Logger')
     ->addArgument(log_dir)
     ->addMethodCall('setLogLevelThreshold', array("log_threshold" => log_threshold))
     ->addMethodCall('setDateFormat', array("date_format" => "d/m/Y H:i:s.u"));
-
-
-$logger->logWithClass(LEVEL_INFO, "Container initialized", "app");
-
 
 $login = new Login();
 
