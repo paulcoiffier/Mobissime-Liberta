@@ -10,6 +10,7 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Formatter\OutputFormatterStyle;
 use MyCrm\Modules\LibertaModules\Lib\ModUtils;
 use App\Lib\ModuleUtils;
+use App\Console\Question;
 
 class ModuleCommand extends Command
 {
@@ -29,7 +30,7 @@ class ModuleCommand extends Command
         $this->setName("module")
             ->setDescription("Liberta modules interactions")
             ->setDefinition(array(
-                new InputOption('update', 'u', InputOption::VALUE_OPTIONAL, 'Update module <module_name>'),
+                new InputOption('register', 'r', InputOption::VALUE_OPTIONAL, 'Update module <module_name>'),
                 new InputOption('install', 'i', InputOption::VALUE_OPTIONAL, 'Install module  <module_name>'),
                 new InputOption('create', 'c', InputOption::VALUE_OPTIONAL, 'Create new module  <module_name>')
             ))
@@ -37,8 +38,8 @@ class ModuleCommand extends Command
 
 * Liberta modules actions *
 
-<info>--update</info>
-<info>Specifiy the module_name and run the update process to update your module in Liberta</info>
+<info>--register</info>
+<info>Specifiy the module_name to register in Liberta</info>
 
 <info>--install</info>
 <info>Specifiy the module_name and run the installation process to install and manage your module in Liberta</info>
@@ -48,6 +49,7 @@ class ModuleCommand extends Command
 
 EOT
             );
+
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -58,14 +60,11 @@ EOT
         $header_style = new OutputFormatterStyle('white', 'green', array('bold'));
         $output->getFormatter()->setStyle('header', $header_style);
 
-        if ($input->getOption('update')) {
-
-            $this->logger->logWithClass(LEVEL_DEBUG, "getOption 'update'", get_class());
-
+        if ($input->getOption('register')) {
             /**
              * Module update
              */
-            if ($input->getOption('update') == "all") {
+            if ($input->getOption('register') == "all") {
                 /**
                  * Loop for update all modules
                  */
@@ -74,22 +73,22 @@ EOT
                 $modules = $moduleRepository->findAll();
 
                 foreach ($modules as $module) {
-                    $output->writeln('Update module "' . $input->getOption('update') . '"');
+                    $output->writeln('Update module "' . $input->getOption('register') . '"');
                     $output->writeln('Author : ' . $module->getModAuthor());
                     $output->writeln('Description : ' . $module->getModDescription());
                     $modUtils->register_module($module, install_sys_dir);
                     $output->writeln("Module updated");
                     $output->writeln(".");
                 }
-                
+
             } else {
                 /**
                  * Update one module by it's name
                  */
                 $moduleUtils = new ModuleUtils($this->entityManager);
-                $module = $moduleUtils->getModuleByName($input->getOption('update'));
+                $module = $moduleUtils->getModuleByName($input->getOption('register'));
 
-                $output->writeln('Update module "' . $input->getOption('update') . '"');
+                $output->writeln('Update module "' . $input->getOption('register') . '"');
                 $output->writeln('Author : ' . $module->getModAuthor());
                 $output->writeln('Description : ' . $module->getModDescription());
 
@@ -98,7 +97,7 @@ EOT
                     $modUtils->register_module($module, install_sys_dir);
                     $output->writeln("Module updated");
                 } else {
-                    throw new \RuntimeException("Module '" . $input->getOption('update') . "' does not exist");
+                    throw new \RuntimeException("Module '" . $input->getOption('register') . "' does not exist");
                 }
 
             }
@@ -119,14 +118,22 @@ EOT
              * Module creation
              */
             $output->writeln("Create module : " . $input->getOption('create'));
+
+            $helper = $this->getHelper('question');
+            //$question = new \App\Console\Question\ConfirmationQuestion('Please enter the name of the bundle : ', '');
+
+            /**
+             * Module name
+             */
+            $question = new \Symfony\Component\Console\Question\Question('Module name : [<comment>' . $input->getOption('create') . '</comment>]', $input->getOption('create'));
+            $name = $helper->ask($input, $output, $question);
+
+            $output->writeln('Result : ' . $name);
+
+
         } else {
             throw new \InvalidArgumentException('Bad syntax');
         }
-
-        //$helper = $this->getHelper('question');
-        //$question = new Question('Please enter the name of the bundle : ', '');
-        //$bundle = $helper->ask($input, $output, $question);
-        //$output->writeln('Result : ' . $input->getFirstArgument());
 
     }
 

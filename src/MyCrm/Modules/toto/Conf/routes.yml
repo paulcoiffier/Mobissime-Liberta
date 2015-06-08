@@ -1,0 +1,4 @@
+toto:
+    name: toto
+    path: /toto
+    controller: MyCrm\Modules\toto\Controllers\MainController::indexAction

@@ -13,7 +13,7 @@ use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
 
 
-$paths[] = "src/App/Entities/";
+$paths[] = "src/App/Entities";
 
 $classLoader = new \Doctrine\Common\ClassLoader('App\Entities','src/App/Entities');
 $classLoader->register();
@@ -28,8 +28,30 @@ $dbParams = array(
     'driver' => database_type,
     'user' => database_user,
     'password' => database_password,
-    'dbname' => database_schema,
+    'dbname' => database_schema
 );
 
-$config = Setup::createAnnotationMetadataConfiguration($paths, $isDevMode);
-$entityManager = EntityManager::create($dbParams, $config);
+
+$cache = new \Doctrine\Common\Cache\ArrayCache;
+
+$config = new Doctrine\ORM\Configuration();
+$config->setMetadataCacheImpl($cache);
+$driverImpl = $config->newDefaultAnnotationDriver('src/App/Entities');
+$config->setMetadataDriverImpl($driverImpl);
+$config->setQueryCacheImpl($cache);
+$config->setProxyDir('src/App/Entities');
+$config->setProxyNamespace('App\Entities');
+$config->setResultCacheImpl($cache);
+
+
+// DEV
+   // $config->setAutoGenerateProxyClasses(true);
+
+//PROD
+    //$config->setAutoGenerateProxyClasses(true);
+
+$entityManager = EntityManager::create($dbParams, $config,null,$cache,null);
+//$entityManager->getMetadataFactory()->getAllMetadata();
+/*$config = Setup::createAnnotationMetadataConfiguration($paths, $isDevMode, null,null,null,null);
+$config->setAutoGenerateProxyClasses(true);
+$entityManager = EntityManager::create($dbParams, $config);*/

@@ -5,7 +5,13 @@ namespace MyCrm\Modules\LibertaModules\Lib;
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
 use App\Engine\AppInstance;
-
+use App\Lib\Crud\HeaderFactory;
+use App\Lib\Crud\ControllerFactory;
+use App\Lib\Module\DirectoriesFactory;
+use App\Lib\Module\IniFactory;
+use App\Lib\Module\I18NFactory;
+use App\Lib\Module\RoutesFactory;
+use App\Lib\Crud\IndexFactory;
 
 Class ModUtils
 {
@@ -24,93 +30,12 @@ Class ModUtils
 
     }
 
-    public function createDefaultEntitiesXml($module_name)
-    {
-        $serverRoot = $_SERVER['DOCUMENT_ROOT'] . '/' . install_path;
-        $indexFile = fopen($serverRoot . "/src/MyCrm/Modules/" . $module_name . "/Conf/entities.xml", "w") or die("Unable to create entities xml file for module " . $module_name);
-        fwrite($indexFile, "<entities> \n");
-        fwrite($indexFile, "</entities>\n");
-        fclose($indexFile);
-    }
-
-    public function create_module($module_name, $author_name, $module_description, $mod_icon, $menu_admin_integration, $menu_site_integration, $module_require_login, $mod_route)
-    {
-
-        $errors = false;
-
-        /**
-         * Create module directories
-         */
-        $errors += $this->createModuleDirectories($module_name, $errors);
-
-        /**
-         * Create "ini" file for module
-         */
-        if ($menu_admin_integration == 1) {
-            $menu_admin_integration = "true";
-        } else {
-            $menu_admin_integration = "false";
-        }
-
-        if ($menu_site_integration == 1) {
-            $menu_site_integration = "true";
-        } else {
-            $menu_site_integration = "false";
-        }
-
-        if ($module_require_login == 1) {
-            $module_require_login = "true";
-        } else {
-            $module_require_login = "false";
-        }
-
-        $this->createIniFile($module_name, $author_name, $module_description, $mod_icon, $menu_admin_integration, $menu_site_integration, $module_require_login);
-
-        /**
-         * Create default module header file
-         */
-        $this->createDefaultModuleHeader($module_name);
-
-        /**
-         * Create defaults i18n files
-         */
-        $this->createI18nFile($module_name, 'french');
-        $this->createI18nFile($module_name, 'english');
-
-        /**
-         * Create a simple index file for module
-         */
-        $this->createIndexFile($module_name);
-
-        $serverRoot = $_SERVER['DOCUMENT_ROOT'] . '/' . install_path;
-
-        /**
-         * Create a simple controller for module from template
-         */
-        $controllerFile = $serverRoot . '/include/templates/controllerTpl.php';
-        $newControllerFile = $serverRoot . "/modules/" . $module_name . "/controllers/nav_controller.php";
-
-        if (!copy($controllerFile, $newControllerFile)) {
-            //echo 'Default Controller generated\n';
-        }
-
-        $contentViewFile = $serverRoot . '/include/templates/contentTpl.html';
-        $newsContentViewFile = $serverRoot . "/modules/" . $module_name . "/views/index.twig.html";
-
-        if (!copy($contentViewFile, $newsContentViewFile)) {
-            //echo 'Default content template generated\n';
-        }
-
-        /**
-         * Show error message if needed
-         */
-        if ($errors) {
-            //echo "Module creation failed";
-        } else {
-            //echo "Module creation successfull";
-        }
-    }
-
+    /**
+     * Register / re-install a module
+     * USED from console and UI
+     * @param $module
+     * @param null $serverRoot
+     */
     public function register_module($module, $serverRoot = null)
     {
 
@@ -245,6 +170,96 @@ Class ModUtils
         $this->entityManager->merge($module);
         $this->entityManager->flush();
     }
+
+    public function createDefaultEntitiesXml($module_name)
+    {
+        $serverRoot = $_SERVER['DOCUMENT_ROOT'] . '/' . install_path;
+        $indexFile = fopen($serverRoot . "/src/MyCrm/Modules/" . $module_name . "/Conf/entities.xml", "w") or die("Unable to create entities xml file for module " . $module_name);
+        fwrite($indexFile, "<entities> \n");
+        fwrite($indexFile, "</entities>\n");
+        fclose($indexFile);
+    }
+
+    /**
+     * Create a new module
+     * @param $module_name
+     * @param $author_name
+     * @param $module_description
+     * @param $mod_icon
+     * @param $menu_admin_integration
+     * @param $menu_site_integration
+     * @param $module_require_login
+     * @param $mod_route
+     */
+    public function create_module($appParams, $module_name, $author_name, $module_description, $mod_icon, $menu_admin_integration, $menu_site_integration, $module_require_login, $mod_route)
+    {
+
+        $namespace = "MyCrm\\Modules";
+        $controller = "MainController";
+
+        /** Test if a module with this name already exist*/
+
+        $errors = array();
+        /** Create directories */
+        $directories_factory = new DirectoriesFactory();
+        $directories_factory->createModuleDirectories($module_name, $errors);
+
+        /** Create INI file */
+        $ini_factory = new IniFactory();
+        $ini_factory->createIniFileWithParams($module_name, $author_name, $module_description, $mod_icon, $menu_admin_integration, $menu_admin_integration, $module_require_login);
+
+        /** Create languages files */
+        $i18n_factory = new I18NFactory();
+        $i18n_factory->createI18nFile($module_name, 'french');
+        $i18n_factory->createI18nFile($module_name, 'english');
+
+        /** Create defaut app route */
+        $routes_factory = new RoutesFactory();
+        $routes_factory->setModule($module_name);
+        $routes_factory->addRoute($_POST['mod_route'], '/' . $mod_route, $namespace . "\\" . $module_name . '\\Controllers\\' . $controller . '::indexAction');
+        $routes_factory->writeRoutesYamlFile();
+
+        /** Create Controller */
+        $factory = new ControllerFactory();
+        $factory->setModule($module_name);
+        $factory->setController($controller);
+        $factory->setNamespace($namespace);
+        $factory->createEmptyController();
+
+        /** Create Index View */
+        $index_factory = new IndexFactory();
+        $index_factory->setModule($module_name);
+        $index_factory->createEmptyindex();
+        $index_factory->createEmptyXmlIndex();
+
+        /** Create Header file */
+        $header_factory = new HeaderFactory();
+        $header_factory->createHeader($module_name);
+
+        /** Create module object in database */
+        $modUtils = new ModUtils($appParams['entityManager']);
+
+        /** Create module object in database */
+        $new_module = new \App\Entities\Module();
+        $new_module->setModName($module_name);
+        $new_module->setModAuthor($author_name);
+        $new_module->setModDescription($module_description);
+        $new_module->setModDateInstall(new \DateTime());
+        $new_module->setModDirectoryName($module_name);
+        $new_module->setModIfConnexionRequire(true);
+        $new_module->setModIsInstalled(false);
+        $new_module->setModRoute($mod_route);
+        $appParams['entityManager']->persist($new_module);
+        $appParams['entityManager']->flush();
+
+        /** Create empty entities.xml file */
+
+        /** Register / install module */
+        $modUtils->createDefaultEntitiesXml($module_name);
+        $modUtils->register_module($new_module);
+    }
+
+
 
     function makeDir($path)
     {

@@ -2,11 +2,10 @@ Liberta console commands
 --------------------------------------------
 
 MODULE
-|-> update (-n : module name)
-|-> update (-a : update all modules)
-|-> install (-n : module name to install)
+|-> register (-n : module name) : OK
+|-> register (-a : update all modules) : OK
 |-> create (wizard)
-
+|-> delete (question)
 	
 DATABASE
 |-> create (create DB)

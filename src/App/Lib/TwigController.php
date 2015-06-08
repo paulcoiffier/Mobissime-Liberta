@@ -68,6 +68,8 @@ class TwigController
      */
     private $appWords;
 
+    public $logger;
+
     /**
      * @var \Symfony\Component\HttpFoundation\Response object
      */
@@ -101,6 +103,16 @@ class TwigController
                 $this->setWordsList($arrayWords[$this->module->getModName()]);
             }
         }
+
+        /**
+         * Init logger
+         */
+
+        /**
+         * Example to get Logger by dependancy injection
+         */
+        $logger = $container->get('Logger');
+        $this->logger = $logger;
 
     }
 
@@ -350,6 +362,24 @@ class TwigController
     {
         $this->appWords = $appWords;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getLogger()
+    {
+        return $this->logger;
+    }
+
+    /**
+     * @param mixed $logger
+     */
+    public function setLogger($logger)
+    {
+        $this->logger = $logger;
+    }
+
+
 
 
 }

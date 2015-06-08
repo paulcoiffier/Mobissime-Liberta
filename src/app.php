@@ -24,9 +24,42 @@ use App\Lib\ModuleUtils;
  * @copyright 2015 Paul Coiffier | Mobissime - <http://www.mobissime.com>
  */
 
+
+/**
+ * LOGGER Init
+ */
+$logger = new \Liberta\MLogger\Logger(log_dir);
+$logger->setLogLevelThreshold(log_threshold);
+$logger->setDateFormat("d/m/Y H:i:s.u");
+$logger->logWithClass(LEVEL_INFO, "Init logger", "app");
+
+
+/** Get connected user or set admin user by default (typically after a fresh installation) */
+if (isset($_SESSION['mycrmlogin'])) {
+    $username = $_SESSION['mycrmlogin'];
+} else {
+    $username = "admin";
+}
+
+//$entityManager->getMetadataFactory()->getAllMetadata();
+
+
+/**
+ * Container init
+ */
 $container = new ContainerBuilder();
 $container->register('annotationsParser', 'App\Services\AnnotationsParser');
 $container->register('CrudGenerator', 'App\Services\CrudGenerator');
+//$container->register('liberta.logger', "\Liberta\MLogger\Logger");
+
+$container
+    ->register('Logger', 'Liberta\MLogger\Logger')
+    ->addArgument(log_dir)
+    ->addMethodCall('setLogLevelThreshold', array("log_threshold" => log_threshold))
+    ->addMethodCall('setDateFormat', array("date_format" => "d/m/Y H:i:s.u"));
+
+
+$logger->logWithClass(LEVEL_INFO, "Container initialized", "app");
 
 
 $login = new Login();
@@ -38,9 +71,18 @@ $yaml = new YamlParser();
 $globalUtils = new GlobalUtils($entityManager);
 $menus = $globalUtils->getAllMenuEntries();
 
-/** Get all modules entries*/
+/*$query = $entityManager->createQuery("select u from App\Entities\User u WHERE u.usr_email = 'admin'");
+$query->useResultCache(true);
+$query->useQueryCache(true);
+$user = $query->getSingleResult();*/
+$user = $entityManager->getRepository('App\Entities\User')->findOneBy(array('usr_email' => $username));
+
+/**
+ * Module loading
+ */
 $moduleUtils = new ModuleUtils($entityManager);
 $modules = $moduleUtils->getAllModules();
+
 
 /** Twig Loader*/
 $loader = new Twig_Loader_Filesystem(install_sys_dir . '/src/App/Views/');
@@ -59,6 +101,7 @@ $twig->setLoader($loader);
 $headerTpl = $twig->loadTemplate('HeaderTpl.html');
 $template = $twig->loadTemplate('MainTpl.html');
 
+
 /** App conf YAML parsing */
 /*$appConfig = array();
 $yaml->parseAppConfig($appConfig);
@@ -66,14 +109,6 @@ $yaml->parseAppConfig($appConfig);
 
 /** Routes */
 $routes = new Routing\RouteCollection();
-
-/** Get connected user or set admin user by default (typically after a fresh installation) */
-if (isset($_SESSION['mycrmlogin'])) {
-    $username = $_SESSION['mycrmlogin'];
-} else {
-    $username = "admin";
-}
-$user = $entityManager->getRepository('App\Entities\User')->findOneBy(array('usr_email' => $username));
 
 /** Get singleton App instance (for get parameters) */
 $app = AppInstance::getInstance($user->getUsrLanguage(), $entityManager);
@@ -149,5 +184,4 @@ foreach ($modules as $module) {
         )));
     }
 }
-
 return $routes;

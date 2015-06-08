@@ -6,7 +6,7 @@
  * Time: 15:56
  */
 
-namespace MyCrm\Modules\LibertaTest\Controllers;
+namespace MyCrm\Modules\toto2\Controllers;
 
 use Symfony\Component\Routing;
 use Symfony\Component\HttpFoundation\Request;
@@ -22,8 +22,6 @@ class MainController extends TwigController
         $this->setValues(__DIR__ . '/../Views/', $appParams, $appParams['container']);
         $this->setRequest($request);
         /** End internal controller mixture */
-
-        $this->logger->logWithClass(LEVEL_INFO, "New test", "POLO");;
 
         $this->setPageTemplate('Index.html');
         $this->setModuleRendererOptions(array());

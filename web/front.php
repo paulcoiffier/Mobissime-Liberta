@@ -29,13 +29,14 @@ $dispatcher = new EventDispatcher();
 //$dispatcher->addSubscriber(new App\Listeners\ContentLengthListener());
 //$dispatcher->addSubscriber(new App\GoogleListener());
 
-$framework = new App\Framework($dispatcher, $matcher, $resolver);
+// Old application boot method
+/*$framework = new App\Framework($dispatcher, $matcher, $resolver);
 $response = $framework->handle($request);
 $response->send();
+*/
 
-
-/**$liberta = new Application($dispatcher, $matcher, $resolver);
-$liberta->run($request);**/
+$liberta = new Application($dispatcher, $matcher, $resolver);
+$liberta->run($request);
 
 
 

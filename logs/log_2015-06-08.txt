@@ -1,0 +1,4 @@
+[08/06/2015 03:00:41.461373] [INFO] [app] Init logger
+[08/06/2015 03:00:41.486001] [INFO] [app] Container initialized
+[08/06/2015 03:00:43.554879] [INFO] [POLO] New test
+[08/06/2015 03:00:43.857364] [INFO] [POLO] New test

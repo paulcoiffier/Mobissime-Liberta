@@ -28,75 +28,14 @@ use App\Lib\Entities\EntityFactory;
 class AjaxController
 {
 
-    public function insertAjaxModule($appParams)
+        public function insertAjaxModule($appParams)
     {
         $request = Request::createFromGlobals();
 
         if ($request->isXmlHttpRequest()) {
 
-            $namespace = "MyCrm\\Modules";
-            $controller = "MainController";
-
-            /** Test if a module with this name already exist*/
-
-            $errors = array();
-            /** Create directories */
-            $directories_factory = new DirectoriesFactory();
-            $directories_factory->createModuleDirectories($_POST['mod_name'], $errors);
-
-            /** Create INI file */
-            $ini_factory = new IniFactory();
-            $ini_factory->createIniFileWithParams($_POST['mod_name'], $_POST['mod_author'], $_POST['mod_description'], $_POST['mod_icon'], $_POST['menu_admin_integration'], $_POST['menu_site_integration'], $_POST['module_require_login']);
-
-            /** Create languages files */
-            $i18n_factory = new I18NFactory();
-            $i18n_factory->createI18nFile($_POST['mod_name'], 'french');
-            $i18n_factory->createI18nFile($_POST['mod_name'], 'english');
-
-            /** Create defaut app route */
-            $routes_factory = new RoutesFactory();
-            $routes_factory->setModule($_POST['mod_name']);
-            $routes_factory->addRoute($_POST['mod_route'], '/' . $_POST['mod_route'], $namespace . "\\" . $_POST['mod_name'] . '\\Controllers\\' . $controller . '::indexAction');
-            $routes_factory->writeRoutesYamlFile();
-
-            /** Create Controller */
-            $factory = new ControllerFactory();
-            $factory->setModule($_POST['mod_name']);
-            $factory->setController($controller);
-            $factory->setNamespace($namespace);
-            $factory->createEmptyController();
-
-            /** Create Index View */
-            $index_factory = new IndexFactory();
-            $index_factory->setModule($_POST['mod_name']);
-            $index_factory->createEmptyindex();
-            $index_factory->createEmptyXmlIndex();
-
-            /** Create Header file */
-            $header_factory = new HeaderFactory();
-            $header_factory->createHeader($_POST['mod_name']);
-
-            /** Create module object in database */
             $modUtils = new ModUtils($appParams['entityManager']);
-
-            /** Create module object in database */
-            $new_module = new \App\Entities\Module();
-            $new_module->setModName($_POST['mod_name']);
-            $new_module->setModAuthor($_POST['mod_author']);
-            $new_module->setModDescription($_POST['mod_description']);
-            $new_module->setModDateInstall(new \DateTime());
-            $new_module->setModDirectoryName($_POST['mod_name']);
-            $new_module->setModIfConnexionRequire(true);
-            $new_module->setModIsInstalled(false);
-            $new_module->setModRoute($_POST['mod_route']);
-            $appParams['entityManager']->persist($new_module);
-            $appParams['entityManager']->flush();
-
-            /** Create empty entities.xml file */
-
-            /** Register / install module */
-            $modUtils->createDefaultEntitiesXml($_POST['mod_name']);
-            $modUtils->register_module($new_module);
+            $modUtils->create_module($appParams, $_POST['mod_name'], $_POST['mod_author'], $_POST['mod_description'], $_POST['mod_icon'], $_POST['menu_admin_integration'], $_POST['menu_site_integration'], $_POST['module_require_login'], $_POST['mod_route']);
 
             $arr = array(
                 'error' => 'no'

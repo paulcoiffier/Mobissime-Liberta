@@ -12,9 +12,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
 use Symfony\Component\HttpKernel\HttpKernel;
-use Symfony\Component\EventDispatcher\EventDispatcherInterface;
-use App\ControllerResolver;
-use App\RoutingServiceProvider;
 use Pimple\Container;
 
 /**
@@ -125,7 +122,6 @@ class Application extends Container implements HttpKernelInterface
             $this->boot();
         }
 
-        //->flush();
         return $this['kernel']->handle($request, $type, $catch);
     }
 

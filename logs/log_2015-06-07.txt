@@ -1,0 +1,123 @@
+[07/06/2015 11:42:30.938879] [INFO] [app] Init logger
+[07/06/2015 11:42:30.939353] [INFO] [app] getUser avant
+[07/06/2015 11:42:32.182281] [INFO] [app] getUser ok
+[07/06/2015 11:42:32.213368] [INFO] [app] Container initialized
+[07/06/2015 11:42:32.381922] [INFO] [app] getAllMenuEntries ok
+[07/06/2015 11:42:32.426811] [INFO] [app] getAllModules ok
+[07/06/2015 11:42:32.498389] [INFO] [app] twig template loaded ok
+[07/06/2015 11:45:39.315716] [INFO] [app] Init logger
+[07/06/2015 11:46:08.423054] [INFO] [app] Init logger
+[07/06/2015 11:47:29.141980] [INFO] [app] Init logger
+[07/06/2015 11:49:14.829159] [INFO] [app] Init logger
+[07/06/2015 11:50:42.280750] [INFO] [app] Init logger
+[07/06/2015 11:50:49.587881] [INFO] [app] Init logger
+[07/06/2015 11:51:01.418662] [INFO] [app] Init logger
+[07/06/2015 11:51:01.419125] [INFO] [app] getUser avant
+[07/06/2015 11:51:59.586169] [INFO] [app] Init logger
+[07/06/2015 11:51:59.586626] [INFO] [app] getUser avant
+[07/06/2015 11:52:06.043471] [INFO] [app] Init logger
+[07/06/2015 11:52:06.043909] [INFO] [app] getUser avant
+[07/06/2015 11:52:30.781385] [INFO] [app] Init logger
+[07/06/2015 11:52:30.781842] [INFO] [app] getUser avant
+[07/06/2015 13:28:02.303335] [INFO] [app] Init logger
+[07/06/2015 13:28:02.304048] [INFO] [app] getUser avant
+[07/06/2015 13:28:03.617389] [INFO] [app] Init logger
+[07/06/2015 13:28:03.618067] [INFO] [app] getUser avant
+[07/06/2015 13:28:26.589663] [INFO] [app] Init logger
+[07/06/2015 13:28:26.590164] [INFO] [app] getUser avant
+[07/06/2015 13:28:40.904133] [INFO] [app] Init logger
+[07/06/2015 13:28:40.904617] [INFO] [app] getUser avant
+[07/06/2015 13:28:42.108676] [INFO] [app] getUser ok
+[07/06/2015 13:28:42.132100] [INFO] [app] Container initialized
+[07/06/2015 13:28:42.310036] [INFO] [app] getAllMenuEntries ok
+[07/06/2015 13:28:42.360897] [INFO] [app] getAllModules ok
+[07/06/2015 13:28:42.411699] [INFO] [app] twig template loaded ok
+[07/06/2015 13:28:50.847408] [INFO] [app] Init logger
+[07/06/2015 13:28:50.847915] [INFO] [app] getUser avant
+[07/06/2015 13:28:52.058887] [INFO] [app] getUser ok
+[07/06/2015 13:28:52.083204] [INFO] [app] Container initialized
+[07/06/2015 13:28:52.259356] [INFO] [app] getAllMenuEntries ok
+[07/06/2015 13:28:52.311721] [INFO] [app] getAllModules ok
+[07/06/2015 13:28:52.365611] [INFO] [app] twig template loaded ok
+[07/06/2015 13:32:54.728391] [INFO] [app] Init logger
+[07/06/2015 13:32:54.729046] [INFO] [app] getUser avant
+[07/06/2015 13:33:41.455832] [INFO] [app] Init logger
+[07/06/2015 13:33:41.456269] [INFO] [app] getUser avant
+[07/06/2015 13:33:52.031301] [INFO] [app] Init logger
+[07/06/2015 13:33:52.031739] [INFO] [app] getUser avant
+[07/06/2015 13:34:04.225198] [INFO] [app] Init logger
+[07/06/2015 13:34:04.225635] [INFO] [app] getUser avant
+[07/06/2015 13:34:16.560178] [INFO] [app] Init logger
+[07/06/2015 13:34:16.560617] [INFO] [app] getUser avant
+[07/06/2015 13:34:17.752123] [INFO] [app] getUser ok
+[07/06/2015 13:34:17.773498] [INFO] [app] Container initialized
+[07/06/2015 13:34:17.944705] [INFO] [app] getAllMenuEntries ok
+[07/06/2015 13:34:17.995053] [INFO] [app] getAllModules ok
+[07/06/2015 13:34:18.044974] [INFO] [app] twig template loaded ok
+[07/06/2015 13:34:30.997716] [INFO] [app] Init logger
+[07/06/2015 13:34:30.998258] [INFO] [app] getUser avant
+[07/06/2015 13:34:32.206815] [INFO] [app] getUser ok
+[07/06/2015 13:34:32.229032] [INFO] [app] Container initialized
+[07/06/2015 13:34:32.449582] [INFO] [app] getAllMenuEntries ok
+[07/06/2015 13:34:32.499551] [INFO] [app] getAllModules ok
+[07/06/2015 13:34:32.539098] [INFO] [app] twig template loaded ok
+[07/06/2015 18:48:35.234980] [INFO] [app] Init logger
+[07/06/2015 18:48:35.235491] [INFO] [app] getUser avant
+[07/06/2015 18:54:28.912873] [INFO] [app] Init logger
+[07/06/2015 18:54:28.913682] [INFO] [app] getUser avant
+[07/06/2015 19:03:01.102298] [INFO] [app] Init logger
+[07/06/2015 19:03:01.102761] [INFO] [app] getUser avant
+[07/06/2015 19:03:02.294681] [INFO] [app] getUser ok
+[07/06/2015 19:03:02.317558] [INFO] [app] Container initialized
+[07/06/2015 19:03:02.491349] [INFO] [app] getAllMenuEntries ok
+[07/06/2015 19:03:02.541047] [INFO] [app] getAllModules ok
+[07/06/2015 19:03:02.607100] [INFO] [app] twig template loaded ok
+[07/06/2015 23:35:55.025146] [INFO] [app] Init logger
+[07/06/2015 23:35:55.025650] [INFO] [app] getUser avant
+[07/06/2015 23:35:55.081562] [INFO] [app] getUser ok
+[07/06/2015 23:35:55.108817] [INFO] [app] Container initialized
+[07/06/2015 23:35:55.140423] [INFO] [app] getAllMenuEntries ok
+[07/06/2015 23:35:55.163142] [INFO] [app] getAllModules ok
+[07/06/2015 23:35:56.137972] [INFO] [app] twig template loaded ok
+[07/06/2015 23:36:07.443259] [INFO] [app] Init logger
+[07/06/2015 23:36:07.443728] [INFO] [app] getUser avant
+[07/06/2015 23:36:07.521977] [INFO] [app] getUser ok
+[07/06/2015 23:36:07.556883] [INFO] [app] Container initialized
+[07/06/2015 23:36:07.600121] [INFO] [app] getAllMenuEntries ok
+[07/06/2015 23:36:07.624104] [INFO] [app] getAllModules ok
+[07/06/2015 23:36:07.699744] [INFO] [app] twig template loaded ok
+[07/06/2015 23:36:14.014111] [INFO] [app] Init logger
+[07/06/2015 23:36:14.014563] [INFO] [app] getUser avant
+[07/06/2015 23:36:14.091401] [INFO] [app] getUser ok
+[07/06/2015 23:36:14.125230] [INFO] [app] Container initialized
+[07/06/2015 23:36:14.166214] [INFO] [app] getAllMenuEntries ok
+[07/06/2015 23:36:14.189925] [INFO] [app] getAllModules ok
+[07/06/2015 23:36:14.266318] [INFO] [app] twig template loaded ok
+[07/06/2015 23:36:44.494373] [INFO] [app] Init logger
+[07/06/2015 23:36:44.495068] [INFO] [app] getUser avant
+[07/06/2015 23:36:44.555202] [INFO] [app] getUser ok
+[07/06/2015 23:36:44.579817] [INFO] [app] Container initialized
+[07/06/2015 23:36:44.653058] [INFO] [app] getAllMenuEntries ok
+[07/06/2015 23:36:44.676984] [INFO] [app] getAllModules ok
+[07/06/2015 23:36:44.720393] [INFO] [app] twig template loaded ok
+[07/06/2015 23:36:49.906874] [INFO] [app] Init logger
+[07/06/2015 23:36:49.907556] [INFO] [app] getUser avant
+[07/06/2015 23:36:51.173480] [INFO] [app] getUser ok
+[07/06/2015 23:36:51.204898] [INFO] [app] Container initialized
+[07/06/2015 23:36:51.435559] [INFO] [app] getAllMenuEntries ok
+[07/06/2015 23:36:51.485181] [INFO] [app] getAllModules ok
+[07/06/2015 23:36:51.524185] [INFO] [app] twig template loaded ok
+[07/06/2015 23:36:55.116234] [INFO] [app] Init logger
+[07/06/2015 23:36:55.116663] [INFO] [app] getUser avant
+[07/06/2015 23:36:56.317872] [INFO] [app] getUser ok
+[07/06/2015 23:36:56.342072] [INFO] [app] Container initialized
+[07/06/2015 23:36:56.560993] [INFO] [app] getAllMenuEntries ok
+[07/06/2015 23:36:56.612158] [INFO] [app] getAllModules ok
+[07/06/2015 23:36:56.651307] [INFO] [app] twig template loaded ok
+[07/06/2015 23:37:01.553422] [INFO] [app] Init logger
+[07/06/2015 23:37:01.553950] [INFO] [app] getUser avant
+[07/06/2015 23:37:02.759430] [INFO] [app] getUser ok
+[07/06/2015 23:37:02.783900] [INFO] [app] Container initialized
+[07/06/2015 23:37:03.000368] [INFO] [app] getAllMenuEntries ok
+[07/06/2015 23:37:03.049355] [INFO] [app] getAllModules ok
+[07/06/2015 23:37:03.088280] [INFO] [app] twig template loaded ok
