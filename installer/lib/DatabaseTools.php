@@ -5,7 +5,7 @@
  * Date: 14/05/2015
  * Time: 22:47
  */
-
+set_time_limit(200);
 require_once '../../bootstrap.php';
 
 class DatabaseTools
@@ -24,10 +24,10 @@ class DatabaseTools
             $dbh = new PDO('mysql:host=' . $database_server . ';dbname=' . $database_database, $database_user, $database_password);
             $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            $stmt = $dbh->prepare("DROP DATABASE mycrm;");
+            $stmt = $dbh->prepare("DROP DATABASE ".$database_database.";");
             $stmt->execute();
 
-            $stmt = $dbh->prepare("CREATE DATABASE mycrm;");
+            $stmt = $dbh->prepare("CREATE DATABASE ".$database_database.";");
             $stmt->execute();
 
         } catch (PDOException $e) {

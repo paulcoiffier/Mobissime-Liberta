@@ -33,17 +33,18 @@ $installer_tool = new InstallerTools();
 /**
  * Create Database
  */
-$database_tool->createDatabase($array_parameters, $entityManager);
+//$database_tool->createDatabase($array_parameters, $entityManager);
 
 /**
  * Create admin user
  */
 
-$database_tool->createAdminUser($array_parameters);
+//$database_tool->createAdminUser($array_parameters);
 
 /**
  * Create and register modules
  */
-$installer_tool->createAndRegisterModules($entityManager);
+
+$installer_tool->createAndRegisterModules($entityManager, $array_parameters['var_install_sys_dir']."/");
 
 echo "ok";

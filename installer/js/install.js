@@ -46,7 +46,6 @@ $("#form").submit(function (event) {
                         + "&admin_user=" + admin_user + "&admin_password=" + admin_password + "&path_url=" + path_url + "&path_system=" + path_system + "&usr_first_name=" + usr_first_name + "&usr_last_name=" + usr_last_name + "&usr_email=" + usr_email,
                         dataType: "html",
                         success: function (response) {
-                            alert("Response : " + response);
                             if (response == "ok") {
                                 window.location.href = path_url + "/web/front.php/app";
                             } else {
