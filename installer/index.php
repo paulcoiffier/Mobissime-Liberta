@@ -92,7 +92,7 @@ $lang_strings = parse_ini_file("i18n/$lang.ini");
                 </div>
             </div>
 
-        </div>
+       
     </div>
     <div class="footer">
         <div class="pull-right">
