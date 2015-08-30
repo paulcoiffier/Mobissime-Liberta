@@ -7,14 +7,12 @@
 
 namespace Nette\Caching\Storages;
 
-use Nette,
-	Nette\Caching\Cache;
+use Nette;
+use Nette\Caching\Cache;
 
 
 /**
  * Memcached storage.
- *
- * @author     David Grudl
  */
 class MemcachedStorage extends Nette\Object implements Nette\Caching\IStorage
 {
@@ -134,9 +132,9 @@ class MemcachedStorage extends Nette\Object implements Nette\Caching\IStorage
 		}
 
 		$key = urlencode($this->prefix . $key);
-		$meta = array(
+		$meta = [
 			self::META_DATA => $data,
-		);
+		];
 
 		$expire = 0;
 		if (isset($dp[Cache::EXPIRATION])) {

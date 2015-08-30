@@ -15,7 +15,7 @@
     "twig/twig": ">=1.8.0,<2.0-dev",
     "apigen/apigen": "^4.1",
     "pimple/pimple": "~3.0",
-    "liberta/mlogger":"2.0"
+    "liberta/logger":"dev-master"
   },
   "autoload": {
     "psr-0": {

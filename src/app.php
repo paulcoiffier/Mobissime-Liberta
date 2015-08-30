@@ -46,7 +46,7 @@ $container->register('CrudGenerator', 'App\Services\CrudGenerator');
  * Logger Service
  */
 $container
-    ->register('Logger', 'Liberta\MLogger\Logger')
+    ->register('Logger', 'Liberta\Logger\Logger')
     ->addArgument(log_dir)
     ->addMethodCall('setLogLevelThreshold', array("log_threshold" => log_threshold))
     ->addMethodCall('setDateFormat', array("date_format" => "d/m/Y H:i:s.u"));

@@ -20,6 +20,10 @@ define("install_url", "var_install_url");
 // Installed dir
 define("install_sys_dir", "var_install_sys_dir");
 
+// LOGS
+define("log_dir", "/logs/");
+define("log_threshold", "DEBUG");
+
 /*
  * Database Settings
  */

@@ -287,6 +287,25 @@ JSN
         );
     }
 
+    public function testFetchRefArray()
+    {
+        $retr = new \JsonSchema\Uri\Retrievers\PredefinedArray(
+            array(
+                'http://example.org/array' => <<<JSN
+[1,2,3]
+JSN
+            )
+        );
+
+        $res = new \JsonSchema\RefResolver();
+        $res->getUriRetriever()->setUriRetriever($retr);
+
+        $this->assertEquals(
+            array(1, 2, 3),
+            $res->fetchRef('http://example.org/array', 'http://example.org/array')
+        );
+    }
+
     public function testSetGetUriRetriever()
     {
         $retriever = new \JsonSchema\Uri\UriRetriever;
@@ -314,5 +333,26 @@ JSN
         $resolver->setUriRetriever($retriever);
 
         $this->assertEquals($jsonSchema, $resolver->fetchRef($ref, $sourceUri));
+    }
+
+    /**
+     * @expectedException \JsonSchema\Exception\JsonDecodingException
+     */
+    public function testMaxDepthExceeded()
+    {
+        // stub schema
+        $jsonSchema = new \stdClass;
+        $jsonSchema->id = 'stub';
+        $jsonSchema->additionalItems = 'stub';
+
+        // mock retriever
+        $retriever = $this->getMock('JsonSchema\Uri\UriRetriever', array('retrieve'));
+        $retriever->expects($this->any())->method('retrieve')->will($this->returnValue($jsonSchema));
+
+        // stub resolver
+        \JsonSchema\RefResolver::$maxDepth = 0;
+        $resolver = new \JsonSchema\RefResolver($retriever);
+
+        $resolver->resolve($jsonSchema);
     }
 }

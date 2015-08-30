@@ -12,8 +12,6 @@ use Nette;
 
 /**
  * Cache extension for Nette DI.
- *
- * @author     David Grudl
  */
 class CacheExtension extends Nette\DI\CompilerExtension
 {
@@ -33,11 +31,11 @@ class CacheExtension extends Nette\DI\CompilerExtension
 
 		$container->addDefinition($this->prefix('journal'))
 			->setClass('Nette\Caching\Storages\IJournal')
-			->setFactory('Nette\Caching\Storages\FileJournal', array($this->tempDir));
+			->setFactory('Nette\Caching\Storages\SQLiteJournal', [$this->tempDir . '/cache/journal.s3db']);
 
 		$container->addDefinition($this->prefix('storage'))
 			->setClass('Nette\Caching\IStorage')
-			->setFactory('Nette\Caching\Storages\FileStorage', array($this->tempDir . '/cache'));
+			->setFactory('Nette\Caching\Storages\FileStorage', [$this->tempDir . '/cache']);
 
 		if ($this->name === 'cache') {
 			$container->addAlias('nette.cacheJournal', $this->prefix('journal'));

@@ -147,6 +147,7 @@ class InstallerTools
         $tpl_content = str_replace("var_database_password", $parameters['var_database_password'], $tpl_content);
         $tpl_content = str_replace("var_database_schema", $parameters['var_database_schema'], $tpl_content);
 
+
         $fp = fopen('../../src/App/Conf/Parameters.php', 'w');
         fwrite($fp, $tpl_content);
 
